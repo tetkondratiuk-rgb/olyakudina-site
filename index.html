@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── SEO ──────────────────────────────────────────────────────── -->
+  <title>Olya Kudina — Tech Ethics · AI DeMoS Lab · TU Delft</title>
+  <meta name="description"
+    content="Olya Kudina is an Associate Professor at TU Delft, co-director of AI DeMoS Lab, and co-editor-in-chief of the Journal of Human-Technology Relations. Her research explores ethics, AI, and democracy." />
+  <meta name="author" content="Olya Kudina" />
+  <link rel="canonical" href="https://www.olyakudina.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.olyakudina.com/" />
+  <meta property="og:title"       content="Olya Kudina — Tech Ethics · TU Delft" />
+  <meta property="og:description" content="Associate Professor at TU Delft, co-director of AI DeMoS Lab, co-editor of the Journal of Human-Technology Relations." />
+  <meta property="og:image"       content="https://www.olyakudina.com/og-image.jpg" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="Olya Kudina — Tech Ethics · TU Delft" />
+  <meta name="twitter:description" content="Associate Professor at TU Delft, co-director of AI DeMoS Lab." />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Olya Kudina",
+    "jobTitle": "Associate Professor",
+    "affiliation": { "@type": "Organization", "name": "Delft University of Technology" },
+    "url": "https://www.olyakudina.com/",
+    "email": "o.kudina@tudelft.nl",
+    "alumniOf": { "@type": "Organization", "name": "University of Twente" },
+    "knowsAbout": ["Technology Ethics", "AI Governance", "Philosophy of Technology", "Responsible AI"]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       TOKENS
+    ═══════════════════════════════════════════════════════════════ */
+    :root {
+      /* Palette */
+      --ink:          #1A1714;
+      --ink-soft:     #3D342C;
+      --muted:        #6A5A4C;   /* darkened: 5.7:1 on cream, 5.2:1 on cream-warm — AA pass */
+      --accent-text:  #8F4620;   /* darker terracotta for small text: 5.8:1 on cream — AA pass */
+      --cream:        #FAF7F2;
+      --cream-warm:   #F2EDE4;
+      --cream-deep:   #E8DFD3;
+      --night:        #18150F;
+      --night-lifted: #231E17;
+      --accent:       #C4622D;
+      --accent-dim:   #A8501F;
+      --accent-glow:  rgba(196, 98, 45, 0.12);
+      --accent-pale:  #ECC9AF;
+      --border:       #DDD5C8;
+      --border-night: rgba(255,255,255,0.07);
+      --text-on-dark: #F0E9DE;
+      --text-on-dark-soft: rgba(240, 233, 222, 0.65);
+
+      /* Type */
+      --serif:  'Libre Baskerville', Georgia, 'Times New Roman', serif;
+      --prose:  'Hanken Grotesk', system-ui, sans-serif;
+
+      /* Space scale */
+      --s1: 0.5rem;
+      --s2: 1rem;
+      --s3: 1.5rem;
+      --s4: 2rem;
+      --s5: 3rem;
+      --s6: 4.5rem;
+      --s7: 7rem;
+
+      /* Layout */
+      --nav-h: 68px;
+      --max-w: 1200px;
+      --pad-x: clamp(1.5rem, 5vw, 3rem);
+
+      /* Motion */
+      --ease:  cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-out: cubic-bezier(0, 0, 0.2, 1);
+      --dur:   0.28s;
+      --dur-md: 0.55s;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESET
+    ═══════════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: clamp(15px, 1vw + 12px, 17px);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--prose);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    a { color: inherit; text-decoration: none; }
+
+    ul, ol { list-style: none; }
+
+    button { cursor: pointer; font: inherit; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       ACCESSIBILITY
+    ═══════════════════════════════════════════════════════════════ */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: var(--s3);
+      padding: 0.6rem 1.25rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--prose);
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: var(--s2); }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 1px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SCROLL-TRIGGERED REVEALS
+    ═══════════════════════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity var(--dur-md) var(--ease-out),
+                  transform var(--dur-md) var(--ease-out);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.10s; }
+    .reveal-d2 { transition-delay: 0.20s; }
+    .reveal-d3 { transition-delay: 0.30s; }
+    .reveal-d4 { transition-delay: 0.40s; }
+    .reveal-d5 { transition-delay: 0.50s; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--pad-x);
+      z-index: 900;
+      transition: background var(--dur-md) var(--ease),
+                  box-shadow var(--dur-md) var(--ease),
+                  border-color var(--dur-md) var(--ease);
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav.solid {
+      background: rgba(250, 247, 242, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 var(--border);
+      border-color: var(--border);
+    }
+
+    /* Logo */
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--text-on-dark);
+      transition: color var(--dur) var(--ease);
+    }
+    .nav.solid .nav-logo { color: var(--ink); }
+
+    /* Desktop links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--s4);
+    }
+    .nav-links a {
+      font-family: var(--prose);
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(240, 233, 222, 0.85);
+      position: relative;
+      padding-bottom: 2px;
+      transition: color var(--dur) var(--ease);
+    }
+    .nav.solid .nav-links a { color: var(--ink-soft); }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width var(--dur-md) var(--ease-out);
+    }
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after { width: 100%; }
+    .nav-links a:hover { color: rgba(240,233,222,1); }
+    .nav.solid .nav-links a:hover { color: var(--accent); }
+
+    /* Hamburger */
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 11px;
+      min-width: 44px;
+      min-height: 44px;
+    }
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text-on-dark);
+      transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+    }
+    .nav.solid .nav-burger span { background: var(--ink); }
+    .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .nav-drawer {
+      position: fixed;
+      top: var(--nav-h);
+      inset-inline: 0;
+      background: rgba(250, 247, 242, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: var(--s4) var(--pad-x) var(--s5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--s3);
+      border-bottom: 1px solid var(--border);
+      transform: translateY(-110%);
+      opacity: 0;
+      transition: transform var(--dur-md) var(--ease), opacity var(--dur-md) var(--ease);
+      z-index: 850;
+      pointer-events: none;
+    }
+    .nav-drawer.open {
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-drawer a {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--ink);
+      transition: color var(--dur) var(--ease);
+    }
+    .nav-drawer a:hover { color: var(--accent); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Photo background */
+    .hero-bg {
+      position: absolute;
+      inset: -15% 0;
+      background-image: url('./hero.jpg');
+      background-size: cover;
+      background-position: 68% center;
+      will-change: transform;
+    }
+
+    /* Left-to-right overlay: dark where text is, transparent over the person */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(12, 9, 5, 0.90) 0%,
+        rgba(12, 9, 5, 0.76) 28%,
+        rgba(12, 9, 5, 0.42) 52%,
+        rgba(12, 9, 5, 0.14) 72%,
+        rgba(12, 9, 5, 0.04) 100%
+      );
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: calc(var(--nav-h) + var(--s6)) var(--pad-x) var(--s7);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--prose);
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-pale);
+      margin-bottom: var(--s3);
+      opacity: 0;
+      animation: rise 0.9s var(--ease-out) 0.35s forwards;
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 9vw, 6rem);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--text-on-dark);
+      margin-bottom: var(--s4);
+      opacity: 0;
+      animation: rise 0.9s var(--ease-out) 0.5s forwards;
+    }
+
+    .hero-name em {
+      display: block;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent-pale);
+      padding-left: 0.08em; /* optical alignment */
+    }
+
+    .hero-subtitle {
+      font-family: var(--prose);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.7;
+      color: var(--text-on-dark-soft);
+      max-width: 480px;
+      margin-bottom: var(--s5);
+      opacity: 0;
+      animation: rise 0.9s var(--ease-out) 0.65s forwards;
+    }
+
+    .hero-subtitle b {
+      color: rgba(240,233,222,0.85);
+      font-weight: 400;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1.9rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--prose);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: none;
+      transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+      opacity: 0;
+      animation: rise 0.9s var(--ease-out) 0.8s forwards;
+    }
+    .hero-cta:hover {
+      background: var(--accent-dim);
+      transform: translateY(-2px);
+    }
+    .hero-cta svg { transition: transform var(--dur) var(--ease); }
+    .hero-cta:hover svg { transform: translateY(3px); }
+
+    .hero-socials {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: var(--s4);
+      opacity: 0;
+      animation: rise 0.9s var(--ease-out) 0.95s forwards;
+    }
+
+    .hero-social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      color: rgba(240, 233, 222, 0.45);
+      border: 1px solid rgba(240, 233, 222, 0.12);
+      text-decoration: none;
+      transition:
+        color var(--dur) var(--ease),
+        border-color var(--dur) var(--ease),
+        background var(--dur) var(--ease);
+    }
+
+    .hero-social-btn:hover {
+      color: var(--accent-pale);
+      border-color: rgba(236, 201, 175, 0.35);
+      background: rgba(196, 98, 45, 0.10);
+    }
+
+    .hero-social-btn:focus-visible {
+      outline: 2px solid var(--accent-pale);
+      outline-offset: 3px;
+    }
+
+    .hero-social-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Decorative oversized initial */
+    .hero-deco {
+      position: absolute;
+      right: -0.05em;
+      bottom: -0.25em;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(18rem, 38vw, 52rem);
+      font-weight: 400;
+      line-height: 1;
+      color: rgba(255,255,255,0.028);
+      pointer-events: none;
+      user-select: none;
+      z-index: 5;
+      will-change: transform;
+    }
+
+    @keyframes rise   { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
+    @keyframes appear { to { opacity:1; } }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SHARED SECTION UTILITIES
+    ═══════════════════════════════════════════════════════════════ */
+    .section { padding: var(--s7) 0; }
+
+    .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--prose);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-text);
+      margin-bottom: var(--s2);
+    }
+    .tag::before {
+      content: '';
+      display: block;
+      width: 1.75rem;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .tag-light { color: var(--accent-pale); }
+    .tag-light::before { background: var(--accent-pale); }
+
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════════════════════════════ */
+    .about { background: var(--cream); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: clamp(3rem, 6vw, 5.5rem);
+      align-items: start;
+    }
+
+    .about-tag   { margin-bottom: var(--s2); }
+    .about-h2    { margin-bottom: var(--s4); }
+
+    .about-body p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      text-wrap: pretty;
+      max-width: 68ch;
+    }
+    .about-body p:last-child { margin-bottom: 0; }
+
+    .about-body a {
+      color: var(--accent-text);
+      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
+      transition: border-color var(--dur) var(--ease);
+    }
+    .about-body a:hover { border-color: var(--accent-text); }
+
+    .about-credentials {
+      margin-top: var(--s4);
+      padding-top: var(--s3);
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: var(--s1);
+    }
+    .about-cred {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+    .about-cred-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.55rem;
+    }
+    .about-cred--lang {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-style: italic;
+    }
+    .about-cred--lang .about-cred-dot {
+      background: var(--border);
+    }
+    .about-cred a {
+      color: var(--accent-text);
+      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
+      transition: border-color var(--dur) var(--ease);
+    }
+    .about-cred a:hover { border-color: var(--accent-text); }
+
+    /* Portrait placeholder */
+    .portrait-wrap {
+      position: sticky;
+      top: calc(var(--nav-h) + var(--s4));
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .portrait-inline {
+      display: none;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESEARCH & TEACHING
+    ═══════════════════════════════════════════════════════════════ */
+    .rt {
+      background: var(--night);
+      color: var(--text-on-dark);
+    }
+
+    .rt .tag { color: var(--accent-pale); }
+    .rt .tag::before { background: var(--accent-pale); }
+
+    .rt-header { margin-bottom: var(--s4); }
+
+    .rt-header .section-heading { color: var(--text-on-dark); }
+
+    .rt-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .rt-col {
+      padding: 0 0 clamp(2rem, 4vw, 3.5rem) 0;
+    }
+    .rt-col + .rt-col {
+      padding-left: clamp(2rem, 4vw, 3.5rem);
+      border-left: 1px solid var(--border-night);
+    }
+
+    .rt-col-head {
+      font-family: var(--prose);
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-pale);
+      margin-bottom: var(--s4);
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+    }
+    .rt-col-head::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-night);
+    }
+
+    .rt-body {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-on-dark-soft);
+      margin-bottom: var(--s3);
+    }
+
+    .rt-courses {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: var(--s3);
+    }
+
+    .rt-course-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: var(--s2);
+      padding: var(--s2) 0;
+      border-bottom: 1px solid var(--border-night);
+      align-items: start;
+    }
+    .rt-course-row:last-child { border-bottom: none; }
+
+    .rt-inst {
+      font-family: var(--prose);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-pale);
+      padding-top: 0.15rem;
+    }
+
+    .rt-course-list li {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-on-dark-soft);
+      padding-left: 1rem;
+      position: relative;
+    }
+    .rt-course-list a {
+      color: var(--text-on-dark-soft);
+      border-bottom: 1px solid rgba(240,233,222,0.2);
+      transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    }
+    .rt-course-list a:hover {
+      color: var(--accent-pale);
+      border-color: var(--accent-pale);
+    }
+    .rt-course-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+      top: 0.05em;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       NEWS
+    ═══════════════════════════════════════════════════════════════ */
+    .news { background: var(--cream-warm); }
+
+    .news-header { margin-bottom: var(--s5); }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s3);
+    }
+
+    /* Featured card spans two columns */
+    .news-card--featured { grid-column: span 2; }
+
+    .news-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+    }
+
+
+    .news-date {
+      font-family: var(--prose);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-text);
+      margin-bottom: 0.6rem;
+    }
+
+    .news-title {
+      font-family: var(--prose);
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-bottom: 0.65rem;
+    }
+
+    .news-text {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .news-text a {
+      color: var(--accent-text);
+      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
+      transition: border-color var(--dur) var(--ease);
+    }
+    .news-text a:hover { border-color: var(--accent-text); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════════════════════════ */
+    .contact { background: var(--cream); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 5.5rem);
+      align-items: start;
+    }
+
+    .contact-desc {
+      margin-top: var(--s3);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .contact-email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: var(--s4);
+      font-size: 1rem;
+      color: var(--ink);
+      font-family: var(--prose);
+      transition: color var(--dur) var(--ease);
+    }
+    .contact-email-link svg { color: var(--accent); flex-shrink: 0; }
+    .contact-email-link:hover { color: var(--accent); }
+
+    .socials {
+      display: flex;
+      gap: 0.65rem;
+      margin-top: var(--s4);
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px; height: 42px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: none;
+      transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease), background var(--dur) var(--ease);
+    }
+    .social-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .social-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    /* Form */
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s3);
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .form-label {
+      font-family: var(--prose);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-control {
+      width: 100%;
+      font-family: var(--prose);
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--ink);
+      background: var(--cream-warm);
+      border: 1px solid var(--border);
+      padding: 0.8rem 1rem;
+      transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+      border-radius: 0;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(196,98,45,0.1);
+    }
+
+    textarea.form-control {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      align-self: flex-start;
+      padding: 0.85rem 1.9rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--prose);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+    }
+    .form-submit:hover {
+      background: var(--accent-dim);
+      transform: translateY(-1px);
+    }
+    .form-submit:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════════════ */
+    .footer {
+      background: var(--night);
+      padding: var(--s4) 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--s2);
+    }
+
+    .footer-copy {
+      font-family: var(--prose);
+      font-size: 0.88rem;
+      color: var(--text-on-dark-soft);
+    }
+    .footer-copy strong {
+      color: var(--text-on-dark);
+      font-weight: 400;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .nav-links  { display: none; }
+      .nav-burger { display: flex; }
+
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: var(--s5); }
+
+      .portrait-wrap {
+        display: none;
+      }
+      .portrait-inline {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        object-position: center top;
+        margin: var(--s3) 0 var(--s3);
+      }
+
+      .rt-panel { grid-template-columns: 1fr; }
+      .rt-col { padding-bottom: var(--s3); }
+      .rt-col + .rt-col { border-left: none; border-top: 1px solid var(--border-night); padding-left: 0; padding-top: var(--s3); }
+
+      .news-grid { grid-template-columns: 1fr; }
+      .news-card--featured { grid-column: span 1; }
+
+      .section { padding: var(--s6) 0; }
+    }
+
+    @media (max-width: 540px) {
+      .hero-name  { line-height: 1.0; }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+      .rt-course-row { grid-template-columns: 1fr; gap: 0.25rem; }
+      .section { padding: var(--s5) 0; }
+      .portrait-inline { max-width: 100%; }
+      .form-submit { width: 100%; justify-content: center; }
+      .hero-social-btn { width: 44px; height: 44px; }
+
+      /* Face fix: gradient goes bottom-up so face is clear at top */
+      .hero-bg {
+        background-position: 68% top;
+        background-size: cover;
+      }
+      .hero-bg::after {
+        background: linear-gradient(
+          to top,
+          rgba(12, 9, 5, 0.98) 0%,
+          rgba(12, 9, 5, 0.97) 36%,
+          rgba(12, 9, 5, 0.82) 46%,
+          rgba(12, 9, 5, 0.30) 57%,
+          rgba(12, 9, 5, 0.06) 70%,
+          rgba(12, 9, 5, 0.01) 100%
+        );
+      }
+      .hero-inner {
+        align-self: end;
+        padding-top: 0;
+        padding-bottom: var(--s5);
+      }
+      .hero-eyebrow { margin-bottom: var(--s1); }
+      .hero-name    { margin-bottom: var(--s2); }
+      .hero-subtitle { margin-bottom: var(--s3); font-size: 0.95rem; line-height: 1.55; }
+    }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Skip link ──────────────────────────────────────────────── -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ── Navigation ─────────────────────────────────────────────── -->
+<header role="banner">
+  <nav class="nav" id="nav" aria-label="Primary navigation">
+    <a href="/" class="nav-logo" aria-label="Olya Kudina — home">Olya Kudina</a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="/research-teaching">Research &amp; Teaching</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/media">Media</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="nav-burger" id="burger"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-drawer" id="drawer" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <a href="/research-teaching" class="drawer-link">Research &amp; Teaching</a>
+    <a href="/publications" class="drawer-link">Publications</a>
+    <a href="/media" class="drawer-link">Media</a>
+    <a href="#contact" class="drawer-link">Contact</a>
+  </div>
+</header>
+
+<!-- ── Main content ───────────────────────────────────────────── -->
+<main id="main">
+
+  <!-- HERO ─────────────────────────────────────────────────────── -->
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+    <div class="hero-deco" aria-hidden="true">O</div>
+
+    <div class="hero-inner wrap">
+      <p class="hero-eyebrow">Associate Professor · TU Delft</p>
+
+      <h1 class="hero-name">
+        Olya<br>
+        <em>Kudina</em>
+      </h1>
+
+      <p class="hero-subtitle">
+        <b>Tech Ethics</b> &nbsp;·&nbsp;
+        <b>AI DeMoS Lab</b><br>
+        Journal of Human-Technology Relations
+      </p>
+
+      <a href="#about" class="hero-cta">
+        Learn more
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M7 2v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <div class="hero-socials">
+        <a class="hero-social-btn" href="https://www.linkedin.com/in/olya-kudina/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+          <svg viewBox="0 0 93.06 93.06" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11.185,0.08C5.004,0.08,0.001,5.092,0,11.259c0,6.173,5.003,11.184,11.186,11.184c6.166,0,11.176-5.011,11.176-11.184C22.362,5.091,17.351,0.08,11.185,0.08z"/>
+            <rect x="1.538" y="30.926" width="19.287" height="62.054"/>
+            <path d="M69.925,29.383c-9.382,0-15.673,5.144-18.248,10.022h-0.258v-8.479H32.921H32.92v62.053h19.27V62.281c0-8.093,1.541-15.932,11.575-15.932c9.89,0,10.022,9.256,10.022,16.451v30.178H93.06V58.942C93.06,42.235,89.455,29.383,69.925,29.383z"/>
+          </svg>
+        </a>
+
+<a class="hero-social-btn" href="https://scholar.google.com/citations?user=lbWl7x0AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ABOUT ────────────────────────────────────────────────────── -->
+  <section class="about section" id="about" aria-labelledby="about-h2">
+    <div class="wrap">
+      <div class="about-grid">
+
+        <!-- Text column -->
+        <div>
+          <p class="tag about-tag reveal">About</p>
+          <h2 class="section-heading about-h2 reveal reveal-d1" id="about-h2">
+            Ethicist at the intersection of<br>values and technology
+          </h2>
+
+          <div class="about-body">
+            <p class="reveal reveal-d2">
+              Olya Kudina is an ethicist of technology focusing on the dynamic interaction between human values and technologies. Currently, she is an Associate Professor at
+              <a href="https://www.tudelft.nl" target="_blank" rel="noopener noreferrer">Delft University of Technology</a>
+              (the Netherlands), where she helps students and organisations integrate ethical reflection and cultural sensitivity as essential counterparts to technology development.
+            </p>
+            <img class="portrait-inline reveal reveal-d3" src="./about.png" alt="Olya Kudina, Associate Professor at TU Delft" />
+            <p class="reveal reveal-d3">
+              Olya is co-director of the <a href="#research">AI DeMoS Lab</a>, which focuses on the relation between AI and democracy and on responsible AI development practices. She is also co-founder and co-editor-in-chief of the diamond open-access
+              <a href="#publications">Journal of Human-Technology Relations</a>.
+            </p>
+            <p class="reveal reveal-d3">
+              Her previous work outside academia includes diplomacy, (inter)governmental work, data protection and privacy. Together with her expertise in empirical philosophy, Olya connects ethics, design, and governance in providing strategic foresight and developing adaptable technologies.
+            </p>
+          </div>
+
+          <ul class="about-credentials reveal reveal-d4" aria-label="Credentials and affiliations">
+            <li class="about-cred">
+              <span class="about-cred-dot" aria-hidden="true"></span>
+              PhD in Philosophy of Technology — University of Twente
+            </li>
+            <li class="about-cred">
+              <span class="about-cred-dot" aria-hidden="true"></span>
+              Extraordinary Professor in Philosophy of AI — North-West University, South Africa
+            </li>
+            <li class="about-cred">
+              <span class="about-cred-dot" aria-hidden="true"></span>
+              <span>Elected member (2024–2029) — <a href="#" target="_blank" rel="noopener noreferrer">Young Academy of the Dutch Royal Science Academy</a></span>
+            </li>
+            <li class="about-cred about-cred--lang">
+              <span class="about-cred-dot" aria-hidden="true"></span>
+              Fluent in English, Spanish, Dutch &amp; Ukrainian
+            </li>
+          </ul>
+        </div>
+
+        <!-- Portrait column -->
+        <div class="portrait-wrap reveal reveal-d2">
+          <img class="portrait" src="./about.png" alt="Olya Kudina, Associate Professor at TU Delft" />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH & TEACHING ──────────────────────────────────────── -->
+  <section class="rt section" id="research" aria-labelledby="rt-h2">
+    <div class="wrap">
+
+      <div class="rt-header reveal">
+        <p class="tag tag-light">Expertise</p>
+        <h2 class="section-heading" id="rt-h2">Research &amp; Teaching</h2>
+      </div>
+
+      <div class="rt-panel reveal reveal-d1">
+
+        <!-- Research -->
+        <div class="rt-col">
+          <h3 class="rt-col-head">Research</h3>
+
+          <p class="rt-body">
+            Olya is an interdisciplinary researcher in philosophy and ethics of technology who explores the relation between human values and technologies. Her recent focus has been on AI and democracy in the framework of the AI DeMoS Lab she founded and co-leads.
+          </p>
+          <p class="rt-body">
+            Her philosophical work is inspired by phenomenology, Dewey's pragmatism, and bioethics, integrating qualitative empirical methods from STS and psychology. She anticipates the ethical challenges and opportunities of emerging technologies by combining different academic practices and fields.
+          </p>
+          <p class="rt-body">
+            Her recent research explores the responsible use and design of Natural Language Processing and Automatic Speech Recognition algorithms — with applications in voice assistants such as Alexa and conversational agents such as ChatGPT.
+          </p>
+        </div>
+
+        <!-- Teaching -->
+        <div class="rt-col">
+          <h3 class="rt-col-head">Teaching</h3>
+
+          <p class="rt-body">
+            Olya teaches across bachelor, master, and PhD levels. She pursues creative teaching that invites students to integrate theoretical and stakeholder perspectives, analysing contemporary case studies and engaging them in responsible design practices.
+          </p>
+
+          <ul class="rt-courses" aria-label="Courses by institution">
+            <li class="rt-course-row">
+              <span class="rt-inst">TU Delft</span>
+              <ul class="rt-course-list">
+                <li><a href="https://www.tudelft.nl/ethics/ethics/teaching-activities/ethics-teaching/ethics-20/robots-and-society" target="_blank" rel="noopener noreferrer">Robots and Society</a></li>
+                <li>Introduction to AI &amp; Responsible AI Engineering</li>
+              </ul>
+            </li>
+            <li class="rt-course-row">
+              <span class="rt-inst">Yale</span>
+              <ul class="rt-course-list">
+                <li><a href="https://bioethics.yale.edu/2021-summer-seminars" target="_blank" rel="noopener noreferrer">Ethics of Technology and Bioethics</a></li>
+              </ul>
+            </li>
+            <li class="rt-course-row">
+              <span class="rt-inst">4TU</span>
+              <ul class="rt-course-list">
+                <li>Empirical Methods in Philosophy of Technology</li>
+              </ul>
+            </li>
+            <li class="rt-course-row">
+              <span class="rt-inst">Auxiliary</span>
+              <ul class="rt-course-list">
+                <li>Ethics of Technology in Design <em style="opacity:0.55">(Ukrainian)</em></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS ─────────────────────────────────────────────────────── -->
+  <section class="news section" id="news" aria-labelledby="news-h2">
+    <div class="wrap">
+
+      <div class="news-header">
+        <p class="tag reveal">Latest</p>
+        <h2 class="section-heading reveal reveal-d1" id="news-h2">News &amp; Events</h2>
+      </div>
+
+      <div class="news-grid">
+
+        <!-- Featured -->
+        <article class="news-card news-card--featured reveal reveal-d1">
+          <p class="news-date">September 2025</p>
+          <h3 class="news-title">Returning from Extended Leave</h3>
+          <p class="news-text">
+            Olya will be on extended leave from work, resuming her duties in September 2025.
+            Check out her latest developments and upcoming projects as she returns to TU Delft.
+          </p>
+        </article>
+
+        <article class="news-card reveal reveal-d2">
+          <p class="news-date">December 2024</p>
+          <h3 class="news-title">Promoted to Associate Professor</h3>
+          <p class="news-text">In December 2024, Olya was promoted to Associate Professor at Delft University of Technology.</p>
+        </article>
+
+        <article class="news-card reveal reveal-d2">
+          <p class="news-date">December 2024</p>
+          <h3 class="news-title">Article Alert: Daily Life in Times of War</h3>
+          <p class="news-text">
+            Olya's reflection on her recent trip home to Ukraine from a lens of human-technology relations:
+            <a href="#">"Daily life in times of war: a technological mediation perspective."</a>
+          </p>
+        </article>
+
+        <article class="news-card reveal reveal-d3">
+          <p class="news-date">December 2024</p>
+          <h3 class="news-title">Article Alert: Follow the Particular</h3>
+          <p class="news-text">
+            New 2024 editorial with Peter-Paul Verbeek:
+            <a href="#">"Follow the particular and the human-technology relation in the context of technological systems and global events."</a>
+          </p>
+        </article>
+
+        <article class="news-card reveal reveal-d3">
+          <p class="news-date">December 2024</p>
+          <h3 class="news-title">Methodology Colloquium with Hunneke van Uffelen</h3>
+          <p class="news-text">
+            Olya presented on systematic literature review as a method for philosophical analysis, including the environmental impact of AI and its potential applications.
+          </p>
+        </article>
+
+        <article class="news-card reveal reveal-d4">
+          <p class="news-date">2 December 2024</p>
+          <h3 class="news-title">Public Talk at Rotterdam City Hall</h3>
+          <p class="news-text">
+            Olya spoke at Rotterdam City Hall for the Batavian Society for Experimental Philosophy:
+            <em>"Deepfakes and Democracy: Is there a Place for Trust in the Age of Deception?"</em>
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT ──────────────────────────────────────────────────── -->
+  <section class="contact section" id="contact" aria-labelledby="contact-h2">
+    <div class="wrap">
+      <div class="contact-grid">
+
+        <!-- Info column -->
+        <div class="reveal">
+          <p class="tag">Get in touch</p>
+          <h2 class="section-heading" id="contact-h2">Contact</h2>
+          <p class="contact-desc">
+            For research collaboration, media requests, or speaking engagements, reach out via email or the form opposite.
+          </p>
+
+          <a href="mailto:o.kudina@tudelft.nl" class="contact-email-link">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <rect x="1.5" y="3.5" width="15" height="11" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M1.5 5.5 9 10.5l7.5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            o.kudina@tudelft.nl
+          </a>
+
+          <div class="socials" aria-label="Social media profiles">
+            <a href="https://www.linkedin.com/in/olya-kudina/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+              <svg viewBox="0 0 93.06 93.06" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M11.185,0.08C5.004,0.08,0.001,5.092,0,11.259c0,6.173,5.003,11.184,11.186,11.184c6.166,0,11.176-5.011,11.176-11.184C22.362,5.091,17.351,0.08,11.185,0.08z"/>
+                <rect x="1.538" y="30.926" width="19.287" height="62.054"/>
+                <path d="M69.925,29.383c-9.382,0-15.673,5.144-18.248,10.022h-0.258v-8.479H32.921H32.92v62.053h19.27V62.281c0-8.093,1.541-15.932,11.575-15.932c9.89,0,10.022,9.256,10.022,16.451v30.178H93.06V58.942C93.06,42.235,89.455,29.383,69.925,29.383z"/>
+              </svg>
+            </a>
+            <a href="https://scholar.google.com/citations?user=lbWl7x0AAAAJ&hl=en" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Form column -->
+        <form class="form reveal reveal-d2"
+          action="#" method="post"
+          aria-label="Contact form"
+          novalidate>
+
+          <div class="form-field">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-control" type="text" id="name" name="name"
+              autocomplete="name"
+              required aria-required="true" />
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="email">Email address</label>
+            <input class="form-control" type="email" id="email" name="email"
+              autocomplete="email"
+              required aria-required="true" />
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-control" id="message" name="message"
+              required aria-required="true"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">
+            Send message
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M1.5 7h11M8 2.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2026 <strong>Olya Kudina</strong> &mdash; All rights reserved.</p>
+
+    </div>
+  </div>
+</footer>
+
+<!-- ── Scripts ────────────────────────────────────────────────── -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── Nav: solid on scroll ── */
+  const nav = document.getElementById('nav');
+  let lastY = 0;
+  function onScroll() {
+    const y = window.scrollY;
+    nav.classList.toggle('solid', y > 40);
+    lastY = y;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // run once on load
+
+  /* ── Hero parallax ── */
+  const heroBg    = document.getElementById('heroBg');
+  const heroDeco  = document.querySelector('.hero-deco');
+  const heroInner = document.querySelector('.hero-inner');
+  const heroH     = window.innerHeight;
+
+  function onParallax() {
+    const y = window.scrollY;
+    if (y > heroH) return;
+    if (heroBg)    heroBg.style.transform    = `translateY(${y * 0.22}px)`;
+    if (heroDeco)  heroDeco.style.transform  = `translateY(${y * 0.09}px)`;
+    if (heroInner) heroInner.style.transform = `translateY(${y * 0.12}px)`;
+  }
+  window.addEventListener('scroll', onParallax, { passive: true });
+
+  /* ── Mobile menu ── */
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+  let drawerOpen = false;
+
+  function toggleDrawer(force) {
+    drawerOpen = (force !== undefined) ? force : !drawerOpen;
+    drawer.classList.toggle('open', drawerOpen);
+    burger.setAttribute('aria-expanded', String(drawerOpen));
+    burger.setAttribute('aria-label', drawerOpen ? 'Close navigation menu' : 'Open navigation menu');
+  }
+
+  burger.addEventListener('click', () => toggleDrawer());
+
+  document.querySelectorAll('.drawer-link').forEach(link => {
+    link.addEventListener('click', () => toggleDrawer(false));
+  });
+
+  document.addEventListener('click', (e) => {
+    if (drawerOpen && !nav.contains(e.target) && !drawer.contains(e.target)) {
+      toggleDrawer(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawerOpen) {
+      toggleDrawer(false);
+      burger.focus();
+    }
+  });
+
+  /* ── IntersectionObserver: scroll reveals ── */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* ── Contact form: basic client-side feedback ── */
+  const form = document.querySelector('.form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      const orig = btn.innerHTML;
+      btn.textContent = 'Message sent ✓';
+      btn.disabled = true;
+      btn.style.background = '#5A8A5A';
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.disabled = false;
+        btn.style.background = '';
+        form.reset();
+      }, 3500);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

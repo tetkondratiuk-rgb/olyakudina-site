@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Research &amp; Teaching — Olya Kudina</title>
+  <meta name="description" content="Olya Kudina's research on AI, ethics, and democracy at TU Delft — AI DeMoS Lab, ELSA Lab AI MAPS, ProtectME — and her university teaching at TU Delft, Yale, and 4TU." />
+  <meta name="author" content="Olya Kudina" />
+  <link rel="canonical" href="https://www.olyakudina.com/research-teaching" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.olyakudina.com/research-teaching" />
+  <meta property="og:title"       content="Research &amp; Teaching — Olya Kudina" />
+  <meta property="og:description" content="AI ethics, democracy, and human-technology relations research at TU Delft." />
+  <meta property="og:image"       content="https://www.olyakudina.com/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Tokens ─────────────────────────────────────────────────── */
+    :root {
+      --ink:          #1A1714;
+      --ink-soft:     #3D342C;
+      --muted:        #6A5A4C;
+      --accent-text:  #8F4620;
+      --cream:        #FAF7F2;
+      --cream-warm:   #F2EDE4;
+      --cream-deep:   #E8DFD3;
+      --night:        #18150F;
+      --night-lifted: #231E17;
+      --accent:       #C4622D;
+      --accent-dim:   #A8501F;
+      --accent-glow:  rgba(196, 98, 45, 0.12);
+      --accent-pale:  #ECC9AF;
+      --border:       #DDD5C8;
+      --border-night: rgba(255,255,255,0.07);
+      --text-on-dark: #F0E9DE;
+      --text-on-dark-soft: rgba(240, 233, 222, 0.65);
+      --serif:  'Libre Baskerville', Georgia, 'Times New Roman', serif;
+      --prose:  'Hanken Grotesk', system-ui, sans-serif;
+      --s1: 0.5rem; --s2: 1rem; --s3: 1.5rem; --s4: 2rem;
+      --s5: 3rem;   --s6: 4.5rem; --s7: 7rem;
+      --nav-h: 68px;
+      --max-w: 1200px;
+      --pad-x: clamp(1.5rem, 5vw, 3rem);
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-out: cubic-bezier(0, 0, 0.2, 1);
+      --dur: 0.28s;
+      --dur-md: 0.55s;
+    }
+
+    /* ── Reset ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: clamp(15px, 1vw + 12px, 17px); -webkit-text-size-adjust: 100%; }
+    body { font-family: var(--prose); font-size: 1.05rem; line-height: 1.75; color: var(--ink); background: var(--cream); overflow-x: hidden; }
+    img  { max-width: 100%; height: auto; display: block; }
+    a    { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    button { cursor: pointer; font: inherit; }
+
+    /* ── Accessibility ──────────────────────────────────────────── */
+    .skip-link {
+      position: absolute; top: -100px; left: var(--s3);
+      padding: 0.6rem 1.25rem; background: var(--accent); color: #fff;
+      font-family: var(--prose); font-size: 0.9rem; letter-spacing: 0.03em;
+      z-index: 9999; transition: top 0.2s;
+    }
+    .skip-link:focus { top: var(--s2); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 1px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* ── Reveal animations ──────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity var(--dur-md) var(--ease-out), transform var(--dur-md) var(--ease-out); }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+    .reveal-d4 { transition-delay: 0.32s; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    /* ── Layout utils ───────────────────────────────────────────── */
+    .wrap { max-width: var(--max-w); margin-inline: auto; padding-inline: var(--pad-x); }
+    .section { padding-block: var(--s7); }
+
+    /* ── Tag label ──────────────────────────────────────────────── */
+    .tag {
+      display: inline-flex; align-items: center; gap: 0.65rem;
+      font-family: var(--prose); font-size: 0.72rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--accent-text); margin-bottom: var(--s2);
+    }
+    .tag::before { content: ''; display: block; width: 1.75rem; height: 1px; background: var(--accent); flex-shrink: 0; }
+    .tag-light { color: var(--accent-pale); }
+    .tag-light::before { background: var(--accent-pale); }
+
+    .section-heading {
+      font-family: var(--serif); font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 400; line-height: 1.18; letter-spacing: -0.02em; text-wrap: balance;
+    }
+
+    /* ── Navigation ─────────────────────────────────────────────── */
+    .nav {
+      position: fixed; inset: 0 0 auto 0; height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--pad-x); z-index: 900;
+      background: rgba(24, 21, 15, 0.92);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-night);
+      transition: background var(--dur-md) var(--ease), border-color var(--dur-md) var(--ease);
+    }
+    .nav.solid {
+      background: rgba(250, 247, 242, 0.96);
+      box-shadow: 0 1px 0 var(--border);
+      border-color: var(--border);
+    }
+    .nav-logo {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
+      letter-spacing: 0.01em; color: var(--text-on-dark);
+      transition: color var(--dur) var(--ease);
+    }
+    .nav.solid .nav-logo { color: var(--ink); }
+    .nav-logo:hover { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: var(--s4); }
+    .nav-links a {
+      font-family: var(--prose); font-size: 0.82rem; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase; color: rgba(240, 233, 222, 0.85);
+      position: relative; padding-bottom: 2px;
+      transition: color var(--dur) var(--ease);
+    }
+    .nav.solid .nav-links a { color: var(--ink-soft); }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 1px; background: var(--accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform var(--dur-md) var(--ease-out);
+    }
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after,
+    .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+    .nav-links a:hover { color: rgba(240,233,222,1); }
+    .nav.solid .nav-links a:hover { color: var(--accent); }
+    .nav-links a[aria-current="page"] { color: var(--accent-pale); }
+    .nav.solid .nav-links a[aria-current="page"] { color: var(--accent); }
+    .nav-burger {
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+      gap: 5px; background: none; border: none; padding: 11px;
+      min-width: 44px; min-height: 44px;
+    }
+    .nav-burger span {
+      display: block; width: 22px; height: 1.5px; background: var(--text-on-dark);
+      transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+    }
+    .nav.solid .nav-burger span { background: var(--ink); }
+    .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-drawer {
+      position: fixed; top: var(--nav-h); inset-inline: 0;
+      background: rgba(250, 247, 242, 0.98);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      padding: var(--s4) var(--pad-x) var(--s5);
+      display: flex; flex-direction: column; gap: var(--s3);
+      border-bottom: 1px solid var(--border);
+      transform: translateY(-110%); opacity: 0; visibility: hidden;
+      transition: transform var(--dur-md) var(--ease), opacity var(--dur-md) var(--ease), visibility 0s var(--dur-md);
+      z-index: 850; pointer-events: none;
+    }
+    .nav-drawer.open {
+      transform: none; opacity: 1; visibility: visible; pointer-events: auto;
+      transition: transform var(--dur-md) var(--ease), opacity var(--dur-md) var(--ease), visibility 0s;
+    }
+    .nav-drawer a {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 400;
+      color: var(--ink); transition: color var(--dur) var(--ease);
+    }
+    .nav-drawer a:hover { color: var(--accent); }
+
+    /* ── Page Header ─────────────────────────────────────────────── */
+    .page-header {
+      background: var(--night);
+      padding-top: calc(var(--nav-h) + var(--s6));
+      padding-bottom: var(--s6);
+    }
+    .page-header-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: var(--s4);
+    }
+    .page-tag {
+      font-family: var(--prose); font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent-pale); margin-bottom: var(--s2);
+    }
+    .page-title {
+      font-family: var(--serif); font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 400; letter-spacing: -0.02em;
+      color: var(--text-on-dark); line-height: 1.08; text-wrap: balance;
+    }
+    .page-title em {
+      font-style: italic; color: var(--accent-pale);
+    }
+    .page-header-meta {
+      text-align: right;
+    }
+    .page-header-affil {
+      font-family: var(--prose); font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.08em; color: var(--text-on-dark-soft);
+      text-transform: uppercase; line-height: 2;
+    }
+
+    /* ── Research intro ─────────────────────────────────────────── */
+    .research-intro {
+      background: var(--cream);
+      padding-block: var(--s7);
+    }
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: start;
+    }
+    .research-lead {
+      margin-bottom: var(--s4);
+    }
+    .research-body p {
+      font-size: 1.05rem; line-height: 1.75;
+      color: var(--ink-soft); margin-bottom: 1.2rem;
+      text-wrap: pretty; max-width: 68ch;
+    }
+    .research-body p:last-child { margin-bottom: 0; }
+    .research-body a {
+      color: var(--accent-text);
+      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
+      transition: border-color var(--dur) var(--ease);
+    }
+    .research-body a:hover { border-color: var(--accent-text); }
+    .research-image-wrap {
+      position: sticky;
+      top: calc(var(--nav-h) + var(--s4));
+    }
+    .research-image {
+      width: 100%; aspect-ratio: 4/5;
+      object-fit: cover; object-position: center;
+      display: block;
+    }
+    .research-image-caption {
+      margin-top: var(--s2);
+      font-family: var(--prose); font-size: 0.78rem;
+      color: var(--muted); letter-spacing: 0.02em;
+      border-left: 2px solid var(--border);
+      padding-left: var(--s2);
+    }
+
+    /* ── PhD themes ─────────────────────────────────────────────── */
+    .phd-section {
+      margin-top: var(--s5);
+      padding-top: var(--s5);
+      border-top: 1px solid var(--border);
+    }
+    .phd-label {
+      font-family: var(--prose); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: var(--s3);
+    }
+    .phd-themes {
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .phd-item {
+      display: grid; grid-template-columns: 3rem 1fr;
+      gap: var(--s2); align-items: baseline;
+      padding: var(--s2) 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .phd-item:first-child { border-top: 1px solid var(--border); }
+    .phd-num {
+      font-family: var(--serif); font-size: 0.78rem; font-weight: 400;
+      color: var(--accent); letter-spacing: 0.04em;
+    }
+    .phd-text {
+      font-family: var(--prose); font-size: 0.97rem; font-weight: 400;
+      color: var(--ink-soft); line-height: 1.5;
+    }
+
+    /* ── Projects strip ─────────────────────────────────────────── */
+    .projects-section {
+      background: var(--cream-warm);
+      padding-block: var(--s6);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .projects-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between; flex-wrap: wrap;
+      gap: var(--s2); margin-bottom: var(--s5);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    .project-card {
+      background: var(--cream-warm);
+      padding: var(--s4);
+      display: flex; flex-direction: column; gap: var(--s2);
+    }
+    .project-number {
+      font-family: var(--serif); font-size: 0.72rem;
+      color: var(--accent); letter-spacing: 0.08em;
+    }
+    .project-name {
+      font-family: var(--serif); font-size: 1.05rem; font-weight: 700;
+      color: var(--ink); line-height: 1.3;
+    }
+    .project-desc {
+      font-family: var(--prose); font-size: 0.92rem;
+      color: var(--muted); line-height: 1.65; flex: 1;
+      text-wrap: pretty;
+    }
+    .project-partner {
+      font-family: var(--prose); font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent-text); margin-top: auto; padding-top: var(--s2);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Approach / pull-quote section ─────────────────────────── */
+    .approach-section {
+      background: var(--cream);
+      padding-block: var(--s7);
+    }
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: start;
+    }
+    .pull-quote-block {
+      position: sticky;
+      top: calc(var(--nav-h) + var(--s4));
+    }
+    .pull-quote {
+      font-family: var(--serif); font-style: italic;
+      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+      line-height: 1.55; color: var(--ink);
+      border-left: 3px solid var(--accent);
+      padding-left: var(--s4); margin-bottom: var(--s4);
+      text-wrap: pretty;
+    }
+    .pull-quote-attr {
+      font-family: var(--prose); font-size: 0.8rem;
+      font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      padding-left: var(--s4);
+    }
+    .approach-body p {
+      font-size: 1.05rem; line-height: 1.75;
+      color: var(--ink-soft); margin-bottom: 1.2rem;
+      text-wrap: pretty; max-width: 68ch;
+    }
+    .approach-body p:last-child { margin-bottom: 0; }
+    .approach-body a {
+      color: var(--accent-text);
+      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
+      transition: border-color var(--dur) var(--ease);
+    }
+    .approach-body a:hover { border-color: var(--accent-text); }
+    .media-mentions {
+      margin-top: var(--s5); padding-top: var(--s4);
+      border-top: 1px solid var(--border);
+    }
+    .media-label {
+      font-family: var(--prose); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: var(--s2);
+    }
+    .media-list {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .media-tag {
+      font-family: var(--prose); font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.06em; color: var(--ink-soft);
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    /* ── Teaching section ───────────────────────────────────────── */
+    .teaching-section {
+      background: var(--night);
+      padding-block: var(--s7);
+    }
+    .teaching-inner { color: var(--text-on-dark); }
+    .teaching-header { margin-bottom: var(--s6); }
+    .teaching-header .section-heading { color: var(--text-on-dark); margin-bottom: var(--s3); }
+    .teaching-intro {
+      font-size: 1.05rem; line-height: 1.75;
+      color: var(--text-on-dark-soft); max-width: 68ch;
+      text-wrap: pretty;
+    }
+    .courses-grid {
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .course-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: var(--s4);
+      padding: var(--s4) 0;
+      border-bottom: 1px solid var(--border-night);
+      align-items: start;
+    }
+    .course-row:first-child { border-top: 1px solid var(--border-night); }
+    .course-inst-wrap { padding-top: 0.15rem; }
+    .course-inst {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 400;
+      letter-spacing: -0.02em; color: var(--text-on-dark);
+      line-height: 1;
+    }
+    .course-inst-full {
+      font-family: var(--prose); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent-pale); margin-top: 0.4rem;
+    }
+    .course-list {
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .course-item {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border-night);
+      display: flex; align-items: baseline; gap: var(--s2);
+    }
+    .course-item:last-child { border-bottom: none; }
+    .course-item::before {
+      content: '—';
+      font-family: var(--serif); color: var(--accent-pale);
+      font-size: 0.9rem; flex-shrink: 0;
+    }
+    .course-name {
+      font-family: var(--prose); font-size: 1rem;
+      color: var(--text-on-dark-soft); line-height: 1.5;
+    }
+    .course-name a {
+      color: var(--text-on-dark);
+      text-decoration: underline;
+      text-decoration-color: rgba(240,233,222,0.3);
+      text-underline-offset: 3px;
+      transition: color var(--dur) var(--ease), text-decoration-color var(--dur) var(--ease);
+    }
+    .course-name a:hover {
+      color: var(--accent-pale);
+      text-decoration-color: var(--accent-pale);
+    }
+    .course-lang {
+      font-family: var(--prose); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent-pale); opacity: 0.7;
+      border: 1px solid var(--border-night);
+      padding: 0.15rem 0.5rem; margin-left: 0.5rem;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .footer { background: var(--night); border-top: 1px solid var(--border-night); padding: var(--s4) 0; }
+    .footer-inner { display: flex; align-items: center; gap: var(--s2); }
+    .footer-copy { font-family: var(--prose); font-size: 0.88rem; color: var(--text-on-dark-soft); }
+    .footer-copy strong { color: var(--text-on-dark); font-weight: 400; }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-links  { display: none; }
+      .nav-burger { display: flex; }
+      .page-header-inner { grid-template-columns: 1fr; }
+      .page-header-meta  { text-align: left; }
+      .research-grid  { grid-template-columns: 1fr; }
+      .research-image-wrap { position: static; }
+      .research-image { aspect-ratio: 16/9; }
+      .approach-grid  { grid-template-columns: 1fr; }
+      .pull-quote-block { position: static; margin-bottom: var(--s4); }
+      .projects-grid { grid-template-columns: 1fr; }
+      .course-row { grid-template-columns: 120px 1fr; gap: var(--s3); }
+    }
+
+    @media (max-width: 600px) {
+      .course-row { grid-template-columns: 1fr; gap: var(--s2); }
+      .course-inst { font-size: 1.2rem; }
+      .phd-item { grid-template-columns: 2.5rem 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .research-intro,
+      .approach-section,
+      .teaching-section { padding-block: var(--s5); }
+      .projects-section { padding-block: var(--s4); }
+      .teaching-header { margin-bottom: var(--s4); }
+    }
+  </style>
+</head>
+<body>
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ── Navigation ────────────────────────────────────────────── -->
+  <header role="banner">
+    <nav class="nav" id="nav" aria-label="Primary navigation">
+      <a href="/" class="nav-logo" aria-label="Olya Kudina — home">Olya Kudina</a>
+      <ul class="nav-links" role="list">
+        <li><a href="/research-teaching" aria-current="page">Research &amp; Teaching</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/media">Media</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <button class="nav-burger" id="burger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav-drawer" id="drawer" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+      <a href="/research-teaching" class="drawer-link" aria-current="page">Research &amp; Teaching</a>
+      <a href="/publications" class="drawer-link">Publications</a>
+      <a href="/media" class="drawer-link">Media</a>
+      <a href="/#contact" class="drawer-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- ── Page Header ───────────────────────────────────────────── -->
+  <div class="page-header" aria-label="Page header">
+    <div class="wrap">
+      <div class="page-header-inner">
+        <div>
+          <p class="page-tag reveal">Associate Professor · TU Delft</p>
+          <h1 class="page-title reveal reveal-d1">Research &amp; <em>Teaching</em></h1>
+        </div>
+        <div class="page-header-meta reveal reveal-d2" aria-label="Affiliations">
+          <p class="page-header-affil">AI DeMoS Lab</p>
+          <p class="page-header-affil">Journal of Human-Technology Relations</p>
+          <p class="page-header-affil">North-West University, South Africa</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main ──────────────────────────────────────────────────── -->
+  <main id="main">
+
+    <!-- ── Research introduction ─────────────────────────────── -->
+    <section class="research-intro" aria-labelledby="research-h2">
+      <div class="wrap">
+        <div class="research-grid">
+
+          <div>
+            <p class="tag reveal">Research</p>
+            <h2 class="section-heading reveal reveal-d1" id="research-h2">AI, democracy,<br>and human values</h2>
+
+            <div class="research-body reveal reveal-d2" style="margin-top: var(--s4);">
+              <p class="research-lead">
+                Olya's current work concerns AI and democracy in different contexts. Predominantly, her research orbits the <a href="https://www.tudelft.nl/ai/demos-lab" target="_blank" rel="noopener noreferrer">AI&nbsp;DeMoS&nbsp;Lab</a> where she supervises PhD projects at the intersection of technology, society, and ethics.
+              </p>
+              <p>
+                Olya is also co-supervising responsible AI development projects in large consortia, such as the Dutch National ELSA Lab <strong>AI MAPS</strong> (with the Dutch police) and the EUR-Erasmus MC-TU Delft Convergence Flagship project <strong>ProtectME</strong> — focused on AI and mental wellbeing of adolescents.
+              </p>
+            </div>
+
+            <!-- PhD supervision themes -->
+            <div class="phd-section reveal reveal-d3">
+              <p class="phd-label">Current PhD supervision themes</p>
+              <ol class="phd-themes" aria-label="PhD research themes">
+                <li class="phd-item">
+                  <span class="phd-num" aria-hidden="true">01</span>
+                  <span class="phd-text">The interrelation of synthetic media and trust</span>
+                </li>
+                <li class="phd-item">
+                  <span class="phd-num" aria-hidden="true">02</span>
+                  <span class="phd-text">Political subjectivity and social media</span>
+                </li>
+                <li class="phd-item">
+                  <span class="phd-num" aria-hidden="true">03</span>
+                  <span class="phd-text">Digital phenotyping in mental healthcare</span>
+                </li>
+                <li class="phd-item">
+                  <span class="phd-num" aria-hidden="true">04</span>
+                  <span class="phd-text">Critical engagement with AI systems in the public sphere</span>
+                </li>
+                <li class="phd-item">
+                  <span class="phd-num" aria-hidden="true">05</span>
+                  <span class="phd-text">Adversarial Machine Learning to facilitate private deliberation online</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Sticky image -->
+          <div class="research-image-wrap reveal reveal-d2">
+            <img
+              src="./about.png"
+              alt="Olya Kudina, Associate Professor of Technology Ethics at TU Delft"
+              class="research-image"
+              loading="eager"
+            />
+            <p class="research-image-caption">Associate Professor · TU Delft</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Research projects strip ───────────────────────────── -->
+    <section class="projects-section" aria-labelledby="projects-h2">
+      <div class="wrap">
+        <div class="projects-header reveal">
+          <div>
+            <p class="tag">Consortia &amp; Projects</p>
+            <h2 class="section-heading" id="projects-h2">Research projects</h2>
+          </div>
+        </div>
+        <div class="projects-grid reveal reveal-d1">
+          <div class="project-card">
+            <span class="project-number">01</span>
+            <h3 class="project-name">AI DeMoS Lab</h3>
+            <p class="project-desc">
+              The AI, Democracy, and Society Lab investigates how AI systems reshape democratic processes, public deliberation, and political subjectivity. Co-directed at TU Delft, the lab brings together philosophers, social scientists, and engineers.
+            </p>
+            <p class="project-partner">TU Delft</p>
+          </div>
+          <div class="project-card">
+            <span class="project-number">02</span>
+            <h3 class="project-name">ELSA Lab AI MAPS</h3>
+            <p class="project-desc">
+              The Dutch National ELSA Lab on AI and Meaningful Accountable Predictive Policing Systems. This consortium investigates ethical, legal, and societal dimensions of AI deployment by the Dutch police.
+            </p>
+            <p class="project-partner">Dutch National Consortium</p>
+          </div>
+          <div class="project-card">
+            <span class="project-number">03</span>
+            <h3 class="project-name">ProtectME</h3>
+            <p class="project-desc">
+              The EUR-Erasmus MC and TU Delft Convergence Flagship project on AI and mental wellbeing of adolescents. Olya co-supervises responsible AI development in this clinical and societal context.
+            </p>
+            <p class="project-partner">EUR-Erasmus MC · TU Delft</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Philosophical approach ─────────────────────────────── -->
+    <section class="approach-section" aria-labelledby="approach-h2">
+      <div class="wrap">
+        <div class="approach-grid">
+
+          <div class="pull-quote-block reveal">
+            <blockquote class="pull-quote">
+              "Olya adopts a perspective of technologies as sociotechnical systems, where the ethical dimension arises not only within separate components, but also at their intersection."
+            </blockquote>
+            <p class="pull-quote-attr">Research philosophy</p>
+
+            <div class="media-mentions">
+              <p class="media-label">Featured in</p>
+              <div class="media-list">
+                <span class="media-tag">WIRED</span>
+                <span class="media-tag">Dutch National Television</span>
+                <span class="media-tag">National Radio</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="approach-body reveal reveal-d1">
+            <p class="tag">Interdisciplinary approach</p>
+            <h2 class="section-heading" id="approach-h2" style="margin-bottom: var(--s4);">Connecting philosophy<br>to practice</h2>
+
+            <p>
+              Olya is an interdisciplinary researcher. Philosophically, her work is inspired by (post)phenomenology, Dewey's pragmatism, and bioethics. She is interested in understanding the technologically induced value change and connecting the insights to developmental practices.
+            </p>
+            <p>
+              To this end, she experiments with a range of empirical methods from STS and psychology — such as Interpretative Phenomenological Analysis — integrating them with philosophy of technology frameworks like Value Sensitive Design.
+            </p>
+            <p>
+              At the moment, she is conducting an international survey on the impact of Large Language Models, such as ChatGPT, on the value of education. Her research on ChatGPT has been featured several times on Dutch national television and radio, as well as in international technology magazines such as <a href="https://www.wired.com/story/chatgpt-is-coming-for-classrooms-dont-panic/" target="_blank" rel="noopener noreferrer">WIRED</a>.
+            </p>
+            <p>
+              To anticipate the ethical challenges and opportunities for an informed design and use of technologies, Olya thinks it is essential to combine different academic practices and fields — which is why her collaborations span philosophy, computer science, medicine, and social science.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Teaching ───────────────────────────────────────────── -->
+    <section class="teaching-section" aria-labelledby="teaching-h2">
+      <div class="wrap teaching-inner">
+
+        <div class="teaching-header reveal">
+          <p class="tag tag-light">University Teaching</p>
+          <h2 class="section-heading" id="teaching-h2">Courses</h2>
+          <p class="teaching-intro" style="margin-top: var(--s3);">
+            Olya teaches across bachelor, master, and PhD levels. She pursues creative teaching — inviting students to integrate different theoretical and stakeholder perspectives in analyzing contemporary case studies and engaging them in responsible design practices.
+          </p>
+        </div>
+
+        <div class="courses-grid" role="list">
+
+          <div class="course-row reveal reveal-d1" role="listitem">
+            <div class="course-inst-wrap">
+              <p class="course-inst" aria-label="TU Delft">TU<br>Delft</p>
+              <p class="course-inst-full">Delft University<br>of Technology</p>
+            </div>
+            <ul class="course-list" aria-label="Courses at TU Delft">
+              <li class="course-item">
+                <span class="course-name"><a href="https://www.tudelft.nl/ethics/ethics/teaching-activities/ethics-teaching/ethics-20/robots-and-society" target="_blank" rel="noopener noreferrer">Robots and Society</a></span>
+              </li>
+              <li class="course-item">
+                <span class="course-name">Introduction to AI &amp; Responsible AI Engineering</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="course-row reveal reveal-d2" role="listitem">
+            <div class="course-inst-wrap">
+              <p class="course-inst" aria-label="Yale University">Yale</p>
+              <p class="course-inst-full">Yale University</p>
+            </div>
+            <ul class="course-list" aria-label="Courses at Yale">
+              <li class="course-item">
+                <span class="course-name">
+                  <a href="https://bioethics.yale.edu/2021-summer-seminars" target="_blank" rel="noopener noreferrer">Ethics of Technology and Bioethics</a>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="course-row reveal reveal-d3" role="listitem">
+            <div class="course-inst-wrap">
+              <p class="course-inst" aria-label="4TU">4TU.</p>
+              <p class="course-inst-full">4TU Centre for Ethics<br>and Technology</p>
+            </div>
+            <ul class="course-list" aria-label="Courses at 4TU">
+              <li class="course-item">
+                <span class="course-name">Empirical Methods in Philosophy of Technology</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="course-row reveal reveal-d4" role="listitem">
+            <div class="course-inst-wrap">
+              <p class="course-inst" aria-label="Auxiliary">Aux.</p>
+              <p class="course-inst-full">Auxiliary course</p>
+            </div>
+            <ul class="course-list" aria-label="Auxiliary courses">
+              <li class="course-item">
+                <span class="course-name">
+                  Ethics of Technology in Design
+                  <span class="course-lang" aria-label="Taught in Ukrainian">UA</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ────────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; 2026 <strong>Olya Kudina</strong> &mdash; All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Nav scroll: dark → solid ────────────────────────────── */
+    const nav = document.getElementById('nav');
+    function onScroll() {
+      const pageHeader = document.querySelector('.page-header');
+      const headerBottom = pageHeader ? pageHeader.offsetTop + pageHeader.offsetHeight : 0;
+      nav.classList.toggle('solid', window.scrollY > headerBottom - 80);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── Mobile nav ──────────────────────────────────────────── */
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+
+    burger.addEventListener('click', () => {
+      const open = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!open));
+      drawer.classList.toggle('open', !open);
+      burger.setAttribute('aria-label', !open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    drawer.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.setAttribute('aria-expanded', 'false');
+        drawer.classList.remove('open');
+        burger.setAttribute('aria-label', 'Open navigation menu');
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+        burger.setAttribute('aria-expanded', 'false');
+        drawer.classList.remove('open');
+        burger.setAttribute('aria-label', 'Open navigation menu');
+        burger.focus();
+      }
+    });
+
+    /* ── Scroll-triggered reveals ────────────────────────────── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>

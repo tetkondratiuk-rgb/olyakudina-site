@@ -1,0 +1,1677 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── SEO ──────────────────────────────────────────────────────── -->
+  <title>Publications — Olya Kudina</title>
+  <meta name="description"
+    content="Peer-reviewed publications by Olya Kudina — Associate Professor at TU Delft. Ethics of technology, AI, philosophy of technology." />
+  <meta name="author" content="Olya Kudina" />
+  <link rel="canonical" href="https://www.olyakudina.com/publications" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.olyakudina.com/publications" />
+  <meta property="og:title"       content="Publications — Olya Kudina" />
+  <meta property="og:description" content="Peer-reviewed publications in ethics of technology, AI, and philosophy of technology." />
+  <meta property="og:image"       content="https://www.olyakudina.com/og-image.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       TOKENS
+    ═══════════════════════════════════════════════════════════════ */
+    :root {
+      --ink:          #1A1714;
+      --ink-soft:     #3D342C;
+      --muted:        #6A5A4C;
+      --accent-text:  #8F4620;
+      --cream:        #FAF7F2;
+      --cream-warm:   #F2EDE4;
+      --cream-deep:   #E8DFD3;
+      --night:        #18150F;
+      --night-lifted: #231E17;
+      --accent:       #C4622D;
+      --accent-dim:   #A8501F;
+      --accent-glow:  rgba(196, 98, 45, 0.12);
+      --accent-pale:  #ECC9AF;
+      --border:       #DDD5C8;
+      --border-night: rgba(255,255,255,0.07);
+      --text-on-dark: #F0E9DE;
+      --text-on-dark-soft: rgba(240, 233, 222, 0.65);
+
+      --serif:  'Libre Baskerville', Georgia, 'Times New Roman', serif;
+      --prose:  'Hanken Grotesk', system-ui, sans-serif;
+
+      --s1: 0.5rem;
+      --s2: 1rem;
+      --s3: 1.5rem;
+      --s4: 2rem;
+      --s5: 3rem;
+      --s6: 4.5rem;
+      --s7: 7rem;
+
+      --nav-h: 68px;
+      --max-w: 1200px;
+      --pad-x: clamp(1.5rem, 5vw, 3rem);
+
+      --ease:     cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-out: cubic-bezier(0, 0, 0.2, 1);
+      --dur:      0.28s;
+      --dur-md:   0.55s;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESET
+    ═══════════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: clamp(15px, 1vw + 12px, 17px);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--prose);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a   { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    button { cursor: pointer; font: inherit; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       ACCESSIBILITY
+    ═══════════════════════════════════════════════════════════════ */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: var(--s3);
+      padding: 0.6rem 1.25rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--prose);
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: var(--s2); }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 1px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       REVEAL ANIMATIONS
+    ═══════════════════════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--dur-md) var(--ease-out),
+                  transform var(--dur-md) var(--ease-out);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+    .reveal-d4 { transition-delay: 0.32s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       LAYOUT UTILITIES
+    ═══════════════════════════════════════════════════════════════ */
+    .wrap {
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: var(--pad-x);
+    }
+
+    .section {
+      padding-block: var(--s6);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--pad-x);
+      z-index: 900;
+      background: rgba(24, 21, 15, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-night);
+      transition: background var(--dur-md) var(--ease), border-color var(--dur-md) var(--ease);
+    }
+    .nav.solid {
+      background: rgba(250, 247, 242, 0.96);
+      box-shadow: 0 1px 0 var(--border);
+      border-color: var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--text-on-dark);
+      transition: color var(--dur) var(--ease);
+    }
+    .nav.solid .nav-logo { color: var(--ink); }
+    .nav-logo:hover { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--s4);
+    }
+    .nav-links a {
+      font-family: var(--prose);
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(240, 233, 222, 0.85);
+      position: relative;
+      padding-bottom: 2px;
+      transition: color var(--dur) var(--ease);
+    }
+    .nav.solid .nav-links a { color: var(--ink-soft); }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--dur-md) var(--ease-out);
+    }
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after,
+    .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+    .nav-links a:hover { color: rgba(240,233,222,1); }
+    .nav.solid .nav-links a:hover { color: var(--accent); }
+    .nav-links a[aria-current="page"] { color: var(--accent-pale); }
+    .nav.solid .nav-links a[aria-current="page"] { color: var(--accent); }
+
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 11px;
+      min-width: 44px;
+      min-height: 44px;
+    }
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text-on-dark);
+      transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+    }
+    .nav.solid .nav-burger span { background: var(--ink); }
+    .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .nav-drawer {
+      position: fixed;
+      top: var(--nav-h);
+      inset-inline: 0;
+      background: rgba(250, 247, 242, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: var(--s4) var(--pad-x) var(--s5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--s3);
+      border-bottom: 1px solid var(--border);
+      transform: translateY(-110%);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform var(--dur-md) var(--ease),
+                  opacity var(--dur-md) var(--ease),
+                  visibility 0s var(--dur-md);
+      z-index: 850;
+      pointer-events: none;
+    }
+    .nav-drawer.open {
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition: transform var(--dur-md) var(--ease),
+                  opacity var(--dur-md) var(--ease),
+                  visibility 0s;
+    }
+    .nav-drawer a {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--ink);
+      transition: color var(--dur) var(--ease);
+    }
+    .nav-drawer a:hover { color: var(--accent); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       PAGE HEADER
+    ═══════════════════════════════════════════════════════════════ */
+    .page-header {
+      background: var(--night);
+      padding-block: var(--s6) var(--s5);
+      padding-top: calc(var(--nav-h) + var(--s6));
+    }
+
+    .page-header-inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--s3);
+    }
+
+    .page-header-text {}
+
+    .page-tag {
+      font-family: var(--prose);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-pale);
+      margin-bottom: var(--s2);
+    }
+
+    .page-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--text-on-dark);
+      line-height: 1.15;
+      text-wrap: balance;
+    }
+
+    .scholar-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      color: var(--text-on-dark);
+      border: 1px solid rgba(240, 233, 222, 0.45);
+      font-family: var(--prose);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background var(--dur) var(--ease),
+                  border-color var(--dur) var(--ease),
+                  color var(--dur) var(--ease);
+      white-space: nowrap;
+    }
+    .scholar-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .scholar-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       STATS BAR
+    ═══════════════════════════════════════════════════════════════ */
+    .stats-bar {
+      background: var(--night-lifted);
+      border-top: 1px solid var(--border-night);
+    }
+
+    .stats-inner {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--s4) var(--s5);
+      gap: 0.3rem;
+      flex: 1;
+      min-width: 180px;
+      border-right: 1px solid var(--border-night);
+    }
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--accent-pale);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-family: var(--prose);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-on-dark-soft);
+      text-align: center;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       PUBLICATIONS LIST
+    ═══════════════════════════════════════════════════════════════ */
+    .publications-section {
+      padding-block: var(--s6);
+    }
+
+    .publications-section .wrap {
+      max-width: 860px;
+    }
+
+    /* Year group */
+    .year-group {
+      margin-bottom: var(--s6);
+    }
+    .year-group:last-child { margin-bottom: 0; }
+
+    .year-heading {
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      padding-bottom: var(--s2);
+      margin-bottom: var(--s4);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+
+    .year-heading-num {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .year-count {
+      font-family: var(--prose);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      white-space: nowrap;
+      align-self: center;
+    }
+
+    /* Publication entry */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s4);
+    }
+
+    .pub-entry {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: var(--s3);
+      align-items: flex-start;
+    }
+
+    .pub-cover {
+      width: 64px;
+      height: 88px;
+      background: var(--cream-deep);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pub-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .pub-cover--logo img {
+      object-fit: contain;
+      object-position: center;
+      padding: 6px;
+    }
+    .pub-cover--logo-white {
+      background: #fff !important;
+    }
+    .pub-cover--logo-white img {
+      object-fit: contain;
+      object-position: center;
+      padding: 8px 0;
+      display: block;
+    }
+
+    .pub-cover-book {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--accent-glow) 0%, var(--cream-deep) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pub-cover-book svg {
+      width: 28px;
+      height: 28px;
+      color: var(--accent);
+      opacity: 0.5;
+    }
+
+    /* Type-specific cover colors */
+    .pub-entry[data-type="book"]    .pub-cover { background: #2C2218; }
+    .pub-entry[data-type="chapter"] .pub-cover { background: #1E2A35; }
+    .pub-entry[data-type="thesis"]  .pub-cover { background: #1C2C1E; }
+    .pub-entry[data-type="report"]  .pub-cover { background: #2A1E30; }
+    .pub-entry[data-type="preprint"] .pub-cover { background: #2E2810; }
+    .pub-entry[data-type="commentary"] .pub-cover { background: #28201A; }
+
+    .pub-entry[data-type="book"]    .pub-cover-book { background: linear-gradient(135deg, rgba(196,98,45,0.25) 0%, rgba(44,34,24,0) 100%); }
+    .pub-entry[data-type="chapter"] .pub-cover-book { background: linear-gradient(135deg, rgba(100,160,220,0.2) 0%, rgba(30,42,53,0) 100%); }
+    .pub-entry[data-type="thesis"]  .pub-cover-book { background: linear-gradient(135deg, rgba(80,200,100,0.15) 0%, rgba(28,44,30,0) 100%); }
+    .pub-entry[data-type="report"]  .pub-cover-book { background: linear-gradient(135deg, rgba(160,80,220,0.15) 0%, rgba(42,30,48,0) 100%); }
+    .pub-entry[data-type="preprint"] .pub-cover-book { background: linear-gradient(135deg, rgba(200,180,40,0.2) 0%, rgba(46,40,16,0) 100%); }
+    .pub-entry[data-type="commentary"] .pub-cover-book { background: linear-gradient(135deg, rgba(220,150,60,0.18) 0%, rgba(40,32,26,0) 100%); }
+
+    .pub-entry[data-type="book"]    .pub-cover-book svg,
+    .pub-entry[data-type="chapter"] .pub-cover-book svg,
+    .pub-entry[data-type="thesis"]  .pub-cover-book svg,
+    .pub-entry[data-type="report"]  .pub-cover-book svg,
+    .pub-entry[data-type="preprint"] .pub-cover-book svg,
+    .pub-entry[data-type="commentary"] .pub-cover-book svg {
+      color: #fff;
+      opacity: 0.35;
+    }
+
+    .pub-body {
+      min-width: 0;
+    }
+
+    .pub-authors {
+      font-family: var(--prose);
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 0.25rem;
+    }
+    .pub-authors strong {
+      color: var(--ink-soft);
+      font-weight: 600;
+    }
+
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 700;
+      font-style: normal;
+      line-height: 1.5;
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-title a {
+      color: var(--accent-text);
+      text-decoration: underline;
+      text-decoration-color: rgba(143, 70, 32, 0.35);
+      text-underline-offset: 3px;
+      transition: color var(--dur) var(--ease),
+                  text-decoration-color var(--dur) var(--ease);
+    }
+    .pub-title a:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+    }
+
+    .pub-venue {
+      font-family: var(--prose);
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .pub-venue em {
+      font-style: normal;
+      color: var(--ink-soft);
+    }
+
+    .pub-tag {
+      display: inline-block;
+      margin-top: 0.4rem;
+      padding: 0.15rem 0.55rem;
+      font-family: var(--prose);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════════════ */
+    .footer {
+      background: var(--night);
+      padding: var(--s4) 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--s2);
+    }
+
+    .footer-copy {
+      font-family: var(--prose);
+      font-size: 0.88rem;
+      color: var(--text-on-dark-soft);
+    }
+    .footer-copy strong {
+      color: var(--text-on-dark);
+      font-weight: 400;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .nav-links  { display: none; }
+      .nav-burger { display: flex; }
+
+      .stat-item {
+        padding: var(--s3) var(--s4);
+        min-width: 140px;
+      }
+    }
+
+    /* Visually hidden but accessible to screen readers */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 600px) {
+      .stats-inner {
+        flex-direction: column;
+      }
+      .stat-item {
+        border-right: none;
+        border-bottom: 1px solid var(--border-night);
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: var(--s3);
+        padding: var(--s2) 0;
+        min-width: 0;
+      }
+      .stat-item:last-child { border-bottom: none; }
+      .stat-number { font-size: 1.8rem; }
+      .stat-label { text-align: left; }
+
+      .scholar-btn { width: 100%; justify-content: center; }
+      .page-header-inner { flex-direction: column; align-items: flex-start; }
+
+      .section { padding-block: var(--s5); }
+      .year-group { margin-bottom: var(--s4); }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ── Navigation ─────────────────────────────────────────────── -->
+  <header role="banner">
+    <nav class="nav" id="nav" aria-label="Primary navigation">
+      <a href="/" class="nav-logo" aria-label="Olya Kudina — home">Olya Kudina</a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="/research-teaching">Research &amp; Teaching</a></li>
+        <li><a href="/publications" aria-current="page">Publications</a></li>
+        <li><a href="/media">Media</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+
+      <button class="nav-burger" id="burger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="nav-drawer" id="drawer" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+      <a href="/research-teaching" class="drawer-link">Research &amp; Teaching</a>
+      <a href="/publications" class="drawer-link" aria-current="page">Publications</a>
+      <a href="/media" class="drawer-link">Media</a>
+      <a href="/#contact" class="drawer-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- ── Page Header ────────────────────────────────────────────── -->
+  <div class="page-header" aria-label="Page header">
+    <div class="wrap">
+      <div class="page-header-inner">
+        <div class="page-header-text">
+          <p class="page-tag reveal">Research output</p>
+          <h1 class="page-title reveal reveal-d1">Publications</h1>
+        </div>
+
+        <a class="scholar-btn reveal reveal-d2"
+           href="https://scholar.google.com/citations?user=lbWl7x0AAAAJ&hl=en"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="View Olya Kudina's Google Scholar profile (opens in new tab)">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
+          </svg>
+          Google Scholar
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Stats Bar ──────────────────────────────────────────────── -->
+  <div class="stats-bar" aria-label="Citation statistics">
+    <div class="wrap">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-number" data-target="46" aria-label="46 peer-reviewed publications">46</span>
+          <span class="stat-label">Peer-reviewed publications</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="16" aria-label="h-index 16">16</span>
+          <span class="stat-label">H-index</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="1623" aria-label="1,623 citations">1,623</span>
+          <span class="stat-label">Citations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main ───────────────────────────────────────────────────── -->
+  <main id="main">
+    <section class="publications-section" aria-labelledby="pub-heading">
+      <div class="wrap">
+        <h2 class="sr-only" id="pub-heading">Full list of publications</h2>
+
+        <!-- ── 2026 ── -->
+        <div class="year-group reveal">
+          <h3 class="year-heading">
+            <span class="year-heading-num">2026</span>
+            <span class="year-count">5 publications</span>
+          </h3>
+          <ul class="pub-list" role="list">
+
+            <li class="pub-entry reveal reveal-d1" data-type="preprint">
+              <div class="pub-cover" aria-hidden="true">
+                <div class="pub-cover-book">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+                </div>
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://arxiv.org/abs/2606.16626" target="_blank" rel="noopener noreferrer">
+                    Using AI in engineering education: a balancing act, driven by clear purpose
+                  </a>
+                </p>
+                <p class="pub-venue">arXiv preprint arXiv:2606.16626</p>
+                <span class="pub-tag">Preprint</span>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d1" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-computers-human-behavior-reports.gif" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">de Groot, E.C.S., de Vries, L.P., Gadiraju, U., <strong>Kudina, O.</strong>, Keijsers, L., et&nbsp;al.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.1016/j.chbr.2026.101109" target="_blank" rel="noopener noreferrer">
+                    Supporting adolescents' mHealth needs: Qualitative and quantitative insights from a user survey of a mental health promoting app
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Computers in Human Behavior Reports</em>, 101109</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-science-engineering-ethics.webp" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">Auliya, S.F., <strong>Kudina, O.</strong>, Ding, A.Y., Van de Poel, I.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.1007/s11948-026-00598-9" target="_blank" rel="noopener noreferrer">
+                    The Complexities of AI for Social Good: An Explorative Study on Adversarial Machine Learning to Facilitate Deliberative Decision-Making in Elections
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Science and Engineering Ethics</em></p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-ai-society.webp" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong>, Van Uffelen, N., Lauwaert, L., Landuyt, W.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.1007/s00146-026-02910-4" target="_blank" rel="noopener noreferrer">
+                    The ethics in sustainable AI: a scoping literature review on normativity in the academic discourse on the environmental sustainability of AI
+                  </a>
+                </p>
+                <p class="pub-venue"><em>AI &amp; SOCIETY</em>, 1–19</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d3" data-type="chapter">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-design-philosophy-tech-turn.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">Guerrero, J.V., Muravyov, D., <strong>Kudina, O.</strong>, Cila, N.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.5040/9781350494480.ch-8" target="_blank" rel="noopener noreferrer">
+                    Moments of Reading: Making Meaning Through Design and Philosophy
+                  </a>
+                </p>
+                <p class="pub-venue">In <em>Design Philosophy after the Technology Turn</em>, p.&nbsp;135</p>
+                <span class="pub-tag">Book Chapter</span>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- ── 2025 ── -->
+        <div class="year-group reveal">
+          <h3 class="year-heading">
+            <span class="year-heading-num">2025</span>
+            <span class="year-count">6 publications</span>
+          </h3>
+          <ul class="pub-list" role="list">
+
+            <li class="pub-entry reveal reveal-d1" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-jhtr.avif" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong>, Verbeek, P.P.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.59490/jhtr.2025.3.8641" target="_blank" rel="noopener noreferrer">
+                    Sustaining the study of human-technology relations: From manuscripts and peer review to publication practices and events
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Journal of Human-Technology Relations</em>, 3, 1–8</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d1" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-sefi-journal.png" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong>, Mollen, J., Guerrero, J.V., Muravyov, D., Bermudez, J.P.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.62492/sefijeea.v2i2.30" target="_blank" rel="noopener noreferrer">
+                    Teaching and Crafting Human-Robot Relational Ethics
+                  </a>
+                </p>
+                <p class="pub-venue"><em>SEFI Journal of Engineering Education Advancement</em>, 2(2), 6–31</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="article">
+              <div class="pub-cover pub-cover--logo-white" aria-hidden="true">
+                <img src="./cover-npj-digital-medicine.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">Albers, N., Melo, F.S., Neerincx, M.A., <strong>Kudina, O.</strong>, Brinkman, W.P.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.1038/s41746-025-01701-3" target="_blank" rel="noopener noreferrer">
+                    Psychological, economic, and ethical factors in human feedback for a chatbot-based smoking cessation intervention
+                  </a>
+                </p>
+                <p class="pub-venue"><em>npj Digital Medicine</em>, 8(1), 326</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="conference">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-chi-2025.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">Bogdanova, K., Cila, N., <strong>Kudina, O.</strong>, Bozzon, A.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.1145/3706598.3714399" target="_blank" rel="noopener noreferrer">
+                    Digital phenotyping as felt informatics: designing AI-Based mental health diagnostic tools through aesthetics
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems</em></p>
+                <span class="pub-tag">Conference</span>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d3" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-asian-j-philosophy.webp" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong>, Ballsun-Stanton, B., Alfano, M.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.1007/s44204-025-00247-1" target="_blank" rel="noopener noreferrer">
+                    The use of large language models as scaffolds for proleptic reasoning
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Asian Journal of Philosophy</em>, 4(1), 24</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d3" data-type="article">
+              <div class="pub-cover pub-cover--logo-white" aria-hidden="true">
+                <img src="./cover-frontiers-digital-health.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">de Groot, E.C.S., Gadiraju, U., <strong>Kudina, O.</strong>, Keijsers, L., Hillegers, M.H.J., et&nbsp;al.</p>
+                <p class="pub-title">
+                  <a href="https://www.frontiersin.org/journals/digital-health" target="_blank" rel="noopener noreferrer">
+                    Responsible Data Selection Method for Algorithmic Personalization of Health Apps: A Case Study on Promoting Mental Health
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Frontiers in Digital Health</em>, 8, 1691697</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- ── 2024 ── -->
+        <div class="year-group reveal">
+          <h3 class="year-heading">
+            <span class="year-heading-num">2024</span>
+            <span class="year-count">9 publications</span>
+          </h3>
+          <ul class="pub-list" role="list">
+
+            <li class="pub-entry reveal reveal-d1" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-behaviour-information-technology.webp" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong>, Torkamaan, H., Steinert, S., Pera, M.&nbsp;S., Freire, S.&nbsp;K., Verma, H., Oviedo-Trespalacios, O.</p>
+                <p class="pub-title">
+                  <a href="https://www.tandfonline.com/doi/full/10.1080/0144929X.2024.2431068" target="_blank" rel="noopener noreferrer">
+                    Challenges and future directions for integration of large language models into socio-technical systems
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Behaviour &amp; Information Technology</em>, 1–20</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d1" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-jhtr.avif" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://journals.open.tudelft.nl/jhtr/article/view/7945" target="_blank" rel="noopener noreferrer">
+                    Daily life in times of war: A technological mediation perspective
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Journal of Human-Technology Relations</em>, 2(1), 1–8</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-jhtr.avif" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong>, and Peter-Paul Verbeek</p>
+                <p class="pub-title">
+                  <a href="https://journals.open.tudelft.nl/jhtr/article/view/7950" target="_blank" rel="noopener noreferrer">
+                    Fitting the particular and the general: Human-technology relations in the context of technological systems and global events
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Journal of Human-Technology Relations</em>, 2(1), 1–8</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-ai-ethics.webp" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong>, and de Boer, B.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.1007/s43681-024-00564-w" target="_blank" rel="noopener noreferrer">
+                    Large language models, politics, and the functionalization of language
+                  </a>
+                </p>
+                <p class="pub-venue"><em>AI and Ethics</em>, 5(3), 2367–2379</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d3" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-ai-ethics.webp" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">Aulia, S., <strong>Kudina, O.</strong>, Ding, A. and van de Poel, I.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.1007/s43681-024-00588-2" target="_blank" rel="noopener noreferrer">
+                    AI versus AI for democracy: exploring the potential of adversarial machine learning to enhance privacy and deliberative decision-making in elections
+                  </a>
+                </p>
+                <p class="pub-venue"><em>AI and Ethics</em>, 5(3), 2801–2813</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d3" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-minds-machines.webp" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong>, and van de Poel, I.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.1007/s11023-024-09680-2" target="_blank" rel="noopener noreferrer">
+                    The sociotechnical systems perspective on AI
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Minds &amp; Machines</em>, 34, 21</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d4" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-computer-speech-language.avif" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">Feng, S., Halpern, B.&nbsp;M., <strong>Kudina, O.</strong>, &amp; Scharenborg, O.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.1016/j.csl.2023.101567" target="_blank" rel="noopener noreferrer">
+                    Towards inclusive automatic speech recognition
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Computer Speech &amp; Language</em>, 84, 101567</p>
+              </div>
+            </li>
+
+
+            <li class="pub-entry reveal reveal-d4" data-type="conference">
+              <div class="pub-cover pub-cover--logo-white" aria-hidden="true">
+                <img src="./cover-hhai-2024.png" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://hhai-conference.org/" target="_blank" rel="noopener noreferrer">
+                    Ethics in AI: from Assessment Checklists to Proactive Practices
+                  </a>
+                </p>
+                <p class="pub-venue"><em>HHAI Workshops</em>, 183</p>
+                <span class="pub-tag">Conference</span>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d4" data-type="preprint">
+              <div class="pub-cover" aria-hidden="true">
+                <div class="pub-cover-book">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+                </div>
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">Van Uffelen, N., Lauwaert, L., Coeckelbergh, M., <strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://arxiv.org/abs/2501.10390" target="_blank" rel="noopener noreferrer">
+                    Towards an environmental ethics of artificial intelligence
+                  </a>
+                </p>
+                <p class="pub-venue">arXiv preprint arXiv:2501.10390</p>
+                <span class="pub-tag">Preprint</span>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- ── 2023 ── -->
+        <div class="year-group reveal">
+          <h3 class="year-heading">
+            <span class="year-heading-num">2023</span>
+            <span class="year-count">3 publications</span>
+          </h3>
+          <ul class="pub-list" role="list">
+
+            <li class="pub-entry reveal reveal-d1" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-jhtr.avif" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong>, &amp; Verbeek, P.&nbsp;P.</p>
+                <p class="pub-title">
+                  <a href="https://doi.org/10.59490/jhtr.2023.1.7337" target="_blank" rel="noopener noreferrer">
+                    Theorizing and criticizing human-technology relations: Interdisciplinary perspectives, emerging technologies, and open science
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Journal of Human-Technology Relations</em>, 1, 1–7</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="book">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-moral-hermeneutics-book.avif" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://rowman.com/ISBN/9781793651761/Moral-Hermeneutics-and-Technology-Making-Moral-Sense-through-Human-Technology-World-Relations" target="_blank" rel="noopener noreferrer">
+                    Moral hermeneutics and technology: Making moral sense through human-technology-world relations
+                  </a>
+                </p>
+                <p class="pub-venue">Lexington Books, Rowman &amp; Littlefield (open access)</p>
+                <span class="pub-tag">Book</span>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d3" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <div class="pub-cover-book">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+                </div>
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">Grauwde, M., Neerincx, M., &amp; <strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://ci.acm.org/2023/assets/wips_demos/HCOMP-23_paper_7864.pdf" target="_blank" rel="noopener noreferrer">
+                    Conversational Agents for a Deliberative Age
+                  </a>
+                </p>
+                <p class="pub-venue"><em>The Eleventh AAAI Conference on Human Computation and Crowdsourcing (HCOMP) 2023</em>, Delft, The Netherlands</p>
+                <span class="pub-tag">Conference</span>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- ── 2022 ── -->
+        <div class="year-group reveal">
+          <h3 class="year-heading">
+            <span class="year-heading-num">2022</span>
+            <span class="year-count">7 publications</span>
+          </h3>
+          <ul class="pub-list" role="list">
+
+            <li class="pub-entry reveal reveal-d1" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-humanities-social-sciences.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://www.nature.com/articles/s41599-021-00972-x" target="_blank" rel="noopener noreferrer">
+                    Speak, memory: the postphenomenological analysis of memory-making in the age of algorithmically powered social networks
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Humanities and Social Sciences Communications</em> (Nature), 9(1), 1–7</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d1" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-j-contingencies-crisis-management.avif" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">van Brakel, R., <strong>Kudina, O.</strong>, Fonio, C., &amp; Boersma, K.</p>
+                <p class="pub-title">
+                  <a href="https://onlinelibrary.wiley.com/doi/10.1111/1468-5973.12395" target="_blank" rel="noopener noreferrer">
+                    Bridging values: Finding a balance between privacy and control. The case of Corona apps in Belgium and the Netherlands
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Journal of Contingencies and Crisis Management</em>, 30(1), 50–58</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="chapter">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-technical-condition.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://www.academia.edu/83809238/The_technical_condition_The_Entanglement_of_Technology_Culture_and_Society" target="_blank" rel="noopener noreferrer">
+                    The Entanglement of Technology and Everyday Life in the Home
+                  </a>
+                </p>
+                <p class="pub-venue">In <em>The Technical Condition: The Entanglement of Technology, Culture, and Society</em>, pp. 75–107. Boom, Amsterdam</p>
+                <span class="pub-tag">Book Chapter</span>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="report">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-eu-stoa-report.png" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://www.europarl.europa.eu/RegData/etudes/STUD/2022/729543/EPRS_STU(2022)729543_EN.pdf" target="_blank" rel="noopener noreferrer">
+                    Smart Digital Voice Assistants
+                  </a>
+                </p>
+                <p class="pub-venue">In <em>The ethical &amp; societal challenges of the upcoming technological storm</em>, pp. 38–41. STOA report — European Union, Brussels</p>
+                <span class="pub-tag">Policy Report</span>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d3" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-tpq.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="http://turkishpolicy.com/article/1098/the-democratic-need-for-ai-as-deliberative-multimodal-systems-demos" target="_blank" rel="noopener noreferrer">
+                    The Democratic Need For AI As Deliberative Multimodal Systems (DeMoS)
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Turkish Policy Quarterly</em>, 21(1), 1–5</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d3" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-philosophy-technology.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">Van de Poel, I. and <strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://link.springer.com/article/10.1007/s13347-022-00520-8" target="_blank" rel="noopener noreferrer">
+                    Understanding technology-induced value change: a pragmatist proposal
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Philosophy &amp; Technology</em>, 35(2), 1–24</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d4" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-perspectives-on-science.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">Nickel, P.&nbsp;J, <strong>Kudina, O.</strong> &amp; Van de Poel, I.</p>
+                <p class="pub-title">
+                  <a href="https://philpapers.org/rec/NICMUI-2" target="_blank" rel="noopener noreferrer">
+                    Moral uncertainty in technomoral change: Bridging the explanatory gap
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Perspectives on Science</em></p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- ── 2021 ── -->
+        <div class="year-group reveal">
+          <h3 class="year-heading">
+            <span class="year-heading-num">2021</span>
+            <span class="year-count">7 publications</span>
+          </h3>
+          <ul class="pub-list" role="list">
+
+            <li class="pub-entry reveal reveal-d1" data-type="preprint">
+              <div class="pub-cover" aria-hidden="true">
+                <div class="pub-cover-book">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+                </div>
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">Feng S., <strong>Kudina O.</strong>, Halpern B. and Scharenborg O.</p>
+                <p class="pub-title">
+                  <a href="https://arxiv.org/pdf/2103.15122.pdf" target="_blank" rel="noopener noreferrer">
+                    Quantifying bias in automatic speech recognition
+                  </a>
+                </p>
+                <p class="pub-venue">arXiv preprint arXiv:2103.15122</p>
+                <span class="pub-tag">Preprint</span>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d1" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-glimpse-vol22.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://www.pdcnet.org/glimpse/content/glimpse_2021_0022_0002_0043_0054" target="_blank" rel="noopener noreferrer">
+                    Bridging privacy and solidarity in COVID-19 contact-tracing apps through the sociotechnical systems perspective
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Glimpse</em>, 22(2), 43–54</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-hastings-center-report.webp" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/hast.1263" target="_blank" rel="noopener noreferrer">
+                    Regulating AI in Health Care: The Challenges of Informed User Engagement
+                  </a>
+                </p>
+                <p class="pub-venue"><em>The Hastings Center Report</em></p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <img src="./cover-j-information-communication-ethics.webp" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong> and M. Coeckelbergh</p>
+                <p class="pub-title">
+                  <a href="https://coeckelbergh.files.wordpress.com/2021/05/kudina-coeckelbergh-2021-article-alexa.pdf" target="_blank" rel="noopener noreferrer">
+                    «Alexa, define empowerment»: Voice assistants at home, appropriation and technoperformances
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Journal of Information, Communication and Ethics in Society</em></p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d3" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                <div class="pub-cover-book">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+                </div>
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://link.springer.com/article/10.1007/s10746-021-09572-9" target="_blank" rel="noopener noreferrer">
+                    «Alexa, who am I?»: Voice Assistants and Hermeneutic Lemniscate as the Technologically Mediated Sense-Making
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Human Studies</em></p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d3" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-j-evaluation-clinical-practice.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong> &amp; de Boer, B.</p>
+                <p class="pub-title">
+                  <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jep.13535" target="_blank" rel="noopener noreferrer">
+                    Co-designing diagnosis: towards a responsible integration of Machine Learning decision-support systems in medical diagnostics
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Journal of Evaluation in Clinical Practice</em></p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d4" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-theoretical-medicine-bioethics.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">De Boer, B. &amp; <strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://link.springer.com/article/10.1007/s11017-021-09553-0" target="_blank" rel="noopener noreferrer">
+                    What is morally at stake when using algorithms to make medical diagnoses? Expanding the discussion beyond risks and harms
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Theoretical Medicine and Bioethics</em></p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- ── 2020 ── -->
+        <div class="year-group reveal">
+          <h3 class="year-heading">
+            <span class="year-heading-num">2020</span>
+            <span class="year-count">1 publication</span>
+          </h3>
+          <ul class="pub-list" role="list">
+
+            <li class="pub-entry reveal reveal-d1" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-j-responsible-innovation.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">Boenink, M. &amp; <strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://www.tandfonline.com/doi/full/10.1080/23299460.2020.1806451" target="_blank" rel="noopener noreferrer">
+                    Values in Responsible Research and Innovation: from entities to practices
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Journal of Responsible Innovation</em>, 7(3), 450–470</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- ── 2019 ── -->
+        <div class="year-group reveal">
+          <h3 class="year-heading">
+            <span class="year-heading-num">2019</span>
+            <span class="year-count">5 publications</span>
+          </h3>
+          <ul class="pub-list" role="list">
+
+            <li class="pub-entry reveal reveal-d1" data-type="thesis">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-thesis-technological-mediation.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://research.utwente.nl/en/publications/the-technological-mediation-of-morality-value-dynamism-and-the-co" target="_blank" rel="noopener noreferrer">
+                    The technological mediation of morality: value dynamism, and the complex interaction between ethics and technology
+                  </a>
+                </p>
+                <p class="pub-venue">PhD thesis — University of Twente, Enschede</p>
+                <span class="pub-tag">PhD Thesis</span>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d1" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-science-technology-human-values.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong> &amp; Verbeek, P.&nbsp;P.</p>
+                <p class="pub-title">
+                  <a href="https://journals.sagepub.com/doi/10.1177/0162243918793711" target="_blank" rel="noopener noreferrer">
+                    Ethics from within: Google Glass, the Collingridge dilemma, and the mediated value of privacy
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Science, Technology, &amp; Human Values</em>, 44(2), 291–314</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-j-bioethical-inquiry.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://link.springer.com/article/10.1007/s11673-018-9891-4" target="_blank" rel="noopener noreferrer">
+                    Accounting for the Moral Significance of Technology: Revisiting the Case of Non-Medical Sex Selection
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Journal of Bioethical Inquiry</em>, 16(1), 75–85</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-glimpse-vol19.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://www.pdcnet.org/glimpse/content/glimpse_2019_0020_0107_0115" target="_blank" rel="noopener noreferrer">
+                    Alexa does not care. Should you? Media literacy in the age of Digital Voice Assistants
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Glimpse</em>, 19, 106–114</p>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d3" data-type="commentary">
+              <div class="pub-cover pub-cover--logo-white" aria-hidden="true">
+                <img src="./cover-bioethics-net.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong> &amp; Bruce, L.</p>
+                <p class="pub-title">
+                  <a href="https://bioethicstoday.org/blog/the-10yearchallenge-harmless-fun-or-cause-for-concern/" target="_blank" rel="noopener noreferrer">
+                    The #10YearChallenge: Harmless Fun or Cause for Concern?
+                  </a>
+                </p>
+                <p class="pub-venue">Bioethics.net, February 11</p>
+                <span class="pub-tag">Commentary</span>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- ── 2018 ── -->
+        <div class="year-group reveal">
+          <h3 class="year-heading">
+            <span class="year-heading-num">2018</span>
+            <span class="year-count">2 publications</span>
+          </h3>
+          <ul class="pub-list" role="list">
+
+            <li class="pub-entry reveal reveal-d1" data-type="chapter">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-surveillance-privacy-public-space.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong> &amp; Bas, M.</p>
+                <p class="pub-title">
+                  <a href="https://research.utwente.nl/en/publications/the-end-of-privacy-as-we-know-it-reconsidering-public-space-in-th" target="_blank" rel="noopener noreferrer">
+                    The end of privacy as we know it: Reconsidering public space in the age of Google Glass
+                  </a>
+                </p>
+                <p class="pub-venue">In <em>Surveillance, Privacy and Public Space</em>, pp. 131–152. Ed. B.&nbsp;C. Newell, T. Timan, &amp; B.&nbsp;J. Koops. Routledge</p>
+                <span class="pub-tag">Book Chapter</span>
+              </div>
+            </li>
+
+            <li class="pub-entry reveal reveal-d2" data-type="article">
+              <div class="pub-cover" aria-hidden="true">
+                                <img src="./cover-j-responsible-innovation.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors">de Boer, B., Hoek, J., &amp; <strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://www.tandfonline.com/doi/full/10.1080/23299460.2018.1495029" target="_blank" rel="noopener noreferrer">
+                    Can the technological mediation approach improve technology assessment? A critical view from 'within'
+                  </a>
+                </p>
+                <p class="pub-venue"><em>Journal of Responsible Innovation</em>, 5(3), 299–315</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- ── 2014 ── -->
+        <div class="year-group reveal">
+          <h3 class="year-heading">
+            <span class="year-heading-num">2014</span>
+            <span class="year-count">1 publication</span>
+          </h3>
+          <ul class="pub-list" role="list">
+
+            <li class="pub-entry reveal reveal-d1" data-type="article">
+              <div class="pub-cover pub-cover--logo-white" aria-hidden="true">
+                <img src="./cover-easst-review.jpg" alt="" loading="lazy">
+              </div>
+              <div class="pub-body">
+                <p class="pub-authors"><strong>Kudina, O.</strong></p>
+                <p class="pub-title">
+                  <a href="https://www.easst.net/easst-review/easst-review-volume-334-december-2014/technology-and-academic-virtues-in-ukraine-escaping-the-soviet-path-dependency/" target="_blank" rel="noopener noreferrer">
+                    Technology and academic virtues in Ukraine: Escaping the Soviet path dependency
+                  </a>
+                </p>
+                <p class="pub-venue"><em>EASST Review</em>, 33(4), 9–11</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div><!-- /wrap -->
+    </section>
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; 2026 <strong>Olya Kudina</strong> &mdash; All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    /* ── Nav scroll: dark → solid ──────────────────────────────── */
+    const nav = document.getElementById('nav');
+    function onScroll() {
+      const pageHeader = document.querySelector('.page-header');
+      const headerBottom = pageHeader ? pageHeader.offsetTop + pageHeader.offsetHeight : 0;
+      nav.classList.toggle('solid', window.scrollY > headerBottom - 80);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── Mobile nav ────────────────────────────────────────────── */
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+
+    burger.addEventListener('click', () => {
+      const open = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!open));
+      drawer.classList.toggle('open', !open);
+      burger.setAttribute('aria-label', open ? 'Open navigation menu' : 'Close navigation menu');
+    });
+
+    drawer.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.setAttribute('aria-expanded', 'false');
+        drawer.classList.remove('open');
+        burger.setAttribute('aria-label', 'Open navigation menu');
+      });
+    });
+
+    /* ── Scroll-triggered reveals ──────────────────────────────── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ── Animated counter ──────────────────────────────────────── */
+    function animateCount(el, target, duration) {
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased    = 1 - Math.pow(1 - progress, 4);
+        const current  = Math.round(eased * target);
+        el.textContent = target >= 1000 ? current.toLocaleString('en-US') : String(current);
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target >= 1000 ? target.toLocaleString('en-US') : String(target);
+      }
+      requestAnimationFrame(step);
+    }
+
+    const statsBar = document.querySelector('.stats-bar');
+    let countersRun = false;
+
+    /* Check reduced motion BEFORE setting up the observer */
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      countersRun = true; /* prevent observer from triggering animation */
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !countersRun) {
+        countersRun = true;
+        document.querySelectorAll('.stat-number[data-target]').forEach((el, i) => {
+          el.textContent = '0'; /* reset to 0 before animating */
+          const target   = parseInt(el.dataset.target, 10);
+          const duration = 1400 + i * 150;
+          setTimeout(() => animateCount(el, target, duration), i * 100);
+        });
+        statsObserver.disconnect();
+      }
+    }, { threshold: 0.5 });
+
+    statsObserver.observe(statsBar);
+  </script>
+</body>
+</html>

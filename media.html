@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── SEO ──────────────────────────────────────────────────────── -->
+  <title>Media — Olya Kudina</title>
+  <meta name="description"
+    content="Videos, podcasts, and press coverage featuring Olya Kudina — Associate Professor of Tech Ethics at TU Delft." />
+  <meta name="author" content="Olya Kudina" />
+  <link rel="canonical" href="https://www.olyakudina.com/media" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.olyakudina.com/media" />
+  <meta property="og:title"       content="Media — Olya Kudina" />
+  <meta property="og:description" content="Videos, podcasts, and press coverage featuring Olya Kudina." />
+  <meta property="og:image"       content="https://www.olyakudina.com/og-image.jpg" />
+  <meta name="twitter:card"       content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       TOKENS
+    ═══════════════════════════════════════════════════════════════ */
+    :root {
+      --ink:          #1A1714;
+      --ink-soft:     #3D342C;
+      --muted:        #6A5A4C;
+      --accent-text:  #8F4620;
+      --cream:        #FAF7F2;
+      --cream-warm:   #F2EDE4;
+      --cream-deep:   #E8DFD3;
+      --night:        #18150F;
+      --night-lifted: #231E17;
+      --accent:       #C4622D;
+      --accent-dim:   #A8501F;
+      --accent-glow:  rgba(196, 98, 45, 0.12);
+      --accent-pale:  #ECC9AF;
+      --border:       #DDD5C8;
+      --border-night: rgba(255,255,255,0.07);
+      --text-on-dark: #F0E9DE;
+      --text-on-dark-soft: rgba(240, 233, 222, 0.65);
+
+      --serif:  'Libre Baskerville', Georgia, 'Times New Roman', serif;
+      --prose:  'Hanken Grotesk', system-ui, sans-serif;
+
+      --s1: 0.5rem;
+      --s2: 1rem;
+      --s3: 1.5rem;
+      --s4: 2rem;
+      --s5: 3rem;
+      --s6: 4.5rem;
+      --s7: 7rem;
+
+      --nav-h: 68px;
+      --max-w: 1200px;
+      --pad-x: clamp(1.5rem, 5vw, 3rem);
+
+      --ease:     cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-out: cubic-bezier(0, 0, 0.2, 1);
+      --dur:      0.28s;
+      --dur-md:   0.55s;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESET
+    ═══════════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: clamp(15px, 1vw + 12px, 17px);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--prose);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a   { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    button { cursor: pointer; font: inherit; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       ACCESSIBILITY
+    ═══════════════════════════════════════════════════════════════ */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: var(--s3);
+      padding: 0.6rem 1.25rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--prose);
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: var(--s2); }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 1px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SCROLL-TRIGGERED REVEALS
+    ═══════════════════════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity var(--dur-md) var(--ease-out),
+                  transform var(--dur-md) var(--ease-out);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.10s; }
+    .reveal-d2 { transition-delay: 0.20s; }
+    .reveal-d3 { transition-delay: 0.30s; }
+    .reveal-d4 { transition-delay: 0.40s; }
+    .reveal-d5 { transition-delay: 0.50s; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       LAYOUT HELPERS
+    ═══════════════════════════════════════════════════════════════ */
+    .wrap {
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: var(--pad-x);
+    }
+
+    .section { padding: var(--s7) 0; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--prose);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-text);
+      margin-bottom: var(--s2);
+    }
+    .tag::before {
+      content: '';
+      display: block;
+      width: 1.75rem;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .tag-light { color: var(--accent-pale); }
+    .tag-light::before { background: var(--accent-pale); }
+
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .section-heading--light { color: var(--text-on-dark); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--pad-x);
+      z-index: 900;
+      background: rgba(24, 21, 15, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-night);
+      transition: background var(--dur-md) var(--ease), border-color var(--dur-md) var(--ease);
+    }
+
+    .nav.solid {
+      background: rgba(250, 247, 242, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 var(--border);
+      border-color: var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--text-on-dark);
+      transition: color var(--dur) var(--ease);
+    }
+    .nav.solid .nav-logo { color: var(--ink); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--s4);
+    }
+    .nav-links a {
+      font-family: var(--prose);
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(240, 233, 222, 0.85);
+      position: relative;
+      padding-bottom: 2px;
+      transition: color var(--dur) var(--ease);
+    }
+    .nav.solid .nav-links a { color: var(--ink-soft); }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width var(--dur-md) var(--ease-out);
+    }
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after { width: 100%; }
+    .nav-links a:hover { color: rgba(240,233,222,1); }
+    .nav.solid .nav-links a:hover { color: var(--accent); }
+    .nav-links a[aria-current="page"] {
+      color: var(--accent-pale);
+    }
+    .nav-links a[aria-current="page"]::after { width: 100%; }
+    .nav.solid .nav-links a[aria-current="page"] { color: var(--accent); }
+
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 11px;
+      min-width: 44px;
+      min-height: 44px;
+    }
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text-on-dark);
+      transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+    }
+    .nav.solid .nav-burger span { background: var(--ink); }
+    .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .nav-drawer {
+      position: fixed;
+      top: var(--nav-h);
+      inset-inline: 0;
+      background: rgba(250, 247, 242, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: var(--s4) var(--pad-x) var(--s5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--s3);
+      border-bottom: 1px solid var(--border);
+      transform: translateY(-110%);
+      opacity: 0;
+      transition: transform var(--dur-md) var(--ease), opacity var(--dur-md) var(--ease);
+      z-index: 850;
+      pointer-events: none;
+    }
+    .nav-drawer.open {
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-drawer a {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--ink);
+      transition: color var(--dur) var(--ease);
+    }
+    .nav-drawer a:hover { color: var(--accent); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       PAGE HEADER
+    ═══════════════════════════════════════════════════════════════ */
+    .page-header {
+      background: var(--night);
+      padding-top: calc(var(--nav-h) + var(--s6));
+      padding-bottom: var(--s6);
+    }
+
+    .page-header-inner {
+      max-width: 720px;
+    }
+
+    .page-title {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-on-dark);
+      margin-bottom: var(--s3);
+    }
+    .page-title em {
+      font-style: italic;
+      color: var(--accent-pale);
+    }
+
+    .page-subtitle {
+      font-family: var(--prose);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-on-dark-soft);
+      max-width: 52ch;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       STICKY SUB-NAV
+    ═══════════════════════════════════════════════════════════════ */
+    .subnav {
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 800;
+      background: rgba(24, 21, 15, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-night);
+    }
+
+    .subnav-inner {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .subnav-inner::-webkit-scrollbar { display: none; }
+
+    .subnav-link {
+      font-family: var(--prose);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-on-dark-soft);
+      padding: 1rem 1.5rem;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    }
+    .subnav-link:hover { color: var(--text-on-dark); }
+    .subnav-link.active {
+      color: var(--accent-pale);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       VIDEOS SECTION
+    ═══════════════════════════════════════════════════════════════ */
+    .videos-section {
+      background: var(--cream);
+    }
+
+    .section-intro {
+      max-width: 60ch;
+      margin-bottom: var(--s6);
+    }
+
+    /* Featured videos: 3-column */
+    .video-featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s3);
+      margin-bottom: var(--s5);
+    }
+
+    /* Regular videos: 4-column */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s3);
+    }
+
+    .video-label {
+      font-family: var(--prose);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: var(--s2);
+    }
+
+    .video-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s2);
+    }
+
+    .video-thumb-wrap {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--cream-deep);
+    }
+
+    .video-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--dur-md) var(--ease);
+    }
+
+    .video-card:hover .video-thumb-wrap img {
+      transform: scale(1.04);
+    }
+
+    /* Play button overlay */
+    .play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(12, 9, 5, 0.28);
+      transition: background var(--dur) var(--ease);
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      padding: 0;
+    }
+    .video-card:hover .play-btn {
+      background: rgba(12, 9, 5, 0.18);
+    }
+
+    /* Inline iframe (plays inside the card) */
+    .video-thumb-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* Fallback shown when Error 153 (owner disabled embedding) */
+    .video-inline-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: #111;
+      padding: 1rem;
+      text-align: center;
+    }
+    .video-inline-fallback span {
+      font-family: var(--prose);
+      font-size: 0.75rem;
+      color: rgba(240, 233, 222, 0.45);
+    }
+    .video-inline-fallback a {
+      font-family: var(--prose);
+      font-size: 0.75rem;
+      color: var(--accent-pale);
+      border-bottom: 1px solid rgba(236, 201, 175, 0.3);
+      padding-bottom: 1px;
+      white-space: nowrap;
+      transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    }
+    .video-inline-fallback a:hover { color: #fff; border-color: rgba(255,255,255,0.45); }
+
+    .play-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(250, 247, 242, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--dur) var(--ease), background var(--dur) var(--ease);
+      flex-shrink: 0;
+    }
+    .video-card:hover .play-circle {
+      transform: scale(1.1);
+      background: #fff;
+    }
+
+    .play-circle svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--accent);
+      margin-left: 3px; /* optical centering */
+    }
+
+    /* Featured: larger play button */
+    .video-card--featured .play-circle {
+      width: 68px;
+      height: 68px;
+    }
+    .video-card--featured .play-circle svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .video-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .video-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--ink);
+      transition: color var(--dur) var(--ease);
+    }
+    .video-card:hover .video-title { color: var(--accent-text); }
+    .video-card--featured .video-title {
+      font-size: 1.1rem;
+    }
+
+    .video-source {
+      font-family: var(--prose);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .video-date {
+      font-family: var(--prose);
+      font-size: 0.75rem;
+      color: var(--accent-text);
+      letter-spacing: 0.04em;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       PODCASTS SECTION
+    ═══════════════════════════════════════════════════════════════ */
+    .podcasts-section {
+      background: var(--night);
+    }
+
+    .podcasts-section .section-heading--light {
+      margin-bottom: var(--s5);
+    }
+
+    .podcast-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--s3);
+    }
+
+    .podcast-card {
+      background: var(--night-lifted);
+      border: 1px solid var(--border-night);
+      padding: var(--s4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--s3);
+      transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+    }
+    .podcast-card:hover {
+      border-color: rgba(255,255,255,0.14);
+      background: rgba(35, 30, 23, 0.9);
+    }
+
+    .podcast-platform {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--prose);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-pale);
+    }
+
+    .podcast-platform svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .podcast-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--s1);
+    }
+
+    .podcast-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--text-on-dark);
+    }
+
+    .podcast-desc {
+      font-family: var(--prose);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--text-on-dark-soft);
+    }
+
+    .podcast-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--prose);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--accent-pale);
+      align-self: flex-start;
+      border-bottom: 1px solid rgba(236, 201, 175, 0.3);
+      padding-bottom: 1px;
+      transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    }
+    .podcast-link:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.5);
+    }
+    .podcast-link svg {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       IN THE MEDIA SECTION
+    ═══════════════════════════════════════════════════════════════ */
+    .press-section {
+      background: var(--cream-warm);
+    }
+
+    .press-section .section-heading {
+      margin-bottom: var(--s4);
+    }
+
+    .press-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .press-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      gap: var(--s3);
+      padding: var(--s3) 0;
+      border-bottom: 1px solid var(--border);
+      transition: background var(--dur) var(--ease);
+    }
+    .press-item:hover {
+      background: var(--cream-deep);
+      margin-inline: calc(var(--pad-x) * -1);
+      padding-inline: var(--pad-x);
+    }
+
+    .press-item-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      min-width: 0;
+    }
+
+    .press-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: rgba(26, 23, 20, 0.18);
+      text-underline-offset: 3px;
+      transition: color var(--dur) var(--ease), text-decoration-color var(--dur) var(--ease);
+    }
+    .press-item:hover .press-title {
+      color: var(--accent-text);
+      text-decoration-color: var(--accent-text);
+    }
+
+    .press-source {
+      font-family: var(--prose);
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .press-year {
+      font-family: var(--prose);
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .press-arrow {
+      display: inline-flex;
+      align-items: center;
+      color: var(--muted);
+      opacity: 0.5;
+      transform: none;
+      transition: opacity var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease);
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .press-item:hover .press-arrow {
+      opacity: 1;
+      color: var(--accent);
+      transform: translate(2px, -2px);
+    }
+
+    .press-item-right {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════════════ */
+    .footer {
+      background: var(--night);
+      padding: var(--s4) 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--s2);
+    }
+
+    .footer-copy {
+      font-family: var(--prose);
+      font-size: 0.88rem;
+      color: var(--text-on-dark-soft);
+    }
+    .footer-copy strong {
+      color: var(--text-on-dark);
+      font-weight: 400;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .nav-links  { display: none; }
+      .nav-burger { display: flex; }
+
+      .video-featured-grid { grid-template-columns: 1fr; }
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 700px) {
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+      .podcast-grid { grid-template-columns: 1fr; }
+
+      .section { padding: var(--s6) 0; }
+    }
+
+    @media (max-width: 600px) {
+      .video-grid { grid-template-columns: 1fr; }
+      .section { padding: var(--s5) 0; }
+      .section-intro { margin-bottom: var(--s3); }
+
+      .press-item {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+      }
+      .press-item-right { justify-content: space-between; }
+
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .subnav-link { padding: 0.65rem 1rem; letter-spacing: 0.12em; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Skip link ──────────────────────────────────────────────── -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ── Navigation ─────────────────────────────────────────────── -->
+<header role="banner">
+  <nav class="nav" id="nav" aria-label="Primary navigation">
+    <a href="/" class="nav-logo" aria-label="Olya Kudina — home">Olya Kudina</a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="/research-teaching">Research &amp; Teaching</a></li>
+      <li><a href="/publications">Publications</a></li>
+      <li><a href="/media" aria-current="page">Media</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+
+    <button class="nav-burger" id="burger"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-drawer" id="drawer" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <a href="/research-teaching" class="drawer-link">Research &amp; Teaching</a>
+    <a href="/publications" class="drawer-link">Publications</a>
+    <a href="/media" class="drawer-link" aria-current="page">Media</a>
+    <a href="/#contact" class="drawer-link">Contact</a>
+  </div>
+</header>
+
+<!-- ── Main content ───────────────────────────────────────────── -->
+<main id="main">
+
+  <!-- PAGE HEADER ───────────────────────────────────────────────── -->
+  <section class="page-header" aria-label="Media page header">
+    <div class="wrap">
+      <div class="page-header-inner reveal">
+        <p class="tag tag-light">Appearances</p>
+        <h1 class="page-title">Media &amp; <em>Press</em></h1>
+        <p class="page-subtitle">Talks, interviews, and coverage featuring Olya Kudina's work on technology ethics, AI, and human values.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STICKY SUB-NAV ───────────────────────────────────────────── -->
+  <nav class="subnav" aria-label="Media sections">
+    <div class="wrap">
+      <div class="subnav-inner">
+        <a href="#videos" class="subnav-link active" data-section="videos">Videos</a>
+        <a href="#podcasts" class="subnav-link" data-section="podcasts">Podcasts</a>
+        <a href="#press" class="subnav-link" data-section="press">In the media</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- VIDEOS ────────────────────────────────────────────────────── -->
+  <section class="videos-section section" id="videos" aria-labelledby="videos-h2">
+    <div class="wrap">
+
+      <div class="section-intro reveal">
+        <p class="tag">Featured talks</p>
+        <h2 class="section-heading" id="videos-h2">Videos</h2>
+      </div>
+
+      <!-- Featured: top 3 -->
+      <p class="video-label reveal reveal-d1">Featured</p>
+      <div class="video-featured-grid" role="list">
+
+        <article class="video-card video-card--featured reveal reveal-d2" role="listitem" data-video-id="ve6qJGt1_kk">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/ve6qJGt1_kk/hqdefault.jpg"
+                 alt="Hey Siri, why are my kids screaming at you? — Universiteit van Nederland" loading="lazy" />
+            <button class="play-btn" aria-label="Play: Hey Siri, why are my kids screaming at you?">
+              <div class="play-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </button>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">
+              <a href="https://www.youtube.com/watch?v=ve6qJGt1_kk" target="_blank" rel="noopener noreferrer">
+                Hey Siri, why are my kids screaming at you?
+              </a>
+            </p>
+            <p class="video-source">Universiteit van Nederland</p>
+            <p class="video-date">1 February 2021</p>
+          </div>
+        </article>
+
+        <article class="video-card video-card--featured reveal reveal-d3" role="listitem" data-video-id="vwqi8C04Gsk">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/vwqi8C04Gsk/hqdefault.jpg"
+                 alt="Technological Mediation of Morality | Olya Kudina | TEDxBucharest" loading="lazy" />
+            <button class="play-btn" aria-label="Play: Technological Mediation of Morality — TEDxBucharest">
+              <div class="play-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </button>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">
+              <a href="https://www.youtube.com/watch?v=vwqi8C04Gsk" target="_blank" rel="noopener noreferrer">
+                Technological Mediation of Morality | Olya Kudina | TEDxBucharest
+              </a>
+            </p>
+            <p class="video-source">TEDxBucharest</p>
+            <p class="video-date">17 November 2019</p>
+          </div>
+        </article>
+
+        <article class="video-card video-card--featured reveal reveal-d4" role="listitem" data-video-id="1EeQdyUFdUs">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/1EeQdyUFdUs/hqdefault.jpg"
+                 alt="Is using AI ethical? - interview with Olya Kudina" loading="lazy" />
+            <button class="play-btn" aria-label="Play: Is using AI ethical? — interview with Olya Kudina">
+              <div class="play-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </button>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">
+              <a href="https://www.youtube.com/watch?v=1EeQdyUFdUs" target="_blank" rel="noopener noreferrer">
+                Is using AI ethical? - interview with Olya Kudina
+              </a>
+            </p>
+            <p class="video-source">AI Lab Insights</p>
+            <p class="video-date">7 August 2018</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Regular videos -->
+      <p class="video-label reveal">More talks</p>
+      <div class="video-grid" role="list">
+
+        <article class="video-card reveal reveal-d1" role="listitem" data-video-id="Us7Uf-h162Y">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/Us7Uf-h162Y/hqdefault.jpg"
+                 alt="Behind Metamorphosis Series - episode 19: Olya Kudina" loading="lazy" />
+            <button class="play-btn" aria-label="Play: Behind Metamorphosis Series — episode 19: Olya Kudina">
+              <div class="play-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </button>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">
+              <a href="https://www.youtube.com/watch?v=Us7Uf-h162Y" target="_blank" rel="noopener noreferrer">
+                Behind Metamorphosis Series — episode 19: Olya Kudina
+              </a>
+            </p>
+            <p class="video-date">17 November 2019</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal reveal-d2" role="listitem" data-video-id="X_tF7mahVSI">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/X_tF7mahVSI/hqdefault.jpg"
+                 alt="Technologies and the global order — CIDOB Barcelona 35 Under 35 Award Speech" loading="lazy" />
+            <button class="play-btn" aria-label="Play: Technologies and the global order — CIDOB Barcelona 35 Under 35 Award Speech">
+              <div class="play-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </button>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">
+              <a href="https://www.youtube.com/watch?v=X_tF7mahVSI" target="_blank" rel="noopener noreferrer">
+                Technologies and the global order | CIDOB Barcelona 35 Under 35 Award Speech
+              </a>
+            </p>
+            <p class="video-date">10 November 2020</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal reveal-d3" role="listitem" data-video-id="jRcTUrbMymo">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/jRcTUrbMymo/hqdefault.jpg"
+                 alt="Pictures that speak | ARPA BUAP Mexico" loading="lazy" />
+            <button class="play-btn" aria-label="Play: Pictures that speak — ARPA BUAP Mexico">
+              <div class="play-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </button>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">
+              <a href="https://www.youtube.com/watch?v=jRcTUrbMymo" target="_blank" rel="noopener noreferrer">
+                Pictures that speak | ARPA BUAP Mexico
+              </a>
+            </p>
+            <p class="video-date">8 October 2019</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal reveal-d4" role="listitem" data-video-id="8qRNhWfYRjU">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/8qRNhWfYRjU/hqdefault.jpg"
+                 alt="Alexa doesn't care, Should you? | Codemotion Madrid 2019" loading="lazy" />
+            <button class="play-btn" aria-label="Play: Alexa doesn't care, Should you? — Codemotion Madrid 2019">
+              <div class="play-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </button>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">
+              <a href="https://www.youtube.com/watch?v=8qRNhWfYRjU" target="_blank" rel="noopener noreferrer">
+                Alexa doesn't care, Should you? | Codemotion Madrid 2019
+              </a>
+            </p>
+            <p class="video-date">25 September 2019</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal reveal-d1" role="listitem" data-video-id="ekay9DYJpJE">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/ekay9DYJpJE/hqdefault.jpg"
+                 alt="Olya Kudina on Philosophy and Ethics of Technology | Yale University Center for Bioethics" loading="lazy" />
+            <button class="play-btn" aria-label="Play: Olya Kudina on Philosophy and Ethics of Technology — Yale">
+              <div class="play-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </button>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">
+              <a href="https://www.youtube.com/watch?v=ekay9DYJpJE" target="_blank" rel="noopener noreferrer">
+                Olya Kudina on Philosophy and Ethics of Technology | Yale University Center for Bioethics
+              </a>
+            </p>
+            <p class="video-date">2 July 2019</p>
+          </div>
+        </article>
+
+        <article class="video-card reveal reveal-d2" role="listitem" data-video-id="pRjJUunxqfk">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/pRjJUunxqfk/hqdefault.jpg"
+                 alt="Introduction to technologically mediated morality | University of Twente" loading="lazy" />
+            <button class="play-btn" aria-label="Play: Introduction to technologically mediated morality — University of Twente">
+              <div class="play-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </button>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">
+              <a href="https://www.youtube.com/watch?v=pRjJUunxqfk" target="_blank" rel="noopener noreferrer">
+                Introduction to technologically mediated morality | University of Twente
+              </a>
+            </p>
+            <p class="video-date">10 November 2016</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCASTS ──────────────────────────────────────────────────── -->
+  <section class="podcasts-section section" id="podcasts" aria-labelledby="podcasts-h2">
+    <div class="wrap">
+
+      <div class="reveal">
+        <p class="tag tag-light">Audio</p>
+        <h2 class="section-heading section-heading--light" id="podcasts-h2">Podcasts</h2>
+      </div>
+
+      <div class="podcast-grid">
+
+        <article class="podcast-card reveal reveal-d1">
+          <div class="podcast-platform">
+            <!-- Spotify icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+            </svg>
+            Spotify
+          </div>
+          <div class="podcast-body">
+            <h3 class="podcast-title">Loneliness and You</h3>
+            <p class="podcast-desc">A conversation on loneliness, technology, and the ethics of human connection in digital spaces.</p>
+          </div>
+          <a href="https://creators.spotify.com/pod/profile/axel-seemann/episodes/Olya-Kudina-e2e1ofm/a-aaqes18"
+             class="podcast-link" target="_blank" rel="noopener noreferrer">
+            Listen on Spotify
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <article class="podcast-card reveal reveal-d2">
+          <div class="podcast-platform">
+            <!-- Blog/podcast icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-3-3 1.41-1.41L11 12.17l4.59-4.58L17 9l-6 6z"/>
+            </svg>
+            Blog / Podcast
+          </div>
+          <div class="podcast-body">
+            <h3 class="podcast-title">Philosophical Disquisitions — Ep. 96: How Does Technology Mediate Our Values?</h3>
+            <p class="podcast-desc">An in-depth discussion on technological mediation, moral change, and how our devices shape what we care about.</p>
+          </div>
+          <a href="https://philosophicaldisquisitions.blogspot.com/2021/12/96-how-does-technology-mediate-our.html"
+             class="podcast-link" target="_blank" rel="noopener noreferrer">
+            Read &amp; listen
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <article class="podcast-card reveal reveal-d3">
+          <div class="podcast-platform">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+            </svg>
+            Spotify
+          </div>
+          <div class="podcast-body">
+            <h3 class="podcast-title">Stork Talks — Artificial Intelligence</h3>
+            <p class="podcast-desc">A conversation on artificial intelligence, ethical frameworks, and what responsible AI means for society.</p>
+          </div>
+          <a href="https://creators.spotify.com/pod/profile/storktalks/episodes/Stork-Talks-Artificial-Intelligence-e10s06b"
+             class="podcast-link" target="_blank" rel="noopener noreferrer">
+            Listen on Spotify
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+        <article class="podcast-card reveal reveal-d4">
+          <div class="podcast-platform">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+            </svg>
+            Spotify
+          </div>
+          <div class="podcast-body">
+            <h3 class="podcast-title">4TU.Ethics CoronaEthics — Episode 1: Corona, Our Relation to the World, and Contact Tracing</h3>
+            <p class="podcast-desc">On pandemic ethics, surveillance technology, and how crisis conditions reveal our values and assumptions about privacy.</p>
+          </div>
+          <a href="https://creators.spotify.com/pod/profile/4tuethicspodcast/episodes/1-Corona--our-relation-to-the-world--and-contact-tracing-en5odk"
+             class="podcast-link" target="_blank" rel="noopener noreferrer">
+            Listen on Spotify
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- IN THE MEDIA ──────────────────────────────────────────────── -->
+  <section class="press-section section" id="press" aria-labelledby="press-h2">
+    <div class="wrap">
+
+      <div class="reveal">
+        <p class="tag">Press</p>
+        <h2 class="section-heading" id="press-h2">In the media</h2>
+      </div>
+
+      <ul class="press-list" role="list">
+
+        <li class="press-item reveal">
+          <a href="https://nos.nl/artikel/2531548-techbedrijven-lijken-ai-illegaal-te-trainen-met-beelden-van-nederlandse-makers"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Read: Techbedrijven lijken AI illegaal te trainen met beelden van Nederlandse makers — NOS (opens article)">
+            <span class="press-title">Techbedrijven lijken AI illegaal te trainen met beelden van Nederlandse makers</span>
+            <span class="press-source">NOS · Interview</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">Aug 2024</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="press-item reveal">
+          <a href="https://nos.nl/artikel/2521003-met-iedere-versie-worden-ai-tools-beetje-menselijker-spelen-met-vuur"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Read: Met iedere versie worden AI-tools beetje menselijker: spelen met vuur — NOS (opens article)">
+            <span class="press-title">Met iedere versie worden AI-tools beetje menselijker: spelen met vuur</span>
+            <span class="press-source">NOS · Interview on AI emotional companions</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">May 2024</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="press-item reveal">
+          <a href="https://vng.nl/magazines/vng-magazine-nummer-5-2024"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Read: VNG Magazine nummer 5 — AI use by municipality workers (opens article)">
+            <span class="press-title">AI use by municipality workers</span>
+            <span class="press-source">VNG Magazine · Nr. 5, 2024</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">Mar 2024</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="press-item reveal">
+          <a href="https://twitter.com/tudelftlibrary/status/1766105142405759310/photo/1"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Read: Inspirational women in open publishing — TU Delft Library (opens article)">
+            <span class="press-title">Inspirational women in open publishing</span>
+            <span class="press-source">TU Delft Library</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">Mar 2024</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="press-item reveal">
+          <a href="https://openpublishing.tudl.tudelft.nl/editor-spotlight-examining-technology-through-a-philosophical-lens/"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Read: Editor spotlight — Examining technology through a philosophical lens — TU Delft (opens article)">
+            <span class="press-title">Editor spotlight: Examining technology through a philosophical lens</span>
+            <span class="press-source">TU Delft Open Publishing</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">Dec 2023</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="press-item reveal">
+          <a href="https://businessam.be/radiotopic/deze-technologie-is-niet-objectief-in-zijn-manier-om-kennis-te-presenteren/"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Read: Deze technologie is niet objectief in zijn manier om kennis te presenteren — Business AM (opens article)">
+            <span class="press-title">"Deze technologie is niet objectief in zijn manier om kennis te presenteren"</span>
+            <span class="press-source">Business AM · Radio interview on AI regulation</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">Apr 2023</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="press-item reveal">
+          <a href="https://www.vianewsdidi.com/post/chatgpt-in-classrooms-a-grave-error-or-the-right-endeavour"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Read: ChatGPT in Classrooms: A grave error or the right endeavour? — Via News Didi (opens article)">
+            <span class="press-title">ChatGPT in Classrooms: A grave error or the right endeavour?</span>
+            <span class="press-source">Via News Didi · Interview</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">Feb 2023</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="press-item reveal">
+          <a href="https://nos.nl/l/2463357"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Read: Microsoft en Google wedijveren om zoekmachine van de toekomst — NOS (opens article)">
+            <span class="press-title">Microsoft en Google wedijveren om zoekmachine van de toekomst</span>
+            <span class="press-source">NOS · Interview</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">Feb 2023</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="press-item reveal">
+          <a href="https://www.npostart.nl/nos-journaal/11-02-2023/POW_05467897"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Watch: NOS Journaal 20.00 uur — 11 feb 2023 (opens video)">
+            <span class="press-title">NOS Journaal 20:00 — AI en de toekomst van zoeken</span>
+            <span class="press-source">NOS Journaal · Video interview (7:29–9:44)</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">Feb 2023</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="press-item reveal">
+          <a href="https://www.wired.com/story/chatgpt-is-coming-for-classrooms-dont-panic/"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Read: ChatGPT Is Coming for Classrooms. Don't Panic — WIRED (opens article)">
+            <span class="press-title">ChatGPT Is Coming for Classrooms. Don't Panic</span>
+            <span class="press-source">WIRED · Interview</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">Jan 2023</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="press-item reveal">
+          <a href="https://nos.nl/l/2455837"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Read: Schrijvende AI populair: 'We bevinden ons op een kantelpunt' — NOS (opens article)">
+            <span class="press-title">Schrijvende AI populair: 'We bevinden ons op een kantelpunt'</span>
+            <span class="press-source">NOS · Interview</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">Dec 2022</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="press-item reveal">
+          <a href="https://www.npostart.nl/nos-journaal/10-12-2022/POW_05159290"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Watch: NOS Journaal 20.00 uur — 10 dec 2022 (opens video)">
+            <span class="press-title">NOS Journaal 20:00 — Schrijvende AI</span>
+            <span class="press-source">NOS Journaal · Video interview (from 14:03)</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">Dec 2022</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+        <li class="press-item reveal">
+          <a href="https://www.nporadio1.nl/fragmenten/nos-radio-1-journaal/130c9a17-fade-48d2-9cc2-982421990d46/2022-12-10-techwereld-in-ban-van-chatgpt"
+             class="press-item-left" target="_blank" rel="noopener noreferrer"
+             aria-label="Listen: Techwereld in ban van ChatGPT — NPO Radio 1 (opens audio)">
+            <span class="press-title">Techwereld in ban van ChatGPT</span>
+            <span class="press-source">NPO Radio 1 · Radio interview</span>
+          </a>
+          <div class="press-item-right">
+            <span class="press-year">Dec 2022</span>
+            <span class="press-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2026 <strong>Olya Kudina</strong> &mdash; All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ── Scripts ────────────────────────────────────────────────── -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── Nav: dark on this page (media page has dark header) ── */
+  const nav = document.getElementById('nav');
+
+  function onScroll() {
+    const y = window.scrollY;
+    /* Switch to light (solid) style when past the page header */
+    const pageHeader = document.querySelector('.page-header');
+    const headerBottom = pageHeader ? pageHeader.offsetTop + pageHeader.offsetHeight : 0;
+    nav.classList.toggle('solid', y > headerBottom - 80);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── Mobile nav ── */
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+  let drawerOpen = false;
+
+  function toggleDrawer(force) {
+    drawerOpen = typeof force === 'boolean' ? force : !drawerOpen;
+    drawer.classList.toggle('open', drawerOpen);
+    burger.setAttribute('aria-expanded', String(drawerOpen));
+    burger.setAttribute('aria-label', drawerOpen ? 'Close navigation menu' : 'Open navigation menu');
+  }
+
+  burger.addEventListener('click', () => toggleDrawer());
+
+  document.querySelectorAll('.drawer-link').forEach(link => {
+    link.addEventListener('click', () => toggleDrawer(false));
+  });
+
+  document.addEventListener('click', (e) => {
+    if (drawerOpen && !nav.contains(e.target) && !drawer.contains(e.target)) {
+      toggleDrawer(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawerOpen) {
+      toggleDrawer(false);
+      burger.focus();
+    }
+  });
+
+  /* ── Scroll reveals ── */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* ── Video: click thumbnail → play inline ── */
+  document.querySelectorAll('.video-card[data-video-id]').forEach(card => {
+    const id    = card.dataset.videoId;
+    const thumb = card.querySelector('.video-thumb-wrap');
+    if (!thumb) return;
+
+    thumb.addEventListener('click', () => {
+      const title  = card.querySelector('.video-title a')?.textContent.trim() || 'Video';
+      const iframe = document.createElement('iframe');
+      iframe.src   = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.title = title;
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      iframe.setAttribute('allowfullscreen', '');
+      thumb.innerHTML = '';
+      thumb.appendChild(iframe);
+    }, { once: true });
+  });
+
+  /* ── Subnav active tracking ── */
+  const sections = ['videos', 'podcasts', 'press'];
+  const subnavLinks = document.querySelectorAll('.subnav-link');
+
+  const sectionObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        subnavLinks.forEach(link => {
+          link.classList.toggle('active', link.dataset.section === id);
+        });
+      }
+    });
+  }, {
+    rootMargin: '-20% 0px -60% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) sectionObs.observe(el);
+  });
+
+})();
+</script>
+
+</body>
+</html>
