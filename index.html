@@ -36,10 +36,13 @@
   }
   </script>
 
+  <meta name="theme-color" content="#FAF7F2" />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="./hero.jpg" />
 
   <style>
     /* ═══════════════════════════════════════════════════════════════
@@ -99,6 +102,7 @@
       scroll-behavior: smooth;
       font-size: clamp(15px, 1vw + 12px, 17px);
       -webkit-text-size-adjust: 100%;
+      color-scheme: light;
     }
 
     body {
@@ -116,7 +120,8 @@
 
     ul, ol { list-style: none; }
 
-    button { cursor: pointer; font: inherit; }
+    button { cursor: pointer; font: inherit; touch-action: manipulation; }
+    a { touch-action: manipulation; }
 
     /* ═══════════════════════════════════════════════════════════════
        ACCESSIBILITY
@@ -246,6 +251,7 @@
       width: 22px;
       height: 1.5px;
       background: var(--text-on-dark);
+      transform-origin: center;
       transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
     }
     .nav.solid .nav-burger span { background: var(--ink); }
@@ -271,6 +277,7 @@
       transition: transform var(--dur-md) var(--ease), opacity var(--dur-md) var(--ease);
       z-index: 850;
       pointer-events: none;
+      overscroll-behavior: contain;
     }
     .nav-drawer.open {
       transform: none;
@@ -466,7 +473,7 @@
     /* ═══════════════════════════════════════════════════════════════
        SHARED SECTION UTILITIES
     ═══════════════════════════════════════════════════════════════ */
-    .section { padding: var(--s7) 0; }
+    .section { padding: var(--s7) 0; scroll-margin-top: var(--nav-h); }
 
     .wrap {
       max-width: var(--max-w);
@@ -623,7 +630,6 @@
     }
     .rt-col + .rt-col {
       padding-left: clamp(2rem, 4vw, 3.5rem);
-      border-left: 1px solid var(--border-night);
     }
 
     .rt-col-head {
@@ -766,9 +772,8 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(3rem, 6vw, 5.5rem);
-      align-items: start;
+      grid-template-columns: 1fr;
+      max-width: 560px;
     }
 
     .contact-desc {
@@ -818,79 +823,6 @@
       background: var(--accent-glow);
     }
 
-    /* Form */
-    .form {
-      display: flex;
-      flex-direction: column;
-      gap: var(--s3);
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .form-label {
-      font-family: var(--prose);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .form-control {
-      width: 100%;
-      font-family: var(--prose);
-      font-size: 1rem;
-      line-height: 1.5;
-      color: var(--ink);
-      background: var(--cream-warm);
-      border: 1px solid var(--border);
-      padding: 0.8rem 1rem;
-      transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-      border-radius: 0;
-      appearance: none;
-      -webkit-appearance: none;
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(196,98,45,0.1);
-    }
-
-    textarea.form-control {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    .form-submit {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      align-self: flex-start;
-      padding: 0.85rem 1.9rem;
-      background: var(--accent);
-      color: #fff;
-      font-family: var(--prose);
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border: none;
-      transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
-    }
-    .form-submit:hover {
-      background: var(--accent-dim);
-      transform: translateY(-1px);
-    }
-    .form-submit:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-    }
-
     /* ═══════════════════════════════════════════════════════════════
        FOOTER
     ═══════════════════════════════════════════════════════════════ */
@@ -924,8 +856,7 @@
       .nav-links  { display: none; }
       .nav-burger { display: flex; }
 
-      .about-grid,
-      .contact-grid { grid-template-columns: 1fr; gap: var(--s5); }
+      .about-grid { grid-template-columns: 1fr; gap: var(--s5); }
 
       .portrait-wrap {
         display: none;
@@ -942,7 +873,7 @@
 
       .rt-panel { grid-template-columns: 1fr; }
       .rt-col { padding-bottom: var(--s3); }
-      .rt-col + .rt-col { border-left: none; border-top: 1px solid var(--border-night); padding-left: 0; padding-top: var(--s3); }
+      .rt-col + .rt-col { border-left: none; border-top: none; padding-left: 0; padding-top: var(--s3); }
 
       .news-grid { grid-template-columns: 1fr; }
       .news-card--featured { grid-column: span 1; }
@@ -956,7 +887,6 @@
       .rt-course-row { grid-template-columns: 1fr; gap: 0.25rem; }
       .section { padding: var(--s5) 0; }
       .portrait-inline { max-width: 100%; }
-      .form-submit { width: 100%; justify-content: center; }
       .hero-social-btn { width: 44px; height: 44px; }
 
       /* Face fix: gradient goes bottom-up so face is clear at top */
@@ -1094,7 +1024,7 @@
               <a href="https://www.tudelft.nl" target="_blank" rel="noopener noreferrer">Delft University of Technology</a>
               (the Netherlands), where she helps students and organisations integrate ethical reflection and cultural sensitivity as essential counterparts to technology development.
             </p>
-            <img class="portrait-inline reveal reveal-d3" src="./about.png" alt="Olya Kudina, Associate Professor at TU Delft" />
+            <img class="portrait-inline reveal reveal-d3" src="./about.png" alt="Olya Kudina, Associate Professor at TU Delft" width="320" height="427" loading="lazy" />
             <p class="reveal reveal-d3">
               Olya is co-director of the <a href="#research">AI DeMoS Lab</a>, which focuses on the relation between AI and democracy and on responsible AI development practices. She is also co-founder and co-editor-in-chief of the diamond open-access
               <a href="#publications">Journal of Human-Technology Relations</a>.
@@ -1126,7 +1056,7 @@
 
         <!-- Portrait column -->
         <div class="portrait-wrap reveal reveal-d2">
-          <img class="portrait" src="./about.png" alt="Olya Kudina, Associate Professor at TU Delft" />
+          <img class="portrait" src="./about.png" alt="Olya Kudina, Associate Professor at TU Delft" width="420" height="560" loading="lazy" />
         </div>
 
       </div>
@@ -1276,7 +1206,7 @@
           <p class="tag">Get in touch</p>
           <h2 class="section-heading" id="contact-h2">Contact</h2>
           <p class="contact-desc">
-            For research collaboration, media requests, or speaking engagements, reach out via email or the form opposite.
+            For research collaboration, media requests, or speaking engagements, reach out via email.
           </p>
 
           <a href="mailto:o.kudina@tudelft.nl" class="contact-email-link">
@@ -1303,40 +1233,6 @@
           </div>
         </div>
 
-        <!-- Form column -->
-        <form class="form reveal reveal-d2"
-          action="#" method="post"
-          aria-label="Contact form"
-          novalidate>
-
-          <div class="form-field">
-            <label class="form-label" for="name">Name</label>
-            <input class="form-control" type="text" id="name" name="name"
-              autocomplete="name"
-              required aria-required="true" />
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="email">Email address</label>
-            <input class="form-control" type="email" id="email" name="email"
-              autocomplete="email"
-              required aria-required="true" />
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-control" id="message" name="message"
-              required aria-required="true"></textarea>
-          </div>
-
-          <button type="submit" class="form-submit">
-            Send message
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M1.5 7h11M8 2.5l5 4.5-5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-
-        </form>
       </div>
     </div>
   </section>
@@ -1427,24 +1323,6 @@
 
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-  /* ── Contact form: basic client-side feedback ── */
-  const form = document.querySelector('.form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('.form-submit');
-      const orig = btn.innerHTML;
-      btn.textContent = 'Message sent ✓';
-      btn.disabled = true;
-      btn.style.background = '#5A8A5A';
-      setTimeout(() => {
-        btn.innerHTML = orig;
-        btn.disabled = false;
-        btn.style.background = '';
-        form.reset();
-      }, 3500);
-    });
-  }
 })();
 </script>
 
