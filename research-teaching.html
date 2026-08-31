@@ -215,11 +215,12 @@
       background: var(--cream);
       padding-block: var(--s7);
     }
-    .research-grid {
+    .research-top {
       display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: clamp(3rem, 6vw, 6rem);
+      grid-template-columns: 1fr 360px;
+      gap: clamp(2.5rem, 5vw, 5rem);
       align-items: start;
+      margin-bottom: var(--s5);
     }
     .research-lead {
       margin-bottom: var(--s4);
@@ -227,7 +228,7 @@
     .research-body p {
       font-size: 1.05rem; line-height: 1.75;
       color: var(--ink-soft); margin-bottom: 1.2rem;
-      text-wrap: pretty; max-width: 68ch;
+      text-wrap: pretty; max-width: 650px;
     }
     .research-body p:last-child { margin-bottom: 0; }
     .research-body a {
@@ -253,9 +254,21 @@
       padding-left: var(--s2);
     }
 
+    .research-image-wrap {
+      position: sticky;
+      top: calc(var(--nav-h) + var(--s4));
+      overflow: hidden;
+    }
+    .research-image {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
     /* ── PhD themes ─────────────────────────────────────────────── */
     .phd-section {
-      margin-top: var(--s5);
       padding-top: var(--s5);
       border-top: 1px solid var(--border);
     }
@@ -331,34 +344,33 @@
       background: var(--cream);
       padding-block: var(--s7);
     }
-    .approach-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(3rem, 6vw, 6rem);
-      align-items: start;
+    .pull-quote-wrap {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto var(--s6);
     }
-    .pull-quote-block {
-      position: sticky;
-      top: calc(var(--nav-h) + var(--s4));
+    .pull-quote-rule {
+      width: 2.5rem;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto var(--s3);
     }
     .pull-quote {
       font-family: var(--serif); font-style: italic;
-      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
-      line-height: 1.55; color: var(--ink);
-      border-left: 3px solid var(--accent);
-      padding-left: var(--s4); margin-bottom: var(--s4);
+      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+      line-height: 1.6; color: var(--ink);
+      margin-bottom: var(--s3);
       text-wrap: pretty;
     }
     .pull-quote-attr {
-      font-family: var(--prose); font-size: 0.8rem;
-      font-weight: 500; letter-spacing: 0.12em;
+      font-family: var(--prose); font-size: 0.78rem;
+      font-weight: 500; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--muted);
-      padding-left: var(--s4);
     }
     .approach-body p {
       font-size: 1.05rem; line-height: 1.75;
       color: var(--ink-soft); margin-bottom: 1.2rem;
-      text-wrap: pretty; max-width: 68ch;
+      text-wrap: pretty; max-width: 650px;
     }
     .approach-body p:last-child { margin-bottom: 0; }
     .approach-body a {
@@ -367,24 +379,6 @@
       transition: border-color var(--dur) var(--ease);
     }
     .approach-body a:hover { border-color: var(--accent-text); }
-    .media-mentions {
-      margin-top: var(--s5); padding-top: var(--s4);
-      border-top: 1px solid var(--border);
-    }
-    .media-label {
-      font-family: var(--prose); font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: var(--s2);
-    }
-    .media-list {
-      display: flex; flex-wrap: wrap; gap: 0.5rem;
-    }
-    .media-tag {
-      font-family: var(--prose); font-size: 0.78rem; font-weight: 500;
-      letter-spacing: 0.06em; color: var(--ink-soft);
-      padding: 0.3rem 0.75rem;
-      border: 1px solid var(--border);
-    }
 
     /* ── Teaching section ───────────────────────────────────────── */
     .teaching-section {
@@ -396,7 +390,7 @@
     .teaching-header .section-heading { color: var(--text-on-dark); margin-bottom: var(--s3); }
     .teaching-intro {
       font-size: 1.05rem; line-height: 1.75;
-      color: var(--text-on-dark-soft); max-width: 68ch;
+      color: var(--text-on-dark-soft); max-width: 650px;
       text-wrap: pretty;
     }
     .courses-grid {
@@ -471,11 +465,9 @@
       .nav-burger { display: flex; }
       .page-header-inner { grid-template-columns: 1fr; }
       .page-header-meta  { text-align: left; }
-      .research-grid  { grid-template-columns: 1fr; }
+      .research-top { grid-template-columns: 1fr; }
       .research-image-wrap { position: static; }
-      .research-image { aspect-ratio: 16/9; }
-      .approach-grid  { grid-template-columns: 1fr; }
-      .pull-quote-block { position: static; margin-bottom: var(--s4); }
+      .research-image { aspect-ratio: 3/2; }
       .projects-grid { grid-template-columns: 1fr; }
       .course-row { grid-template-columns: 120px 1fr; gap: var(--s3); }
     }
@@ -545,8 +537,9 @@
     <!-- ── Research introduction ─────────────────────────────── -->
     <section class="research-intro" aria-labelledby="research-h2">
       <div class="wrap">
-        <div class="research-grid">
+        <div class="research-top">
 
+          <!-- Left: text -->
           <div>
             <p class="tag reveal">Research</p>
             <h2 class="section-heading reveal reveal-d1" id="research-h2">AI, democracy,<br>and human values</h2>
@@ -559,46 +552,40 @@
                 Olya is also co-supervising responsible AI development projects in large consortia, such as the Dutch National ELSA Lab <strong>AI MAPS</strong> (with the Dutch police) and the EUR-Erasmus MC-TU Delft Convergence Flagship project <strong>ProtectME</strong> — focused on AI and mental wellbeing of adolescents.
               </p>
             </div>
-
-            <!-- PhD supervision themes -->
-            <div class="phd-section reveal reveal-d3">
-              <p class="phd-label">Current PhD supervision themes</p>
-              <ol class="phd-themes" aria-label="PhD research themes">
-                <li class="phd-item">
-                  <span class="phd-num" aria-hidden="true">01</span>
-                  <span class="phd-text">The interrelation of synthetic media and trust</span>
-                </li>
-                <li class="phd-item">
-                  <span class="phd-num" aria-hidden="true">02</span>
-                  <span class="phd-text">Political subjectivity and social media</span>
-                </li>
-                <li class="phd-item">
-                  <span class="phd-num" aria-hidden="true">03</span>
-                  <span class="phd-text">Digital phenotyping in mental healthcare</span>
-                </li>
-                <li class="phd-item">
-                  <span class="phd-num" aria-hidden="true">04</span>
-                  <span class="phd-text">Critical engagement with AI systems in the public sphere</span>
-                </li>
-                <li class="phd-item">
-                  <span class="phd-num" aria-hidden="true">05</span>
-                  <span class="phd-text">Adversarial Machine Learning to facilitate private deliberation online</span>
-                </li>
-              </ol>
-            </div>
           </div>
 
-          <!-- Sticky image -->
+          <!-- Right: portrait -->
           <div class="research-image-wrap reveal reveal-d2">
-            <img
-              src="./about.png"
-              alt="Olya Kudina, Associate Professor of Technology Ethics at TU Delft"
-              class="research-image"
-              loading="eager"
-            />
-            <p class="research-image-caption">Associate Professor · TU Delft</p>
+            <img class="research-image" src="./about.png" alt="Olya Kudina, Associate Professor at TU Delft" loading="eager" />
           </div>
 
+        </div>
+
+        <!-- PhD themes — full width, outside the two-column grid -->
+        <div class="phd-section reveal reveal-d3">
+          <p class="phd-label">Current PhD supervision themes</p>
+          <ol class="phd-themes" aria-label="PhD research themes">
+            <li class="phd-item">
+              <span class="phd-num" aria-hidden="true">01</span>
+              <span class="phd-text">The interrelation of synthetic media and trust</span>
+            </li>
+            <li class="phd-item">
+              <span class="phd-num" aria-hidden="true">02</span>
+              <span class="phd-text">Political subjectivity and social media</span>
+            </li>
+            <li class="phd-item">
+              <span class="phd-num" aria-hidden="true">03</span>
+              <span class="phd-text">Digital phenotyping in mental healthcare</span>
+            </li>
+            <li class="phd-item">
+              <span class="phd-num" aria-hidden="true">04</span>
+              <span class="phd-text">Critical engagement with AI systems in the public sphere</span>
+            </li>
+            <li class="phd-item">
+              <span class="phd-num" aria-hidden="true">05</span>
+              <span class="phd-text">Adversarial Machine Learning to facilitate private deliberation online</span>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
@@ -644,43 +631,29 @@
     <!-- ── Philosophical approach ─────────────────────────────── -->
     <section class="approach-section" aria-labelledby="approach-h2">
       <div class="wrap">
-        <div class="approach-grid">
 
-          <div class="pull-quote-block reveal">
-            <blockquote class="pull-quote">
-              "Olya adopts a perspective of technologies as sociotechnical systems, where the ethical dimension arises not only within separate components, but also at their intersection."
-            </blockquote>
-            <p class="pull-quote-attr">Research philosophy</p>
-
-            <div class="media-mentions">
-              <p class="media-label">Featured in</p>
-              <div class="media-list">
-                <span class="media-tag">WIRED</span>
-                <span class="media-tag">Dutch National Television</span>
-                <span class="media-tag">National Radio</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="approach-body reveal reveal-d1">
-            <p class="tag">Interdisciplinary approach</p>
-            <h2 class="section-heading" id="approach-h2" style="margin-bottom: var(--s4);">Connecting philosophy<br>to practice</h2>
-
-            <p>
-              Olya is an interdisciplinary researcher. Philosophically, her work is inspired by (post)phenomenology, Dewey's pragmatism, and bioethics. She is interested in understanding the technologically induced value change and connecting the insights to developmental practices.
-            </p>
-            <p>
-              To this end, she experiments with a range of empirical methods from STS and psychology — such as Interpretative Phenomenological Analysis — integrating them with philosophy of technology frameworks like Value Sensitive Design.
-            </p>
-            <p>
-              At the moment, she is conducting an international survey on the impact of Large Language Models, such as ChatGPT, on the value of education. Her research on ChatGPT has been featured several times on Dutch national television and radio, as well as in international technology magazines such as <a href="https://www.wired.com/story/chatgpt-is-coming-for-classrooms-dont-panic/" target="_blank" rel="noopener noreferrer">WIRED</a>.
-            </p>
-            <p>
-              To anticipate the ethical challenges and opportunities for an informed design and use of technologies, Olya thinks it is essential to combine different academic practices and fields — which is why her collaborations span philosophy, computer science, medicine, and social science.
-            </p>
-          </div>
-
+        <div class="pull-quote-wrap reveal">
+          <div class="pull-quote-rule" aria-hidden="true"></div>
+          <blockquote class="pull-quote">
+            "Olya adopts a perspective of technologies as sociotechnical systems, where the ethical dimension arises not only within separate components, but also at their intersection."
+          </blockquote>
+          <p class="pull-quote-attr">Research philosophy</p>
         </div>
+
+        <div class="approach-body reveal reveal-d1">
+          <p class="tag">Interdisciplinary approach</p>
+          <h2 class="section-heading" id="approach-h2" style="margin-bottom: var(--s4);">Connecting philosophy<br>to practice</h2>
+          <p>
+            Olya is an interdisciplinary researcher. Philosophically, her work is inspired by (post)phenomenology, Dewey's pragmatism, and bioethics. She is interested in understanding the technologically induced value change and connecting the insights to developmental practices.
+          </p>
+          <p>
+            To this end, she experiments with a range of empirical methods from STS and psychology — such as Interpretative Phenomenological Analysis — integrating them with philosophy of technology frameworks like Value Sensitive Design.
+          </p>
+          <p>
+            To anticipate the ethical challenges and opportunities for an informed design and use of technologies, Olya thinks it is essential to combine different academic practices and fields — which is why her collaborations span philosophy, computer science, medicine, and social science.
+          </p>
+        </div>
+
       </div>
     </section>
 
@@ -700,7 +673,7 @@
 
           <div class="course-row reveal reveal-d1" role="listitem">
             <div class="course-inst-wrap">
-              <p class="course-inst" aria-label="TU Delft">TU<br>Delft</p>
+              <p class="course-inst" aria-label="TU Delft">TU Delft</p>
               <p class="course-inst-full">Delft University<br>of Technology</p>
             </div>
             <ul class="course-list" aria-label="Courses at TU Delft">
