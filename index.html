@@ -46,8 +46,52 @@
   <link rel="preload" as="image" href="./hero-web.jpg" />
 
   <link rel="stylesheet" href="./styles.css" />
+  <script>
+    try {
+      if (!sessionStorage.getItem('intro-seen') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        sessionStorage.setItem('intro-seen', '1');
+        document.documentElement.classList.add('has-intro');
+      }
+    } catch (e) {}
+  </script>
 
   <style>
+    /* ═══════════════════════════════════════════════════════════════
+       OPENING: wide bars part to reveal the page
+    ═══════════════════════════════════════════════════════════════ */
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      pointer-events: none;
+    }
+    .has-intro .intro { display: flex; }
+    .intro span {
+      flex: 1;
+      margin-inline: -0.5px; /* hide hairline seams between bars */
+      background: var(--night);
+      animation: intro-up 0.85s cubic-bezier(0.76, 0, 0.24, 1) both;
+      animation-delay: calc(0.2s + var(--i) * 0.06s);
+    }
+    .intro span:nth-child(even) {
+      background: var(--night-lifted);
+      animation-name: intro-down;
+    }
+    @keyframes intro-up   { to { transform: translateY(-101%); } }
+    @keyframes intro-down { to { transform: translateY(101%); } }
+
+    /* Hero text waits for the bars */
+    .has-intro .hero-eyebrow  { animation-delay: 0.85s; }
+    .has-intro .hero-name     { animation-delay: 1.0s; }
+    .has-intro .hero-subtitle { animation-delay: 1.15s; }
+    .has-intro .hero-cta      { animation-delay: 1.3s; }
+    .has-intro .hero-socials  { animation-delay: 1.45s; }
+
+    @media (max-width: 600px) {
+      .intro span:nth-child(n+5) { display: none; }
+    }
+
     /* ═══════════════════════════════════════════════════════════════
        HERO
     ═══════════════════════════════════════════════════════════════ */
@@ -844,6 +888,10 @@
   <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
+
+<div class="intro" aria-hidden="true">
+  <span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span><span style="--i:4"></span><span style="--i:5"></span>
+</div>
 
 <!-- ── Skip link ──────────────────────────────────────────────── -->
 <a href="#main" class="skip-link">Skip to main content</a>
