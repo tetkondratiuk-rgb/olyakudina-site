@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found — Olya Kudina</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    body { background: var(--night); }
+    .missing {
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      padding-block: calc(var(--nav-h) + var(--s5)) var(--s6);
+    }
+    .missing .wrap { width: 100%; }
+    .missing-text {
+      margin-top: var(--s3);
+      font-size: 1.05rem;
+      color: var(--text-on-dark-soft);
+      max-width: 34rem;
+    }
+    .missing-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s2) var(--s4);
+      margin-top: var(--s5);
+    }
+    .missing-links a {
+      font-family: var(--prose);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-pale);
+      border-bottom: 1px solid rgba(236, 201, 175, 0.3);
+      padding-bottom: 2px;
+      transition: border-color var(--dur) var(--ease);
+    }
+    .missing-links a:hover { border-color: var(--accent-pale); }
+    :focus-visible { outline-color: var(--accent-pale); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header role="banner">
+    <nav class="nav nav--page" id="nav" aria-label="Primary navigation">
+      <a href="/" class="nav-logo" aria-label="Olya Kudina — home">Olya Kudina</a>
+      <ul class="nav-links" role="list">
+        <li><a href="/research-teaching">Research &amp; Teaching</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/media">Media</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <button class="nav-burger" id="burger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav-drawer" id="drawer" role="navigation" aria-label="Mobile navigation">
+      <a href="/research-teaching" class="drawer-link">Research &amp; Teaching</a>
+      <a href="/publications" class="drawer-link">Publications</a>
+      <a href="/media" class="drawer-link">Media</a>
+      <a href="/#contact" class="drawer-link">Contact</a>
+    </div>
+  </header>
+
+  <main id="main" class="missing">
+    <div class="wrap">
+      <h1 class="page-title">Page <em>not found</em></h1>
+      <p class="missing-text">This address does not lead anywhere on the site. The page may have moved, or the link may be mistyped.</p>
+      <div class="missing-links">
+        <a href="/">Home</a>
+        <a href="/research-teaching">Research &amp; Teaching</a>
+        <a href="/publications">Publications</a>
+        <a href="/media">Media</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    function setMenu(open) {
+      burger.setAttribute('aria-expanded', String(open));
+      drawer.classList.toggle('open', open);
+      burger.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    }
+    burger.addEventListener('click', () => setMenu(burger.getAttribute('aria-expanded') !== 'true'));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') { setMenu(false); burger.focus(); }
+    });
+  </script>
+</body>
+</html>
