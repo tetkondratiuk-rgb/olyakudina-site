@@ -19,6 +19,7 @@
   <meta name="twitter:card"       content="summary_large_image" />
 
   <!-- Fonts -->
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -285,14 +286,17 @@
       border-bottom: 1px solid var(--border);
       transform: translateY(-110%);
       opacity: 0;
-      transition: transform var(--dur-md) var(--ease), opacity var(--dur-md) var(--ease);
+      visibility: hidden;
+      transition: transform var(--dur-md) var(--ease), opacity var(--dur-md) var(--ease), visibility 0s var(--dur-md);
       z-index: 850;
       pointer-events: none;
     }
     .nav-drawer.open {
       transform: none;
       opacity: 1;
+      visibility: visible;
       pointer-events: auto;
+      transition: transform var(--dur-md) var(--ease), opacity var(--dur-md) var(--ease), visibility 0s;
     }
     .nav-drawer a {
       font-family: var(--serif);
@@ -1191,7 +1195,7 @@
           <a href="https://nos.nl/artikel/2531548-techbedrijven-lijken-ai-illegaal-te-trainen-met-beelden-van-nederlandse-makers"
              class="press-item-left" target="_blank" rel="noopener noreferrer"
              aria-label="Read: Techbedrijven lijken AI illegaal te trainen met beelden van Nederlandse makers — NOS (opens article)">
-            <span class="press-title">Techbedrijven lijken AI illegaal te trainen met beelden van Nederlandse makers</span>
+            <span class="press-title" lang="nl">Techbedrijven lijken AI illegaal te trainen met beelden van Nederlandse makers</span>
             <span class="press-source">NOS · Interview</span>
           </a>
           <div class="press-item-right">
@@ -1206,7 +1210,7 @@
           <a href="https://nos.nl/artikel/2521003-met-iedere-versie-worden-ai-tools-beetje-menselijker-spelen-met-vuur"
              class="press-item-left" target="_blank" rel="noopener noreferrer"
              aria-label="Read: Met iedere versie worden AI-tools beetje menselijker: spelen met vuur — NOS (opens article)">
-            <span class="press-title">Met iedere versie worden AI-tools beetje menselijker: spelen met vuur</span>
+            <span class="press-title" lang="nl">Met iedere versie worden AI-tools beetje menselijker: spelen met vuur</span>
             <span class="press-source">NOS · Interview on AI emotional companions</span>
           </a>
           <div class="press-item-right">
@@ -1266,7 +1270,7 @@
           <a href="https://businessam.be/radiotopic/deze-technologie-is-niet-objectief-in-zijn-manier-om-kennis-te-presenteren/"
              class="press-item-left" target="_blank" rel="noopener noreferrer"
              aria-label="Read: Deze technologie is niet objectief in zijn manier om kennis te presenteren — Business AM (opens article)">
-            <span class="press-title">"Deze technologie is niet objectief in zijn manier om kennis te presenteren"</span>
+            <span class="press-title" lang="nl">"Deze technologie is niet objectief in zijn manier om kennis te presenteren"</span>
             <span class="press-source">Business AM · Radio interview on AI regulation</span>
           </a>
           <div class="press-item-right">
@@ -1296,7 +1300,7 @@
           <a href="https://nos.nl/l/2463357"
              class="press-item-left" target="_blank" rel="noopener noreferrer"
              aria-label="Read: Microsoft en Google wedijveren om zoekmachine van de toekomst — NOS (opens article)">
-            <span class="press-title">Microsoft en Google wedijveren om zoekmachine van de toekomst</span>
+            <span class="press-title" lang="nl">Microsoft en Google wedijveren om zoekmachine van de toekomst</span>
             <span class="press-source">NOS · Interview</span>
           </a>
           <div class="press-item-right">
@@ -1311,7 +1315,7 @@
           <a href="https://www.npostart.nl/nos-journaal/11-02-2023/POW_05467897"
              class="press-item-left" target="_blank" rel="noopener noreferrer"
              aria-label="Watch: NOS Journaal 20.00 uur — 11 feb 2023 (opens video)">
-            <span class="press-title">NOS Journaal 20:00 — AI en de toekomst van zoeken</span>
+            <span class="press-title" lang="nl">NOS Journaal 20:00 — AI en de toekomst van zoeken</span>
             <span class="press-source">NOS Journaal · Video interview (7:29–9:44)</span>
           </a>
           <div class="press-item-right">
@@ -1341,7 +1345,7 @@
           <a href="https://nos.nl/l/2455837"
              class="press-item-left" target="_blank" rel="noopener noreferrer"
              aria-label="Read: Schrijvende AI populair: 'We bevinden ons op een kantelpunt' — NOS (opens article)">
-            <span class="press-title">Schrijvende AI populair: 'We bevinden ons op een kantelpunt'</span>
+            <span class="press-title" lang="nl">Schrijvende AI populair: 'We bevinden ons op een kantelpunt'</span>
             <span class="press-source">NOS · Interview</span>
           </a>
           <div class="press-item-right">
@@ -1356,7 +1360,7 @@
           <a href="https://www.npostart.nl/nos-journaal/10-12-2022/POW_05159290"
              class="press-item-left" target="_blank" rel="noopener noreferrer"
              aria-label="Watch: NOS Journaal 20.00 uur — 10 dec 2022 (opens video)">
-            <span class="press-title">NOS Journaal 20:00 — Schrijvende AI</span>
+            <span class="press-title" lang="nl">NOS Journaal 20:00 — Schrijvende AI</span>
             <span class="press-source">NOS Journaal · Video interview (from 14:03)</span>
           </a>
           <div class="press-item-right">
@@ -1371,7 +1375,7 @@
           <a href="https://www.nporadio1.nl/fragmenten/nos-radio-1-journaal/130c9a17-fade-48d2-9cc2-982421990d46/2022-12-10-techwereld-in-ban-van-chatgpt"
              class="press-item-left" target="_blank" rel="noopener noreferrer"
              aria-label="Listen: Techwereld in ban van ChatGPT — NPO Radio 1 (opens audio)">
-            <span class="press-title">Techwereld in ban van ChatGPT</span>
+            <span class="press-title" lang="nl">Techwereld in ban van ChatGPT</span>
             <span class="press-source">NPO Radio 1 · Radio interview</span>
           </a>
           <div class="press-item-right">

@@ -39,10 +39,11 @@
   <meta name="theme-color" content="#FAF7F2" />
 
   <!-- Fonts -->
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="./hero.jpg" />
+  <link rel="preload" as="image" href="./hero-web.jpg" />
 
   <style>
     /* ═══════════════════════════════════════════════════════════════
@@ -274,7 +275,8 @@
       border-bottom: 1px solid var(--border);
       transform: translateY(-110%);
       opacity: 0;
-      transition: transform var(--dur-md) var(--ease), opacity var(--dur-md) var(--ease);
+      visibility: hidden;
+      transition: transform var(--dur-md) var(--ease), opacity var(--dur-md) var(--ease), visibility 0s var(--dur-md);
       z-index: 850;
       pointer-events: none;
       overscroll-behavior: contain;
@@ -282,7 +284,9 @@
     .nav-drawer.open {
       transform: none;
       opacity: 1;
+      visibility: visible;
       pointer-events: auto;
+      transition: transform var(--dur-md) var(--ease), opacity var(--dur-md) var(--ease), visibility 0s;
     }
     .nav-drawer a {
       font-family: var(--serif);
@@ -308,7 +312,7 @@
     .hero-bg {
       position: absolute;
       inset: -15% 0;
-      background-image: url('./hero.jpg');
+      background-image: url('./hero-web.jpg');
       background-size: cover;
       background-position: 68% center;
       will-change: transform;
@@ -374,8 +378,9 @@
       font-size: clamp(1rem, 2vw, 1.2rem);
       line-height: 1.7;
       color: var(--text-on-dark-soft);
-      max-width: 480px;
+      max-width: 520px;
       margin-bottom: var(--s5);
+      text-wrap: balance;
       opacity: 0;
       animation: rise 0.9s var(--ease-out) 0.65s forwards;
     }
@@ -1023,13 +1028,11 @@
       </h1>
 
       <p class="hero-subtitle">
-        <b>Tech Ethics</b> &nbsp;·&nbsp;
-        <b>AI DeMoS Lab</b><br>
-        Journal of Human-Technology Relations
+        I help teams and organisations design technologies that&nbsp;reflect human&nbsp;values.
       </p>
 
-      <a href="#about" class="hero-cta">
-        Learn more
+      <a href="#contact" class="hero-cta">
+        Get in touch
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path d="M7 2v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -1062,7 +1065,7 @@
         <!-- Text column -->
         <div>
           <h2 class="section-heading about-h2 reveal" id="about-h2">
-            Ethicist at the intersection of<br>values and technology
+            Ethicist at the intersection<br>of values and technology
           </h2>
 
           <div class="about-body">
@@ -1073,7 +1076,7 @@
             </p>
             <p class="reveal reveal-d3">
               Olya is co-director of the <a href="#research">AI DeMoS Lab</a>, which focuses on the relation between AI and democracy and on responsible AI development practices. She is also co-founder and co-editor-in-chief of the diamond open-access
-              <a href="#publications">Journal of Human-Technology Relations</a>.
+              <a href="https://journals.open.tudelft.nl/jhtr" target="_blank" rel="noopener noreferrer">Journal of Human-Technology Relations</a>.
             </p>
           </div>
 
@@ -1088,7 +1091,7 @@
             </li>
             <li class="about-cred">
               <span class="about-cred-dot" aria-hidden="true"></span>
-              <span>Elected member (2024–2029) — <a href="#" target="_blank" rel="noopener noreferrer">Young Academy of the Dutch Royal Science Academy</a></span>
+              <span>Elected member (2024–2029) — <a href="https://www.dejongeakademie.nl/" target="_blank" rel="noopener noreferrer">Young Academy of the Dutch Royal Science Academy</a></span>
             </li>
             <li class="about-cred about-cred--lang">
               <span class="about-cred-dot" aria-hidden="true"></span>
@@ -1133,7 +1136,7 @@
       </div>
 
       <div class="rt-photo-divider reveal reveal-d2">
-        <img src="./rt-working.jpg" alt="Olya Kudina working at her laptop" loading="lazy">
+        <img src="./rt-working-web.jpg" alt="Olya Kudina working at her laptop" loading="lazy">
       </div>
 
       <!-- Teaching -->
@@ -1205,7 +1208,7 @@
           <span class="news-entry-date">December 2024</span>
           <div>
             <h3 class="news-entry-title">Article Alert: Daily Life in Times of War</h3>
-            <p class="news-entry-body">Olya's reflection on her recent trip home to Ukraine from a lens of human-technology relations: <a href="#">"Daily life in times of war: a technological mediation perspective."</a></p>
+            <p class="news-entry-body">Olya's reflection on her recent trip home to Ukraine from a lens of human-technology relations: <a href="https://journals.open.tudelft.nl/jhtr/article/view/7945" target="_blank" rel="noopener noreferrer">"Daily life in times of war: a technological mediation perspective."</a></p>
           </div>
         </li>
 
@@ -1213,7 +1216,7 @@
           <span class="news-entry-date">December 2024</span>
           <div>
             <h3 class="news-entry-title">Article Alert: Follow the Particular</h3>
-            <p class="news-entry-body">New 2024 editorial with Peter-Paul Verbeek: <a href="#">"Follow the particular and the human-technology relation in the context of technological systems and global events."</a></p>
+            <p class="news-entry-body">New 2024 editorial with Peter-Paul Verbeek: <a href="https://journals.open.tudelft.nl/jhtr/article/view/7950" target="_blank" rel="noopener noreferrer">"Follow the particular and the human-technology relation in the context of technological systems and global events."</a></p>
           </div>
         </li>
 
@@ -1245,7 +1248,7 @@
         <!-- Info column -->
         <div class="contact-inner reveal">
           <div class="contact-portrait-wrap">
-            <img class="contact-portrait" src="./about.png" alt="Olya Kudina" loading="lazy" />
+            <img class="contact-portrait" src="./about.jpg" alt="Olya Kudina" loading="lazy" />
           </div>
 
           <div class="contact-text">
