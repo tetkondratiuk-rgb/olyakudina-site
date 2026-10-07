@@ -395,7 +395,9 @@
       padding: var(--s3) 0;
       border-bottom: 1px solid var(--border);
       transition: background var(--dur) var(--ease);
+      position: relative;
     }
+    .press-item-left::after { content: ''; position: absolute; inset: 0; }
     .press-item:hover {
       background: var(--cream-deep);
       margin-inline: calc(var(--pad-x) * -1);
@@ -520,7 +522,7 @@
     </button>
   </nav>
 
-  <div class="nav-drawer" id="drawer" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <div class="nav-drawer" id="drawer" role="navigation" aria-label="Mobile navigation">
     <a href="/research-teaching" class="drawer-link">Research &amp; Teaching</a>
     <a href="/publications" class="drawer-link">Publications</a>
     <a href="/media" class="drawer-link" aria-current="page">Media</a>
