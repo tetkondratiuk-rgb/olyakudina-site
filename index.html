@@ -369,43 +369,14 @@
     }
 
     .help-visual {
-      position: relative;
       aspect-ratio: 16 / 10;
-      overflow: hidden;
       margin-bottom: var(--s3);
-    }
-
-    /* Talks: video still */
-    .help-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform var(--dur-md) var(--ease);
-    }
-    .help-item:hover .help-visual img { transform: scale(1.04); }
-    .help-visual--video::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(12, 9, 5, 0.78) 0%, rgba(12, 9, 5, 0.12) 60%);
-    }
-    .help-play {
-      position: absolute;
-      inset: 0;
-      margin: auto;
-      z-index: 1;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: rgba(250, 247, 242, 0.92);
+      padding: var(--s3);
+      background: var(--night);
       display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform var(--dur) var(--ease);
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .help-play svg { width: 20px; height: 20px; fill: var(--accent); margin-left: 3px; }
-    .help-item:hover .help-play { transform: scale(1.1); }
-
     .help-label {
       display: block;
       font-family: var(--prose);
@@ -413,24 +384,8 @@
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+      color: var(--accent-pale);
     }
-    .help-visual--video .help-label {
-      position: absolute;
-      left: var(--s2);
-      bottom: var(--s2);
-      z-index: 1;
-      color: var(--text-on-dark);
-    }
-
-    /* Media: a headline she was interviewed for */
-    .help-visual--press {
-      background: var(--night);
-      padding: var(--s3);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .help-visual--press .help-label { color: var(--accent-pale); }
     .help-headline {
       display: block;
       font-family: var(--serif);
@@ -439,32 +394,9 @@
       line-height: 1.35;
       color: var(--text-on-dark);
       text-wrap: balance;
+      transition: color var(--dur) var(--ease);
     }
-
-    /* Research: the projects themselves */
-    .help-visual--projects {
-      background: var(--cream-deep);
-      padding: 0 var(--s3);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .help-project {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: var(--s2);
-      padding: 0.6rem 0;
-      border-top: 1px solid rgba(26, 23, 20, 0.12);
-    }
-    .help-project:first-child { border-top: none; }
-    .help-project-name {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      line-height: 1.3;
-      color: var(--ink);
-    }
-    .help-project .help-label { color: var(--muted); white-space: nowrap; }
+    .help-item:hover .help-headline { color: var(--accent-pale); }
 
     .help-title {
       font-family: var(--serif);
@@ -1024,12 +956,9 @@
 
       <div class="help-grid">
         <a class="help-item reveal reveal-d1" href="/media#videos">
-          <span class="help-visual help-visual--video">
-            <img src="https://img.youtube.com/vi/ve6qJGt1_kk/hqdefault.jpg" alt="" loading="lazy" />
-            <span class="help-play" aria-hidden="true">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
-            </span>
+          <span class="help-visual">
             <span class="help-label">Universiteit van Nederland · 2021</span>
+            <span class="help-headline">Hey Siri, why are my kids screaming at&nbsp;you?</span>
           </span>
           <h3 class="help-title">Talks &amp; keynotes</h3>
           <p class="help-desc">Olya speaks on AI, democracy and trust for academic, policy and public audiences, from TEDx to Rotterdam City Hall.</p>
@@ -1037,7 +966,7 @@
         </a>
 
         <a class="help-item reveal reveal-d2" href="/media#press">
-          <span class="help-visual help-visual--press">
+          <span class="help-visual">
             <span class="help-label">WIRED · 2023</span>
             <span class="help-headline">ChatGPT Is Coming for Classrooms. Don’t&nbsp;Panic</span>
           </span>
@@ -1047,10 +976,9 @@
         </a>
 
         <a class="help-item reveal reveal-d3" href="/research-teaching">
-          <span class="help-visual help-visual--projects">
-            <span class="help-project"><span class="help-project-name">AI DeMoS Lab</span><span class="help-label">TU Delft</span></span>
-            <span class="help-project"><span class="help-project-name">ELSA Lab AI MAPS</span><span class="help-label">Dutch police</span></span>
-            <span class="help-project"><span class="help-project-name">ProtectME</span><span class="help-label">Erasmus MC</span></span>
+          <span class="help-visual">
+            <span class="help-label">Current projects</span>
+            <span class="help-headline">AI DeMoS Lab<br>ELSA Lab AI MAPS<br>ProtectME</span>
           </span>
           <h3 class="help-title">Research collaboration</h3>
           <p class="help-desc">Olya works on responsible AI in large consortia, with partners such as the Dutch police and Erasmus&nbsp;MC.</p>
