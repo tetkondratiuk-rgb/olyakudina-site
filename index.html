@@ -590,6 +590,96 @@
 
     .portrait-wrap, .portrait, .portrait-inline { display: none; }
 
+    /* ═══════════════════════════════════════════════════════════════
+       WORKING WITH OLYA
+    ═══════════════════════════════════════════════════════════════ */
+    .help {
+      background: var(--cream-warm);
+      border-top: 1px solid var(--border);
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s4) clamp(1.5rem, 3vw, 2.5rem);
+      margin-top: var(--s5);
+    }
+
+    .help-item {
+      padding-top: var(--s3);
+      border-top: 1px solid var(--accent);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .help-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .help-desc {
+      font-size: 0.975rem;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: var(--s3);
+      text-wrap: pretty;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      align-self: flex-start;
+      margin-top: auto;
+      font-family: var(--prose);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-text);
+      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
+      padding-bottom: 2px;
+      transition: border-color var(--dur) var(--ease), gap var(--dur) var(--ease);
+    }
+    .text-link:hover { border-color: var(--accent-text); gap: 0.8rem; }
+    .text-link--light {
+      color: var(--accent-pale);
+      border-color: rgba(236, 201, 175, 0.3);
+    }
+    .text-link--light:hover { border-color: var(--accent-pale); }
+
+    .featured-in {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.6rem var(--s4);
+      margin-top: var(--s6);
+      padding-top: var(--s3);
+      border-top: 1px solid var(--border);
+    }
+    .featured-in-label {
+      font-family: var(--prose);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .featured-in-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem var(--s4);
+    }
+    .featured-in-list li {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+    }
+
 
     /* ═══════════════════════════════════════════════════════════════
        RESEARCH & TEACHING
@@ -924,6 +1014,7 @@
       .nav-links  { display: none; }
       .nav-burger { display: flex; }
 
+      .help-grid { grid-template-columns: 1fr; }
       .rt-themes { grid-template-columns: 1fr; }
       .rt-teaching-grid { grid-template-columns: 1fr; }
       .rt-photo-divider { max-width: 100%; }
@@ -1028,7 +1119,7 @@
       </h1>
 
       <p class="hero-subtitle">
-        I help teams and organisations design technologies that&nbsp;reflect human&nbsp;values.
+        Olya helps teams and organisations design technologies that&nbsp;reflect human&nbsp;values.
       </p>
 
       <a href="#contact" class="hero-cta">
@@ -1104,6 +1195,42 @@
     </div>
   </section>
 
+  <!-- WORKING WITH OLYA ────────────────────────────────────────── -->
+  <section class="help section" id="work" aria-labelledby="help-h2">
+    <div class="wrap">
+      <h2 class="section-heading reveal" id="help-h2">Working with Olya</h2>
+
+      <div class="help-grid">
+        <div class="help-item reveal reveal-d1">
+          <h3 class="help-title">Talks &amp; keynotes</h3>
+          <p class="help-desc">Olya speaks on AI, democracy and trust for academic, policy and public audiences, from TEDx to Rotterdam City Hall.</p>
+          <a href="/media#videos" class="text-link">Watch talks <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="help-item reveal reveal-d2">
+          <h3 class="help-title">Media commentary</h3>
+          <p class="help-desc">Journalists turn to Olya for clear comment on AI and society. She has appeared on NOS Journaal, NPO Radio&nbsp;1 and in WIRED.</p>
+          <a href="/media#press" class="text-link">See coverage <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="help-item reveal reveal-d3">
+          <h3 class="help-title">Research collaboration</h3>
+          <p class="help-desc">Olya works on responsible AI in large consortia, with partners such as the Dutch police and Erasmus&nbsp;MC.</p>
+          <a href="/research-teaching" class="text-link">See projects <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="featured-in reveal">
+        <p class="featured-in-label">Featured in</p>
+        <ul class="featured-in-list" aria-label="Media outlets">
+          <li>NOS</li>
+          <li>WIRED</li>
+          <li>NPO Radio&nbsp;1</li>
+          <li>TEDxBucharest</li>
+          <li>Business AM</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- RESEARCH & TEACHING ──────────────────────────────────────── -->
   <section class="rt section" id="research" aria-labelledby="rt-h2">
     <div class="wrap">
@@ -1175,6 +1302,8 @@
         </ul>
         </div>
       </div>
+
+      <a href="/research-teaching" class="text-link text-link--light reveal">More on research &amp; teaching <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
