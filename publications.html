@@ -410,6 +410,101 @@
       max-width: 860px;
     }
 
+    /* Selected works */
+    .selected {
+      margin-bottom: var(--s6);
+    }
+    .list-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: var(--s4);
+    }
+    .selected-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s4);
+    }
+    .selected-item {
+      padding-top: var(--s3);
+      border-top: 1px solid var(--accent);
+    }
+    .selected-kind {
+      font-family: var(--prose);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .selected-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.45;
+      margin-bottom: 0.5rem;
+    }
+    .selected-title a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: rgba(143, 70, 32, 0.35);
+      text-underline-offset: 3px;
+      transition: color var(--dur) var(--ease), text-decoration-color var(--dur) var(--ease);
+    }
+    .selected-title a:hover {
+      color: var(--accent-text);
+      text-decoration-color: var(--accent-text);
+    }
+    .selected-venue {
+      font-family: var(--prose);
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    /* Type filter */
+    .pub-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: var(--s2);
+    }
+    .pub-filter {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.45rem;
+      min-height: 44px;
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--ink-soft);
+      font-family: var(--prose);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+    }
+    .pub-filter:hover { border-color: var(--accent-text); color: var(--accent-text); }
+    .pub-filter[aria-pressed="true"] {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--cream);
+    }
+    .pub-filter-count {
+      font-size: 0.78rem;
+      opacity: 0.7;
+    }
+    .pub-status {
+      font-family: var(--prose);
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: var(--s5);
+    }
+    .pub-entry[hidden], .year-group[hidden] { display: none; }
+
     /* Year group */
     .year-group {
       margin-bottom: var(--s6);
@@ -674,6 +769,8 @@
 
       .section { padding-block: var(--s5); }
       .year-group { margin-bottom: var(--s4); }
+      .selected-grid { grid-template-columns: 1fr; gap: var(--s3); }
+      .selected { margin-bottom: var(--s5); }
     }
   </style>
 </head>
@@ -755,7 +852,42 @@
   <main id="main">
     <section class="publications-section" aria-labelledby="pub-heading">
       <div class="wrap">
-        <h2 class="sr-only" id="pub-heading">Full list of publications</h2>
+        <div class="selected reveal">
+          <h2 class="list-heading" id="selected-heading">Selected works</h2>
+          <ul class="selected-grid" role="list" aria-labelledby="selected-heading">
+            <li class="selected-item">
+              <p class="selected-kind">Book · 2023</p>
+              <p class="selected-title">
+                <a href="https://rowman.com/ISBN/9781793651761/Moral-Hermeneutics-and-Technology-Making-Moral-Sense-through-Human-Technology-World-Relations" target="_blank" rel="noopener noreferrer">Moral hermeneutics and technology: Making moral sense through human-technology-world relations</a>
+              </p>
+              <p class="selected-venue">Lexington Books, open access</p>
+            </li>
+            <li class="selected-item">
+              <p class="selected-kind">Article · 2024</p>
+              <p class="selected-title">
+                <a href="https://doi.org/10.1007/s11023-024-09680-2" target="_blank" rel="noopener noreferrer">The sociotechnical systems perspective on&nbsp;AI</a>
+              </p>
+              <p class="selected-venue">Minds &amp; Machines, with I. van de Poel</p>
+            </li>
+            <li class="selected-item">
+              <p class="selected-kind">Article · 2019</p>
+              <p class="selected-title">
+                <a href="https://journals.sagepub.com/doi/10.1177/0162243918793711" target="_blank" rel="noopener noreferrer">Ethics from within: Google Glass, the Collingridge dilemma, and the mediated value of&nbsp;privacy</a>
+              </p>
+              <p class="selected-venue">Science, Technology, &amp; Human Values, with P.&nbsp;P. Verbeek</p>
+            </li>
+          </ul>
+        </div>
+
+        <h2 class="list-heading" id="pub-heading">All publications</h2>
+        <div class="pub-filters" role="group" aria-label="Filter publications by type">
+          <button type="button" class="pub-filter" data-filter="all" aria-pressed="true">All <span class="pub-filter-count"></span></button>
+          <button type="button" class="pub-filter" data-filter="article" aria-pressed="false">Articles <span class="pub-filter-count"></span></button>
+          <button type="button" class="pub-filter" data-filter="book chapter" aria-pressed="false">Books &amp; chapters <span class="pub-filter-count"></span></button>
+          <button type="button" class="pub-filter" data-filter="conference" aria-pressed="false">Conference papers <span class="pub-filter-count"></span></button>
+          <button type="button" class="pub-filter" data-filter="preprint report thesis commentary" aria-pressed="false">Other <span class="pub-filter-count"></span></button>
+        </div>
+        <p class="pub-status" id="pub-status" role="status" aria-live="polite"></p>
 
         <!-- ── 2026 ── -->
         <div class="year-group reveal">
@@ -1151,7 +1283,7 @@
               </div>
             </li>
 
-            <li class="pub-entry reveal reveal-d3" data-type="article">
+            <li class="pub-entry reveal reveal-d3" data-type="conference">
               <div class="pub-cover" aria-hidden="true">
                 <div class="pub-cover-book">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
@@ -1657,6 +1789,38 @@
     }, { threshold: 0.08 });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ── Filter by type ────────────────────────────────────────── */
+    const pubEntries = [...document.querySelectorAll('.pub-entry')];
+    const pubFilters = [...document.querySelectorAll('.pub-filter')];
+    const pubStatus  = document.getElementById('pub-status');
+    const matches    = (entry, btn) =>
+      btn.dataset.filter === 'all' || btn.dataset.filter.split(' ').includes(entry.dataset.type);
+
+    pubFilters.forEach(btn => {
+      btn.querySelector('.pub-filter-count').textContent = pubEntries.filter(e => matches(e, btn)).length;
+    });
+
+    function applyFilter(btn) {
+      pubFilters.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      let shown = 0;
+      pubEntries.forEach(entry => {
+        const show = matches(entry, btn);
+        entry.hidden = !show;
+        if (show) { entry.classList.add('in'); shown++; }
+      });
+      document.querySelectorAll('.year-group').forEach(group => {
+        const n = group.querySelectorAll('.pub-entry:not([hidden])').length;
+        group.hidden = n === 0;
+        if (n) group.classList.add('in');
+        group.querySelector('.year-count').textContent = n + (n === 1 ? ' publication' : ' publications');
+      });
+      pubStatus.textContent = btn.dataset.filter === 'all'
+        ? 'Showing all ' + shown + ' publications'
+        : 'Showing ' + shown + ' of ' + pubEntries.length + ' publications';
+    }
+    pubFilters.forEach(btn => btn.addEventListener('click', () => applyFilter(btn)));
+    pubStatus.textContent = 'Showing all ' + pubEntries.length + ' publications';
 
     /* ── Animated counter ──────────────────────────────────────── */
     function animateCount(el, target, duration) {
