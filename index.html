@@ -49,7 +49,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="./hero-web.jpg" />
+  <link rel="preload" as="image" href="./hero-new-web.jpg" media="(min-width: 901px)" />
+  <link rel="preload" as="image" href="./hero-new-mobile.jpg" media="(max-width: 900px)" />
 
   <link rel="stylesheet" href="./styles.css" />
   <script>
@@ -113,9 +114,9 @@
     .hero-bg {
       position: absolute;
       inset: -15% 0;
-      background-image: url('./hero-web.jpg');
+      background-image: url('./hero-new-web.jpg');
       background-size: cover;
-      background-position: 68% center;
+      background-position: 80% center;
       will-change: transform;
     }
 
@@ -807,11 +808,34 @@
       .portrait-inline { max-width: 100%; }
       .hero-social-btn { width: 44px; height: 44px; }
 
-      /* Face fix: gradient goes bottom-up so face is clear at top */
+      .hero-eyebrow { margin-bottom: var(--s1); }
+      .hero-name    { margin-bottom: var(--s2); }
+      .hero-subtitle { margin-bottom: var(--s3); font-size: 0.95rem; line-height: 1.55; }
+    }
+
+    /* Tablet and phone: upright photo, face clear at the top, text over a bottom-up gradient */
+    @media (max-width: 900px) {
       .hero-bg {
-        background-position: 68% top;
-        background-size: cover;
+        background-image: url('./hero-new-mobile.jpg');
+        background-position: 58% top;
       }
+      .hero-bg::after {
+        background: linear-gradient(
+          to top,
+          rgba(12, 9, 5, 0.98) 0%,
+          rgba(12, 9, 5, 0.95) 30%,
+          rgba(12, 9, 5, 0.72) 42%,
+          rgba(12, 9, 5, 0.24) 55%,
+          rgba(12, 9, 5, 0.04) 70%,
+          rgba(12, 9, 5, 0.01) 100%
+        );
+      }
+      .hero-inner {
+        align-self: end;
+        padding-bottom: var(--s6);
+      }
+    }
+    @media (max-width: 540px) {
       .hero-bg::after {
         background: linear-gradient(
           to top,
@@ -823,14 +847,7 @@
           rgba(12, 9, 5, 0.01) 100%
         );
       }
-      .hero-inner {
-        align-self: end;
-        padding-top: 0;
-        padding-bottom: var(--s5);
-      }
-      .hero-eyebrow { margin-bottom: var(--s1); }
-      .hero-name    { margin-bottom: var(--s2); }
-      .hero-subtitle { margin-bottom: var(--s3); font-size: 0.95rem; line-height: 1.55; }
+      .hero-inner { padding-bottom: var(--s5); }
     }
   </style>
   <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
