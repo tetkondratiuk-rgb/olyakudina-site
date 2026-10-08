@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Teaching — Olya Kudina</title>
+  <meta name="description" content="Courses Olya Kudina teaches at TU Delft, Yale and 4TU, from bachelor to PhD level." />
+  <meta name="author" content="Olya Kudina" />
+  <link rel="canonical" href="https://www.olyakudina.com/teaching" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.olyakudina.com/teaching" />
+  <meta property="og:title"       content="Teaching — Olya Kudina" />
+  <meta property="og:description" content="University teaching on the ethics of technology and responsible AI." />
+  <meta property="og:image"       content="https://www.olyakudina.com/og-image.jpg" />
+
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./styles.css" />
+
+  <style>
+    /* ── Courses ────────────────────────────────────────────────── */
+    .teaching-section {
+      background: var(--cream);
+      padding-block: var(--s7);
+    }
+    .teaching-header { margin-bottom: var(--s6); }
+    .teaching-intro {
+      margin-top: var(--s3);
+      font-size: 1.05rem; line-height: 1.75;
+      color: var(--ink-soft); max-width: 650px;
+      text-wrap: pretty;
+    }
+    .courses-grid { display: flex; flex-direction: column; }
+    .course-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: var(--s4);
+      padding: var(--s4) 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .course-row:first-child { border-top: 1px solid var(--accent); }
+    .course-inst-wrap { padding-top: 0.15rem; }
+    .course-inst {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 400;
+      letter-spacing: -0.02em; color: var(--ink);
+      line-height: 1;
+    }
+    .course-inst-full {
+      font-family: var(--prose); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); margin-top: 0.5rem;
+    }
+    .course-list { display: flex; flex-direction: column; }
+    .course-item {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: baseline; gap: var(--s2);
+    }
+    .course-item:last-child { border-bottom: none; }
+    .course-item::before {
+      content: '—';
+      font-family: var(--serif); color: var(--accent);
+      font-size: 0.9rem; flex-shrink: 0;
+    }
+    .course-name {
+      font-family: var(--prose); font-size: 1rem;
+      color: var(--ink-soft); line-height: 1.5;
+    }
+    .course-name a {
+      color: var(--accent-text);
+      text-decoration: underline;
+      text-decoration-color: rgba(143, 70, 32, 0.35);
+      text-underline-offset: 3px;
+      transition: text-decoration-color var(--dur) var(--ease);
+    }
+    .course-name a:hover { text-decoration-color: var(--accent-text); }
+    .course-lang {
+      font-family: var(--prose); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.5rem; margin-left: 0.5rem;
+    }
+
+    .footer { border-top: 1px solid var(--border-night); }
+
+    @media (max-width: 900px) {
+      .course-row { grid-template-columns: 140px 1fr; gap: var(--s3); }
+    }
+    @media (max-width: 600px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .course-row { grid-template-columns: 1fr; gap: var(--s2); }
+      .course-inst { font-size: 1.3rem; }
+      .teaching-section { padding-block: var(--s5); }
+      .teaching-header { margin-bottom: var(--s4); }
+    }
+  </style>
+</head>
+<body>
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ── Navigation ────────────────────────────────────────────── -->
+  <header role="banner">
+    <nav class="nav nav--page" id="nav" aria-label="Primary navigation">
+      <a href="/" class="nav-logo" aria-label="Olya Kudina — home">Olya Kudina</a>
+      <ul class="nav-links" role="list">
+        <li><a href="/research">Research</a></li>
+        <li><a href="/teaching" aria-current="page">Teaching</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/media">Media</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <button class="nav-burger" id="burger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav-drawer" id="drawer" role="navigation" aria-label="Mobile navigation">
+      <a href="/research" class="drawer-link">Research</a>
+      <a href="/teaching" class="drawer-link" aria-current="page">Teaching</a>
+      <a href="/publications" class="drawer-link">Publications</a>
+      <a href="/media" class="drawer-link">Media</a>
+      <a href="/#contact" class="drawer-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- ── Page Header ───────────────────────────────────────────── -->
+  <div class="page-header" aria-label="Page header">
+    <div class="wrap">
+      <h1 class="page-title reveal">Teaching</h1>
+    </div>
+  </div>
+
+  <!-- ── Main ──────────────────────────────────────────────────── -->
+  <main id="main">
+
+    <!-- ── Teaching ───────────────────────────────────────────── -->
+    <section class="teaching-section" aria-labelledby="teaching-h2">
+      <div class="wrap">
+
+        <div class="teaching-header reveal">
+          <h2 class="section-heading" id="teaching-h2">Courses</h2>
+          <p class="teaching-intro">
+            Olya teaches across bachelor, master, and PhD levels. She pursues creative teaching — inviting students to integrate different theoretical and stakeholder perspectives in analyzing contemporary case studies and engaging them in responsible design practices.
+          </p>
+        </div>
+
+        <div class="courses-grid" role="list">
+
+          <div class="course-row reveal reveal-d1" role="listitem">
+            <div class="course-inst-wrap">
+              <p class="course-inst" aria-label="TU Delft">TU Delft</p>
+              <p class="course-inst-full">Delft University<br>of Technology</p>
+            </div>
+            <ul class="course-list" aria-label="Courses at TU Delft">
+              <li class="course-item">
+                <span class="course-name"><a href="https://www.tudelft.nl/ethics/ethics/teaching-activities/ethics-teaching/ethics-20/robots-and-society" target="_blank" rel="noopener noreferrer">Robots and Society</a></span>
+              </li>
+              <li class="course-item">
+                <span class="course-name">Introduction to AI &amp; Responsible AI Engineering</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="course-row reveal reveal-d2" role="listitem">
+            <div class="course-inst-wrap">
+              <p class="course-inst" aria-label="Yale University">Yale</p>
+              <p class="course-inst-full">Yale University</p>
+            </div>
+            <ul class="course-list" aria-label="Courses at Yale">
+              <li class="course-item">
+                <span class="course-name">
+                  <a href="https://bioethics.yale.edu/2021-summer-seminars" target="_blank" rel="noopener noreferrer">Ethics of Technology and Bioethics</a>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="course-row reveal reveal-d3" role="listitem">
+            <div class="course-inst-wrap">
+              <p class="course-inst">4TU</p>
+              <p class="course-inst-full">4TU Centre for Ethics<br>and Technology</p>
+            </div>
+            <ul class="course-list" aria-label="Courses at 4TU">
+              <li class="course-item">
+                <span class="course-name">Empirical Methods in Philosophy of Technology</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="course-row reveal reveal-d4" role="listitem">
+            <div class="course-inst-wrap">
+              <p class="course-inst">Auxiliary</p>
+            </div>
+            <ul class="course-list" aria-label="Auxiliary courses">
+              <li class="course-item">
+                <span class="course-name">
+                  Ethics of Technology in Design
+                  <span class="course-lang" aria-label="Taught in Ukrainian">UA</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ────────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; 2026 <strong>Olya Kudina</strong> &mdash; All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Nav scroll: dark → solid ────────────────────────────── */
+    const nav = document.getElementById('nav');
+    function onScroll() {
+      const pageHeader = document.querySelector('.page-header');
+      const headerBottom = pageHeader ? pageHeader.offsetTop + pageHeader.offsetHeight : 0;
+      nav.classList.toggle('solid', window.scrollY > headerBottom - 80);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── Mobile nav ──────────────────────────────────────────── */
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+
+    burger.addEventListener('click', () => {
+      const open = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!open));
+      drawer.classList.toggle('open', !open);
+      burger.setAttribute('aria-label', !open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    drawer.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.setAttribute('aria-expanded', 'false');
+        drawer.classList.remove('open');
+        burger.setAttribute('aria-label', 'Open navigation menu');
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+        burger.setAttribute('aria-expanded', 'false');
+        drawer.classList.remove('open');
+        burger.setAttribute('aria-label', 'Open navigation menu');
+        burger.focus();
+      }
+    });
+
+    /* ── Scroll-triggered reveals ────────────────────────────── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>

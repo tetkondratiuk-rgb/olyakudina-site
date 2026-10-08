@@ -554,6 +554,48 @@
       align-items: start;
     }
 
+    .rt-list { display: flex; flex-direction: column; }
+    .rt-list li {
+      padding: var(--s2) 0;
+      border-bottom: 1px solid var(--border-night);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text-on-dark-soft);
+    }
+    .rt-list li:first-child { border-top: 1px solid var(--border-night); }
+
+    /* Teaching: its own light section; heading left, courses right */
+    .teach { background: var(--cream); }
+    .teach-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: var(--s5) clamp(2rem, 6vw, 5rem);
+      align-items: stretch;
+    }
+    .teach-intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--s4);
+      padding-block: var(--s3);
+      border-top: 1px solid var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+    .teach-lead {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 26rem;
+      margin-bottom: var(--s3);
+      text-wrap: pretty;
+    }
+    .teach .rt-courses { height: 100%; border-top: 1px solid var(--accent); border-bottom: 1px solid var(--border); }
+    .teach .rt-course-row { flex: 1; border-bottom-color: var(--border); align-items: center; padding: var(--s3) 0; }
+    .teach .rt-inst { color: var(--accent-text); }
+    .teach .rt-course-list li { color: var(--ink-soft); font-size: 1rem; }
+    .teach .rt-course-list a { color: var(--ink-soft); border-bottom-color: rgba(143, 70, 32, 0.28); }
+    .teach .rt-course-list a:hover { color: var(--accent-text); border-color: var(--accent-text); }
+
     .rt-themes {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -779,6 +821,8 @@
     @media (max-width: 900px) {
       .rt-themes { grid-template-columns: 1fr; }
       .rt-teaching-grid { grid-template-columns: 1fr; }
+      .teach-split { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
+      .teach-intro { border-bottom: none; padding-bottom: 0; }
 
       .news-entry { grid-template-columns: 1fr; gap: var(--s1) 0; }
       .news-entry-date { padding-top: 0; }
@@ -854,7 +898,8 @@
     <a href="/" class="nav-logo" aria-label="Olya Kudina — home">Olya Kudina</a>
 
     <ul class="nav-links" role="list">
-      <li><a href="/research-teaching">Research &amp; Teaching</a></li>
+      <li><a href="/research">Research</a></li>
+        <li><a href="/teaching">Teaching</a></li>
       <li><a href="/publications">Publications</a></li>
       <li><a href="/media">Media</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -869,7 +914,8 @@
   </nav>
 
   <div class="nav-drawer" id="drawer" role="navigation" aria-label="Mobile navigation">
-    <a href="/research-teaching" class="drawer-link">Research &amp; Teaching</a>
+    <a href="/research" class="drawer-link">Research</a>
+      <a href="/teaching" class="drawer-link">Teaching</a>
     <a href="/publications" class="drawer-link">Publications</a>
     <a href="/media" class="drawer-link">Media</a>
     <a href="#contact" class="drawer-link">Contact</a>
@@ -999,7 +1045,7 @@
             </a>
           </li>
           <li>
-            <a class="help-item" href="/research-teaching">
+            <a class="help-item" href="/research">
               <svg class="help-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="7" r="2.3"/><circle cx="18" cy="7" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M8.3 7h7.4M7.2 9l3.6 7M16.8 9l-3.6 7"/></svg>
               <h3 class="help-title">Research collaboration</h3>
               <span class="help-proof">AI DeMoS Lab, ELSA Lab AI MAPS, ProtectME</span>
@@ -1011,17 +1057,15 @@
     </div>
   </section>
 
-  <!-- RESEARCH & TEACHING ──────────────────────────────────────── -->
+  <!-- RESEARCH ──────────────────────────────────────── -->
   <section class="rt section" id="research" aria-labelledby="rt-h2">
     <div class="wrap">
 
       <div class="rt-header reveal">
-        <h2 class="section-heading" id="rt-h2">Research &amp; Teaching</h2>
+        <h2 class="section-heading" id="rt-h2">Research</h2>
       </div>
 
-      <!-- Research -->
       <div class="rt-block reveal reveal-d1">
-        <h3 class="rt-col-head">Research</h3>
         <div class="rt-themes">
           <div class="rt-theme">
             <p class="rt-theme-label">AI &amp; Democracy</p>
@@ -1050,13 +1094,37 @@
 
     <div class="wrap">
 
-      <!-- Teaching -->
+      <!-- Supervision -->
       <div class="rt-block reveal reveal-d3">
-        <h3 class="rt-col-head">Teaching</h3>
+        <h3 class="rt-col-head">Supervision</h3>
         <div class="rt-teaching-grid">
-          <p class="rt-body">
-            Olya teaches across bachelor, master, and PhD levels. She pursues creative teaching that invites students to integrate theoretical and stakeholder perspectives, analysing contemporary case studies and engaging them in responsible design practices.
-          </p>
+          <p class="rt-body">Olya supervises PhD projects at the intersection of technology, society, and ethics.</p>
+          <ul class="rt-list" aria-label="Current PhD themes">
+            <li>The interrelation of synthetic media and trust</li>
+            <li>Political subjectivity and social media</li>
+            <li>Digital phenotyping in mental healthcare</li>
+            <li>Critical engagement with AI systems in the public sphere</li>
+            <li>Adversarial Machine Learning to facilitate private deliberation online</li>
+          </ul>
+        </div>
+      </div>
+
+      <a href="/research" class="text-link text-link--light reveal">More on research <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- TEACHING ─────────────────────────────────────────────────── -->
+  <section class="teach section" id="teaching" aria-labelledby="teach-h2">
+    <div class="wrap">
+      <div class="teach-split">
+        <div class="teach-intro reveal">
+          <h2 class="section-heading" id="teach-h2">Teaching</h2>
+          <div>
+            <p class="teach-lead">Olya teaches across bachelor, master, and PhD levels. She pursues creative teaching that invites students to integrate theoretical and stakeholder perspectives, analysing contemporary case studies and engaging them in responsible design practices.</p>
+            <a href="/teaching" class="text-link">All courses <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="reveal reveal-d1">
           <ul class="rt-courses" aria-label="Courses by institution">
           <li class="rt-course-row">
             <span class="rt-inst">TU Delft</span>
@@ -1086,8 +1154,6 @@
         </ul>
         </div>
       </div>
-
-      <a href="/research-teaching" class="text-link text-link--light reveal">More on research &amp; teaching <span aria-hidden="true">→</span></a>
     </div>
   </section>
 

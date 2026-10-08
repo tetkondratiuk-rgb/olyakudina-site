@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Research — Olya Kudina</title>
+  <meta name="description" content="Olya Kudina's research on AI, ethics, and democracy at TU Delft: AI DeMoS Lab, ELSA Lab AI MAPS, ProtectME, and the PhD projects she supervises." />
+  <meta name="author" content="Olya Kudina" />
+  <link rel="canonical" href="https://www.olyakudina.com/research" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.olyakudina.com/research" />
+  <meta property="og:title"       content="Research — Olya Kudina" />
+  <meta property="og:description" content="AI ethics, democracy, and human-technology relations research at TU Delft." />
+  <meta property="og:image"       content="https://www.olyakudina.com/og-image.jpg" />
+
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./styles.css" />
+
+  <style>
+    /* ── Layout utils ───────────────────────────────────────────── */
+
+    .section { padding-block: var(--s7); }
+
+    /* ── Page Header ─────────────────────────────────────────────── */
+
+    .page-header-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: var(--s4);
+    }
+
+    .page-header-meta {
+      text-align: right;
+    }
+    .page-header-affil {
+      font-family: var(--prose); font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.08em; color: var(--text-on-dark-soft);
+      text-transform: uppercase; line-height: 2;
+    }
+
+    /* ── Research intro ─────────────────────────────────────────── */
+    .research-intro {
+      background: var(--cream);
+      padding-block: var(--s7);
+    }
+    .research-top {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: start;
+      margin-bottom: var(--s5);
+    }
+    .research-lead {
+      margin-bottom: var(--s4);
+    }
+    .research-body p {
+      font-size: 1.05rem; line-height: 1.75;
+      color: var(--ink-soft); margin-bottom: 1.2rem;
+      text-wrap: pretty; max-width: 650px;
+    }
+    .research-body p:last-child { margin-bottom: 0; }
+    .research-body a {
+      color: var(--accent-text);
+      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
+      transition: border-color var(--dur) var(--ease);
+    }
+    .research-body a:hover { border-color: var(--accent-text); }
+    .research-image-wrap {
+      position: sticky;
+      top: calc(var(--nav-h) + var(--s4));
+      overflow: hidden;
+    }
+    .research-image {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* ── PhD themes ─────────────────────────────────────────────── */
+    .phd-section {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: var(--s3) clamp(2rem, 6vw, 5rem);
+      padding-top: var(--s5);
+      border-top: 1px solid var(--border);
+    }
+    .phd-label {
+      font-family: var(--serif); font-size: 1.35rem; font-weight: 400;
+      line-height: 1.3; color: var(--ink); text-wrap: balance;
+    }
+    .phd-sub {
+      margin-top: var(--s2);
+      font-size: 1rem; line-height: 1.7; color: var(--muted);
+      max-width: 24rem; text-wrap: pretty;
+    }
+    .phd-themes { display: flex; flex-direction: column; }
+    .phd-item {
+      padding: var(--s2) 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1rem; line-height: 1.5; color: var(--ink-soft);
+    }
+    .phd-item:first-child { border-top: 1px solid var(--accent); }
+
+    /* ── Projects strip ─────────────────────────────────────────── */
+    .projects-section {
+      background: var(--cream-warm);
+      padding-block: var(--s6);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .projects-header {
+      display: flex; align-items: baseline;
+      justify-content: space-between; flex-wrap: wrap;
+      gap: var(--s2); margin-bottom: var(--s5);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--s4) clamp(1.5rem, 3vw, 2.5rem);
+    }
+    .project-card {
+      padding-top: var(--s3);
+      border-top: 1px solid var(--accent);
+      display: flex; flex-direction: column; gap: 0.6rem;
+    }
+    .project-partner {
+      font-family: var(--prose); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .project-name {
+      font-family: var(--serif); font-size: 1.35rem; font-weight: 400;
+      color: var(--ink); line-height: 1.3;
+    }
+    .project-desc {
+      font-family: var(--prose); font-size: 0.95rem;
+      color: var(--muted); line-height: 1.65;
+      text-wrap: pretty;
+    }
+    .project-link {
+      align-self: flex-start; margin-top: auto; padding-top: var(--s1);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--prose); font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent-text);
+      border-bottom: 1px solid rgba(143, 70, 32, 0.28); padding-bottom: 2px;
+      transition: border-color var(--dur) var(--ease), gap var(--dur) var(--ease);
+    }
+    .project-link:hover { border-color: var(--accent-text); gap: 0.8rem; }
+
+    /* ── Approach / pull-quote section ─────────────────────────── */
+    .approach-section {
+      background: var(--cream);
+      padding-block: var(--s7);
+    }
+    .pull-quote-wrap {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .thesis {
+      background: var(--night);
+      padding-block: var(--s7);
+    }
+    .pull-quote-rule {
+      width: 2.5rem;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto var(--s4);
+    }
+    .pull-quote {
+      font-family: var(--serif); font-style: italic;
+      font-size: clamp(1.7rem, 3.8vw, 2.7rem);
+      line-height: 1.35; color: var(--text-on-dark);
+      margin-bottom: var(--s3);
+      text-wrap: balance;
+    }
+    .pull-quote-attr {
+      font-family: var(--prose); font-size: 0.78rem;
+      font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-on-dark-soft);
+    }
+    .approach-body p {
+      font-size: 1.05rem; line-height: 1.75;
+      color: var(--ink-soft); margin-bottom: 1.2rem;
+      text-wrap: pretty; max-width: 650px;
+    }
+    .approach-body p:last-child { margin-bottom: 0; }
+    .approach-body a {
+      color: var(--accent-text);
+      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
+      transition: border-color var(--dur) var(--ease);
+    }
+    .approach-body a:hover { border-color: var(--accent-text); }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .page-header-inner { grid-template-columns: 1fr; }
+      .page-header-meta  { text-align: left; }
+      .research-top { grid-template-columns: 1fr; }
+      .phd-section { grid-template-columns: 1fr; }
+      .research-image-wrap { position: static; }
+      .research-image { aspect-ratio: 3/2; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    .footer { border-top: 1px solid var(--border-night); }
+
+    @media (max-width: 600px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+
+      .research-intro,
+      .approach-section { padding-block: var(--s5); }
+      .projects-section { padding-block: var(--s4); }
+      .thesis { padding-block: var(--s6); }
+    }
+  </style>
+</head>
+<body>
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ── Navigation ────────────────────────────────────────────── -->
+  <header role="banner">
+    <nav class="nav nav--page" id="nav" aria-label="Primary navigation">
+      <a href="/" class="nav-logo" aria-label="Olya Kudina — home">Olya Kudina</a>
+      <ul class="nav-links" role="list">
+        <li><a href="/research" aria-current="page">Research</a></li>
+        <li><a href="/teaching">Teaching</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/media">Media</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <button class="nav-burger" id="burger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav-drawer" id="drawer" role="navigation" aria-label="Mobile navigation">
+      <a href="/research" class="drawer-link" aria-current="page">Research</a>
+      <a href="/teaching" class="drawer-link">Teaching</a>
+      <a href="/publications" class="drawer-link">Publications</a>
+      <a href="/media" class="drawer-link">Media</a>
+      <a href="/#contact" class="drawer-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- ── Page Header ───────────────────────────────────────────── -->
+  <div class="page-header" aria-label="Page header">
+    <div class="wrap">
+      <div class="page-header-inner">
+        <div>
+          <h1 class="page-title reveal">Research</h1>
+        </div>
+        <div class="page-header-meta reveal reveal-d2" aria-label="Affiliations">
+          <p class="page-header-affil">AI DeMoS Lab</p>
+          <p class="page-header-affil">Journal of Human-Technology Relations</p>
+          <p class="page-header-affil">North-West University, South Africa</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main ──────────────────────────────────────────────────── -->
+  <main id="main">
+
+    <!-- ── Research introduction ─────────────────────────────── -->
+    <section class="research-intro" aria-labelledby="research-h2">
+      <div class="wrap">
+        <div class="research-top">
+
+          <!-- Left: text -->
+          <div>
+            <h2 class="section-heading reveal" id="research-h2">AI, democracy,<br>and human values</h2>
+
+            <div class="research-body reveal reveal-d2" style="margin-top: var(--s4);">
+              <p class="research-lead">
+                Olya's current work concerns AI and democracy in different contexts. Predominantly, her research orbits the <a href="https://www.tudelft.nl/ai/ai-demos-lab" target="_blank" rel="noopener noreferrer">AI&nbsp;DeMoS&nbsp;Lab</a> where she supervises PhD projects at the intersection of technology, society, and ethics.
+              </p>
+              <p>
+                Olya is also co-supervising responsible AI development projects in large consortia, such as the Dutch National ELSA Lab <strong>AI MAPS</strong> (with the Dutch police) and the EUR-Erasmus MC-TU Delft Convergence Flagship project <strong>ProtectME</strong> — focused on AI and mental wellbeing of adolescents.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: portrait -->
+          <div class="research-image-wrap reveal reveal-d2">
+            <img class="research-image" src="./about-web.jpg" alt="Olya Kudina, Associate Professor at TU Delft" loading="eager" />
+          </div>
+
+        </div>
+
+        <!-- Supervision — full width, outside the two-column grid -->
+        <div class="phd-section reveal reveal-d3" id="supervision">
+          <div>
+            <h2 class="phd-label">Supervision</h2>
+            <p class="phd-sub">Olya supervises PhD projects at the intersection of technology, society, and ethics. These are the current themes.</p>
+          </div>
+          <ul class="phd-themes" role="list" aria-label="PhD research themes">
+            <li class="phd-item">The interrelation of synthetic media and trust</li>
+            <li class="phd-item">Political subjectivity and social media</li>
+            <li class="phd-item">Digital phenotyping in mental healthcare</li>
+            <li class="phd-item">Critical engagement with AI systems in the public sphere</li>
+            <li class="phd-item">Adversarial Machine Learning to facilitate private deliberation online</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Research projects strip ───────────────────────────── -->
+    <section class="projects-section" aria-labelledby="projects-h2">
+      <div class="wrap">
+        <div class="projects-header reveal">
+          <div>
+            <h2 class="section-heading" id="projects-h2">Research projects</h2>
+          </div>
+        </div>
+        <div class="projects-grid reveal reveal-d1">
+          <div class="project-card">
+            <p class="project-partner">TU Delft</p>
+            <h3 class="project-name">AI DeMoS Lab</h3>
+            <p class="project-desc">
+              The AI, Democracy, and Society Lab investigates how AI systems reshape democratic processes, public deliberation, and political subjectivity. Co-directed at TU Delft, the lab brings together philosophers, social scientists, and engineers.
+            </p>
+            <a class="project-link" href="https://www.tudelft.nl/ai/ai-demos-lab" target="_blank" rel="noopener noreferrer">Visit the lab <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="project-card">
+            <p class="project-partner">Dutch National Consortium</p>
+            <h3 class="project-name">ELSA Lab AI MAPS</h3>
+            <p class="project-desc">
+              The Dutch National ELSA Lab on AI and Meaningful Accountable Predictive Policing Systems. This consortium investigates ethical, legal, and societal dimensions of AI deployment by the Dutch police.
+            </p>
+          </div>
+          <div class="project-card">
+            <p class="project-partner">EUR-Erasmus MC · TU Delft</p>
+            <h3 class="project-name">ProtectME</h3>
+            <p class="project-desc">
+              The EUR-Erasmus MC and TU Delft Convergence Flagship project on AI and mental wellbeing of adolescents. Olya co-supervises responsible AI development in this clinical and societal context.
+            </p>
+            <a class="project-link" href="https://convergence.nl/health-technology/programs/protect-me/" target="_blank" rel="noopener noreferrer">Visit the project <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Thesis ────────────────────────────────────────────── -->
+    <section class="thesis" aria-label="Research philosophy">
+      <div class="wrap">
+        <div class="pull-quote-wrap reveal">
+          <div class="pull-quote-rule" aria-hidden="true"></div>
+          <p class="pull-quote">
+            Ethics arises not only within the parts of a&nbsp;technology, but where they&nbsp;meet.
+          </p>
+          <p class="pull-quote-attr">Research philosophy</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Philosophical approach ─────────────────────────────── -->
+    <section class="approach-section" aria-labelledby="approach-h2">
+      <div class="wrap">
+
+        <div class="approach-body reveal reveal-d1">
+          <h2 class="section-heading" id="approach-h2" style="margin-bottom: var(--s4);">Connecting philosophy<br>to practice</h2>
+          <p>
+            Olya is an interdisciplinary researcher. Philosophically, her work is inspired by (post)phenomenology, Dewey's pragmatism, and bioethics. She is interested in understanding the technologically induced value change and connecting the insights to developmental practices.
+          </p>
+          <p>
+            To this end, she experiments with a range of empirical methods from STS and psychology — such as Interpretative Phenomenological Analysis — integrating them with philosophy of technology frameworks like Value Sensitive Design.
+          </p>
+          <p>
+            To anticipate the ethical challenges and opportunities for an informed design and use of technologies, Olya thinks it is essential to combine different academic practices and fields — which is why her collaborations span philosophy, computer science, medicine, and social science.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ────────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">
+      <div class="footer-inner">
+        <p class="footer-copy">&copy; 2026 <strong>Olya Kudina</strong> &mdash; All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Nav scroll: dark → solid ────────────────────────────── */
+    const nav = document.getElementById('nav');
+    function onScroll() {
+      const pageHeader = document.querySelector('.page-header');
+      const headerBottom = pageHeader ? pageHeader.offsetTop + pageHeader.offsetHeight : 0;
+      nav.classList.toggle('solid', window.scrollY > headerBottom - 80);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── Mobile nav ──────────────────────────────────────────── */
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+
+    burger.addEventListener('click', () => {
+      const open = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!open));
+      drawer.classList.toggle('open', !open);
+      burger.setAttribute('aria-label', !open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    drawer.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.setAttribute('aria-expanded', 'false');
+        drawer.classList.remove('open');
+        burger.setAttribute('aria-label', 'Open navigation menu');
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && burger.getAttribute('aria-expanded') === 'true') {
+        burger.setAttribute('aria-expanded', 'false');
+        drawer.classList.remove('open');
+        burger.setAttribute('aria-label', 'Open navigation menu');
+        burger.focus();
+      }
+    });
+
+    /* ── Scroll-triggered reveals ────────────────────────────── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>
