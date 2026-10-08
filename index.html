@@ -387,6 +387,23 @@
       text-wrap: pretty;
     }
 
+    .help-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: var(--s3);
+      padding: 0.85rem 1.9rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--prose);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+    }
+    .help-cta:hover { background: var(--accent-dim); transform: translateY(-2px); }
+
     .help-items {
       display: flex;
       flex-direction: column;
@@ -954,7 +971,10 @@
       <div class="help-split">
         <div class="help-intro reveal">
           <h2 class="section-heading" id="help-h2">Working with&nbsp;Olya</h2>
-          <p class="help-lead">For talks, media requests and research partnerships on AI, democracy and human values.</p>
+          <div>
+            <p class="help-lead">For talks, media requests and research partnerships on AI, democracy and human values.</p>
+            <a href="#contact" class="help-cta">Contact</a>
+          </div>
         </div>
 
         <ul class="help-items reveal reveal-d1" role="list">
