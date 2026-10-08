@@ -158,7 +158,7 @@
       grid-template-columns: 120px minmax(0, 1fr);
       gap: var(--s4);
       padding: var(--s4);
-      background: var(--night);
+      background: var(--cream-deep);
     }
     .selected-item {
       grid-template-columns: 68px minmax(0, 1fr);
@@ -216,13 +216,25 @@
       color: var(--muted);
       margin-top: 0.6rem;
     }
-    .selected-feature .selected-kind  { color: var(--accent-pale); }
-    .selected-feature .selected-title { font-size: 1.35rem; line-height: 1.25; color: var(--text-on-dark); }
-    .selected-feature:hover .selected-title { color: var(--accent-pale); }
-    .selected-feature .selected-sub,
-    .selected-feature .selected-venue { color: var(--text-on-dark-soft); }
+    .selected-feature .selected-title { font-size: 1.35rem; line-height: 1.25; }
+    .selected-feature:hover .selected-title { color: var(--accent-text); }
     .selected-feature .selected-sub { font-size: 0.95rem; }
-    .selected-feature:focus-visible { outline-color: var(--accent-pale); outline-offset: -6px; }
+    .selected-feature .selected-cover { box-shadow: 0 6px 8px rgba(26, 23, 20, 0.35); }
+    .selected-text > .selected-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+      padding: 0.3rem 0.65rem;
+      background: var(--accent-text);
+      color: var(--cream);
+      font-family: var(--prose);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .selected-badge svg { width: 0.85rem; height: 0.85rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
     @media (max-width: 760px) {
       .selected-layout { grid-template-columns: 1fr; gap: var(--s3); }
@@ -584,7 +596,8 @@
                 <span class="selected-kind">Book · 2023</span>
                 <span class="selected-title">Moral hermeneutics and&nbsp;technology</span>
                 <span class="selected-sub">Making moral sense through human-technology-world relations</span>
-                <span class="selected-venue">Lexington Books · open access</span>
+                <span class="selected-venue">Lexington Books</span>
+                <span class="selected-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7.5" width="10" height="6.5" rx="1"/><path d="M5.5 7.5V5a2.5 2.5 0 0 1 4.8-1"/></svg>Open access</span>
               </span>
             </a>
 
