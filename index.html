@@ -308,18 +308,19 @@
       align-items: center;
       margin-bottom: var(--s3);
     }
-    /* one colour at rest, the logo's own colours on hover */
-    .role-logo img {
-      height: 100%;
-      width: auto;
+    /* logos are drawn as masks: one ink colour at rest, the accent on hover */
+    .role-logo-shape {
+      display: block;
+      width: var(--logo-w);
       max-width: 100%;
-      object-fit: contain;
-      filter: grayscale(1) contrast(1.05);
-      opacity: 0.85;
-      transition: filter var(--dur) var(--ease), opacity var(--dur) var(--ease);
+      aspect-ratio: var(--logo-ar);
+      background-color: var(--ink-soft);
+      -webkit-mask: var(--logo-src) left center / contain no-repeat;
+      mask: var(--logo-src) left center / contain no-repeat;
+      transition: background-color var(--dur) var(--ease);
     }
-    .role:hover .role-logo img,
-    .role:focus-visible .role-logo img { filter: none; opacity: 1; }
+    .role:hover .role-logo-shape,
+    .role:focus-visible .role-logo-shape { background-color: var(--accent); }
     .role-mark {
       font-family: var(--serif);
       font-style: italic;
@@ -1052,13 +1053,13 @@
       <h2 class="sr-only" id="roles-h2">Roles</h2>
       <div class="roles-grid">
         <a class="role reveal" href="https://journals.open.tudelft.nl/jhtr" target="_blank" rel="noopener noreferrer">
-          <span class="role-logo"><img src="./cover-jhtr.avif" alt="" loading="lazy" /></span>
+          <span class="role-logo"><span class="role-logo-shape" style="--logo-src: url('./JHTR_logo.svg'); --logo-w: 112px; --logo-ar: 584 / 270;" aria-hidden="true"></span></span>
           <span class="role-kind">Co-founder &amp; co-editor-in-chief</span>
           <span class="role-name">Journal of Human-Technology Relations</span>
           <span class="text-link">Read the journal <span aria-hidden="true">→</span></span>
         </a>
         <a class="role reveal reveal-d1" href="https://www.nwu.ac.za/" target="_blank" rel="noopener noreferrer">
-          <span class="role-logo"><span class="role-mark" aria-hidden="true">NWU</span></span>
+          <span class="role-logo"><span class="role-logo-shape" style="--logo-src: url('./NWU.svg'); --logo-w: 168px; --logo-ar: 1533 / 383;" aria-hidden="true"></span></span>
           <span class="role-kind">Extraordinary Professor in Philosophy of&nbsp;AI</span>
           <span class="role-name">North-West University, South&nbsp;Africa</span>
           <span class="text-link">Visit the university <span aria-hidden="true">→</span></span>
