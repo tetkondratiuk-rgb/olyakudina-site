@@ -321,17 +321,16 @@
     }
     .role:hover .role-logo-shape,
     .role:focus-visible .role-logo-shape { background-color: var(--accent); }
-    .role-mark {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.9rem;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      color: var(--ink-soft);
-      transition: color var(--dur) var(--ease);
+    /* a two-colour logo keeps its tonal contrast in grey and shows its own colours on hover */
+    .role-logo img {
+      height: 72px;
+      width: auto;
+      filter: grayscale(1);
+      opacity: 0.82;
+      transition: filter var(--dur) var(--ease), opacity var(--dur) var(--ease);
     }
-    .role:hover .role-mark,
-    .role:focus-visible .role-mark { color: var(--accent); }
+    .role:hover .role-logo img,
+    .role:focus-visible .role-logo img { filter: none; opacity: 1; }
     /* the role is the headline; the institution sits under it as a caption */
     .role-kind {
       font-family: var(--prose);
@@ -359,6 +358,7 @@
       .roles { padding-block: var(--s5); }
       .roles-grid { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
       .role-logo { height: 60px; margin-bottom: var(--s2); }
+      .role-logo img { height: 60px; }
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -1065,7 +1065,7 @@
           <span class="text-link">Visit the university <span aria-hidden="true">→</span></span>
         </a>
         <a class="role reveal reveal-d2" href="https://www.tudelft.nl/ai/ai-demos-lab" target="_blank" rel="noopener noreferrer">
-          <span class="role-logo"><span class="role-mark" aria-hidden="true">AI DeMoS</span></span>
+          <span class="role-logo"><img src="./DeMoS_logo.svg" alt="" width="446" height="460" loading="lazy" /></span>
           <span class="role-kind">Co-director</span>
           <span class="role-name">AI DeMoS Lab, TU&nbsp;Delft</span>
           <span class="text-link">Visit the lab <span aria-hidden="true">→</span></span>
