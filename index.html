@@ -345,9 +345,29 @@
     .role:hover .text-link { border-color: var(--accent-text); gap: 0.8rem; }
 
     @media (max-width: 900px) {
-      .roles { padding-block: var(--s5); }
-      .roles-grid { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
-      .role-logo { height: 60px; margin-bottom: var(--s2); }
+      .br-wide { display: none; }
+      /* compact rows: logo on the left, role and institution beside it */
+      .roles { padding-block: var(--s4); }
+      .roles-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+      .role {
+        display: grid;
+        grid-template-columns: 104px minmax(0, 1fr);
+        column-gap: var(--s3);
+        align-content: center;
+        padding-block: var(--s3);
+        border-top-color: var(--border);
+      }
+      .role:first-child { border-top-color: var(--accent); }
+      .role-logo {
+        grid-row: 1 / span 2;
+        align-self: center;
+        height: auto;
+        margin-bottom: 0;
+      }
+      .role-logo-shape { width: calc(var(--logo-w) * 0.62); }
+      .role-kind { grid-column: 2; font-size: 1.05rem; margin-bottom: 0.2rem; }
+      .role-name { grid-column: 2; font-size: 0.875rem; margin-bottom: 0; }
+      .role .text-link { display: none; }
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -1043,7 +1063,7 @@
       <div class="roles-grid">
         <a class="role reveal" href="https://journals.open.tudelft.nl/jhtr" target="_blank" rel="noopener noreferrer">
           <span class="role-logo"><span class="role-logo-shape" style="--logo-src: url('./JHTR_logo.svg'); --logo-w: 112px; --logo-ar: 584 / 270;" aria-hidden="true"></span></span>
-          <span class="role-kind">Co-founder &amp; co-editor-in-chief</span>
+          <span class="role-kind">Co&#8209;founder &amp; co&#8209;editor&#8209;in&#8209;chief</span>
           <span class="role-name">Journal of Human-Technology Relations</span>
           <span class="text-link">Read the journal <span aria-hidden="true">→</span></span>
         </a>
@@ -1323,7 +1343,7 @@
           <div class="contact-text">
             <h2 class="section-heading" id="contact-h2">Contact</h2>
             <p class="contact-desc">
-              For research collaboration, media requests, or speaking engagements,<br>reach out via email.
+              For research collaboration, media requests, or speaking engagements,<br class="br-wide">reach out via email.
             </p>
 
             <a href="mailto:o.kudina@tudelft.nl" class="contact-email-link">
