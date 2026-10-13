@@ -480,8 +480,6 @@
       justify-content: space-between;
       gap: var(--s4);
       padding-block: var(--s3);
-      border-top: 1px solid var(--accent);
-      border-bottom: 1px solid var(--border);
     }
 
     .help-lead {
@@ -512,7 +510,6 @@
     .help-items {
       display: flex;
       flex-direction: column;
-      border-bottom: 1px solid var(--border);
     }
     .help-items li { display: flex; flex: 1; }
 
@@ -526,7 +523,7 @@
       padding-block: var(--s3);
       border-top: 1px solid var(--border);
     }
-    .help-items li:first-child .help-item { border-top-color: var(--accent); }
+    .help-items li:first-child .help-item { border-top: none; }
 
     .help-ico {
       grid-row: 1 / span 2;
