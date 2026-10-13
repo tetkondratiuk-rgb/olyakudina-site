@@ -292,8 +292,8 @@
     }
     .roles-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--s5) clamp(1.5rem, 3vw, 2.5rem);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--s5) clamp(1.5rem, 2.5vw, 2.5rem);
     }
     .role {
       display: flex;
@@ -321,6 +321,21 @@
     }
     .role:hover .role-logo-shape,
     .role:focus-visible .role-logo-shape { background-color: var(--accent); }
+    /* stands in for a logo file that has not arrived yet */
+    .role-wordmark {
+      font-family: var(--prose);
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--ink-soft);
+      transition: color var(--dur) var(--ease);
+    }
+    .role:hover .role-wordmark,
+    .role:focus-visible .role-wordmark { color: var(--accent); }
+    @media (min-width: 901px) and (max-width: 1150px) {
+      .roles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     /* the role is the headline; the institution sits under it as a caption */
     .role-kind {
       font-family: var(--prose);
@@ -365,6 +380,7 @@
         margin-bottom: 0;
       }
       .role-logo-shape { width: calc(var(--logo-w) * 0.62); }
+      .role-wordmark { font-size: 1.25rem; }
       .role-kind { grid-column: 2; font-size: 1.05rem; margin-bottom: 0.2rem; }
       .role-name { grid-column: 2; font-size: 0.875rem; margin-bottom: 0; }
       .role .text-link { display: none; }
@@ -1019,7 +1035,6 @@
     <div class="hero-deco" aria-hidden="true">O</div>
 
     <div class="hero-inner wrap">
-      <p class="hero-eyebrow">Associate Professor · TU Delft</p>
 
       <h1 class="hero-name">
         Olya<br>
@@ -1061,19 +1076,25 @@
     <div class="wrap">
       <h2 class="sr-only" id="roles-h2">Roles</h2>
       <div class="roles-grid">
-        <a class="role reveal" href="https://journals.open.tudelft.nl/jhtr" target="_blank" rel="noopener noreferrer">
+        <a class="role reveal" href="https://www.tudelft.nl" target="_blank" rel="noopener noreferrer">
+          <span class="role-logo"><span class="role-wordmark" aria-hidden="true">TU Delft</span></span>
+          <span class="role-kind">Associate Professor</span>
+          <span class="role-name">Delft University of&nbsp;Technology</span>
+          <span class="text-link">Visit the university <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="role reveal reveal-d1" href="https://journals.open.tudelft.nl/jhtr" target="_blank" rel="noopener noreferrer">
           <span class="role-logo"><span class="role-logo-shape" style="--logo-src: url('./JHTR_logo.svg'); --logo-w: 112px; --logo-ar: 584 / 270;" aria-hidden="true"></span></span>
           <span class="role-kind">Co&#8209;founder &amp; co&#8209;editor&#8209;in&#8209;chief</span>
           <span class="role-name">Journal of Human-Technology Relations</span>
           <span class="text-link">Read the journal <span aria-hidden="true">→</span></span>
         </a>
-        <a class="role reveal reveal-d1" href="https://www.nwu.ac.za/" target="_blank" rel="noopener noreferrer">
+        <a class="role reveal reveal-d2" href="https://www.nwu.ac.za/" target="_blank" rel="noopener noreferrer">
           <span class="role-logo"><span class="role-logo-shape" style="--logo-src: url('./NWU.svg'); --logo-w: 168px; --logo-ar: 1533 / 383;" aria-hidden="true"></span></span>
           <span class="role-kind">Extraordinary Professor in Philosophy of&nbsp;AI</span>
           <span class="role-name">North-West University, South&nbsp;Africa</span>
           <span class="text-link">Visit the university <span aria-hidden="true">→</span></span>
         </a>
-        <a class="role reveal reveal-d2" href="https://www.tudelft.nl/ai/ai-demos-lab" target="_blank" rel="noopener noreferrer">
+        <a class="role reveal reveal-d3" href="https://www.tudelft.nl/ai/ai-demos-lab" target="_blank" rel="noopener noreferrer">
           <span class="role-logo"><span class="role-logo-shape" style="--logo-src: url('./DeMoS_logo.svg'); --logo-w: 70px; --logo-ar: 446 / 460;" aria-hidden="true"></span></span>
           <span class="role-kind">Co-director</span>
           <span class="role-name">AI DeMoS Lab, TU&nbsp;Delft</span>
