@@ -679,8 +679,6 @@
       justify-content: space-between;
       gap: var(--s4);
       padding-block: var(--s3);
-      border-top: 1px solid var(--accent);
-      border-bottom: 1px solid var(--border);
     }
     .teach-lead {
       font-size: 1rem;
@@ -690,7 +688,8 @@
       margin-bottom: var(--s3);
       text-wrap: pretty;
     }
-    .teach .rt-courses { height: 100%; border-top: 1px solid var(--accent); border-bottom: 1px solid var(--border); }
+    .teach .rt-courses { height: 100%; border: none; }
+    .teach .rt-course-row:last-child { border-bottom: none; }
     .teach .rt-course-row { flex: 1; border-bottom-color: var(--border); align-items: center; padding: var(--s3) 0; }
     .teach .rt-inst { color: var(--accent-text); }
     .teach .rt-course-list li { color: var(--ink-soft); font-size: 1rem; }
