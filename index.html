@@ -455,8 +455,8 @@
     .hl a:hover { border-color: var(--accent-text); }
 
     .ua {
-      background: var(--cream-warm);
-      border-bottom: 1px solid var(--border);
+      background: var(--night);
+      color: var(--text-on-dark);
       padding-block: var(--s6);
     }
     .ua-split {
@@ -470,7 +470,7 @@
       max-width: 650px;
       font-size: 1rem;
       line-height: 1.75;
-      color: var(--muted);
+      color: var(--text-on-dark-soft);
       text-wrap: pretty;
     }
     .ua-links { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
@@ -479,9 +479,9 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.75rem 1.375rem;
-      border: 1px solid var(--ink);
-      background: var(--ink);
-      color: var(--cream);
+      border: 1px solid var(--cream);
+      background: var(--cream);
+      color: var(--ink);
       line-height: 1.5rem;
       font-family: var(--prose);
       font-size: 0.875rem;
@@ -490,6 +490,7 @@
       transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
     }
     .ua-link:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .ua-link:focus-visible { outline-color: var(--accent-pale); }
 
     @media (max-width: 900px) {
       .hl-list { gap: var(--s5); }
@@ -1244,7 +1245,7 @@
       <div class="ua-split">
         <div class="reveal">
           <svg class="ua-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="1" fill="#0057B7"/><rect y="1" width="3" height="1" fill="#FFD700"/></svg>
-          <h2 class="section-heading" id="ua-h2">Support Ukraine</h2>
+          <h2 class="section-heading section-heading--light" id="ua-h2">Support<br>Ukraine</h2>
         </div>
         <div class="reveal reveal-d1">
           <p class="ua-text">As a Ukrainian scholar working abroad, Olya wants to spotlight several trusted donation platforms that support her home country, Ukraine, in fighting Russian military aggression. Both platforms feature designated science and education projects supporting Ukrainian students, teachers, and researchers.</p>
