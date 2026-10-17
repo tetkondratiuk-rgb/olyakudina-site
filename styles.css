@@ -23,13 +23,13 @@
   --serif: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   --prose: 'Hanken Grotesk', system-ui, sans-serif;
 
-  --s1: 0.5rem;
-  --s2: 1rem;
-  --s3: 1.5rem;
-  --s4: 2rem;
-  --s5: 3rem;
-  --s6: 4.5rem;
-  --s7: 7rem;
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 32px;
+  --s5: 48px;
+  --s6: 72px;
+  --s7: 120px;
 
   --nav-h: 68px;
   --max-w: 1200px;
