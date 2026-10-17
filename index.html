@@ -465,7 +465,8 @@
       gap: var(--s3) clamp(2rem, 6vw, 5rem);
       align-items: start;
     }
-    .ua-flag { display: block; width: 42px; height: 28px; margin-bottom: var(--s3); }
+    /* sits on the second line, after "Ukraine", sized to the cap height */
+    .ua-flag { display: inline-block; width: 0.875em; height: 0.583em; margin-left: 0.125em; vertical-align: 0.05em; }
     .ua-text {
       max-width: 650px;
       font-size: 1rem;
@@ -1244,8 +1245,7 @@
     <div class="wrap">
       <div class="ua-split">
         <div class="reveal">
-          <svg class="ua-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="1" fill="#0057B7"/><rect y="1" width="3" height="1" fill="#FFD700"/></svg>
-          <h2 class="section-heading section-heading--light" id="ua-h2">Support<br>Ukraine</h2>
+          <h2 class="section-heading section-heading--light" id="ua-h2">Support<br>Ukraine <svg class="ua-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="1" fill="#0057B7"/><rect y="1" width="3" height="1" fill="#FFD700"/></svg></h2>
         </div>
         <div class="reveal reveal-d1">
           <p class="ua-text">As a Ukrainian scholar working abroad, Olya wants to spotlight several trusted donation platforms that support her home country, Ukraine, in fighting Russian military aggression. Both platforms feature designated science and education projects supporting Ukrainian students, teachers, and researchers.</p>
