@@ -392,16 +392,6 @@
     }
     .hl-panel .role-logo-shape { width: min(var(--logo-w), 60%); }
     .hl-item:hover .hl-panel .role-logo-shape { background-color: var(--accent); }
-    .hl-wordmark {
-      font-family: var(--prose);
-      font-size: clamp(1.625rem, 3vw, 2.375rem);
-      font-weight: 600;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--ink-soft);
-      transition: color var(--dur) var(--ease);
-    }
-    .hl-item:hover .hl-wordmark { color: var(--accent); }
     .hl-title {
       font-family: var(--serif);
       font-size: 1.625rem;
@@ -481,7 +471,7 @@
       .hl-item:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
       .hl-item:nth-child(even) .hl-panel { order: 0; }
       .hl-panel { aspect-ratio: 16 / 7; }
-      .hl-panel .role-logo-shape { width: min(var(--logo-w), 45%); }
+      .hl-panel .role-logo-shape { width: min(var(--logo-w), 45%); max-height: 72%; }
       .ua-split { grid-template-columns: minmax(0, 1fr); }
     }
 
@@ -1200,7 +1190,7 @@
       <h2 class="sr-only" id="hl-h2">Highlights</h2>
       <div class="hl-list">
           <article class="hl-item reveal">
-            <div class="hl-panel" aria-hidden="true"><span class="hl-wordmark">De Jonge<br>Akademie</span></div>
+            <div class="hl-panel" aria-hidden="true"><span class="role-logo-shape" style="--logo-src: url('./jonge_akademie_logo.svg'); --logo-w: 144px; --logo-ar: 1171 / 1200;"></span></div>
             <div class="hl-text">
             <h3 class="hl-title">The Young Academy</h3>
             <p class="hl-org">De Jonge Akademie of the Royal Netherlands Academy of Arts and Sciences (KNAW) · Board member 2026–2028</p>
