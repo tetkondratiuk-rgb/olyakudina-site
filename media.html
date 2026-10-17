@@ -145,8 +145,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform var(--dur-md) var(--ease);
+      transition: transform var(--dur-md) var(--ease), opacity 0.4s var(--ease);
     }
+    /* a thumbnail still on its way fades in when it arrives instead of popping in out of order */
+    .video-thumb-wrap img.is-loading { opacity: 0; }
 
     .video-card:hover .video-thumb-wrap img {
       transform: scale(1.04);
@@ -568,7 +570,7 @@
       <p class="video-label reveal reveal-d1">Featured</p>
       <div class="video-featured-grid" role="list">
 
-        <article class="video-card video-card--featured reveal reveal-d2" role="listitem" data-video-id="ve6qJGt1_kk">
+        <article class="video-card video-card--featured reveal reveal-d1" role="listitem" data-video-id="ve6qJGt1_kk">
           <div class="video-thumb-wrap">
             <img src="https://img.youtube.com/vi/ve6qJGt1_kk/hqdefault.jpg"
                  alt="Hey Siri, why are my kids screaming at you? — Universiteit van Nederland" loading="lazy" />
@@ -589,7 +591,7 @@
           </div>
         </article>
 
-        <article class="video-card video-card--featured reveal reveal-d3" role="listitem" data-video-id="vwqi8C04Gsk">
+        <article class="video-card video-card--featured reveal reveal-d2" role="listitem" data-video-id="vwqi8C04Gsk">
           <div class="video-thumb-wrap">
             <img src="https://img.youtube.com/vi/vwqi8C04Gsk/hqdefault.jpg"
                  alt="Technological Mediation of Morality | Olya Kudina | TEDxBucharest" loading="lazy" />
@@ -610,7 +612,7 @@
           </div>
         </article>
 
-        <article class="video-card video-card--featured reveal reveal-d4" role="listitem" data-video-id="-QALS3XvbFk">
+        <article class="video-card video-card--featured reveal reveal-d3" role="listitem" data-video-id="-QALS3XvbFk">
           <div class="video-thumb-wrap">
             <img src="https://img.youtube.com/vi/-QALS3XvbFk/hqdefault.jpg"
                  alt="Dr. Olya Kudina on the ethical implications of AI during OAY" loading="lazy" />
@@ -637,7 +639,7 @@
       <p class="video-label reveal">More talks</p>
       <div class="video-grid" role="list">
 
-        <article class="video-card reveal reveal-d1" role="listitem" data-video-id="B709exnab5Y">
+        <article class="video-card reveal" role="listitem" data-video-id="B709exnab5Y">
           <div class="video-thumb-wrap">
             <img src="https://img.youtube.com/vi/B709exnab5Y/hqdefault.jpg"
                  alt="Nitesh Bharosa and Olya Kudina on Digitalisation | TPM on Stage 30th anniversary" loading="lazy" />
@@ -717,7 +719,7 @@
           </div>
         </article>
 
-        <article class="video-card reveal reveal-d4" role="listitem" data-video-id="8qRNhWfYRjU">
+        <article class="video-card reveal" role="listitem" data-video-id="8qRNhWfYRjU">
           <div class="video-thumb-wrap">
             <img src="https://img.youtube.com/vi/8qRNhWfYRjU/hqdefault.jpg"
                  alt="Alexa doesn't care, Should you? | Codemotion Madrid 2019" loading="lazy" />
@@ -757,7 +759,7 @@
           </div>
         </article>
 
-        <article class="video-card reveal reveal-d3" role="listitem" data-video-id="1EeQdyUFdUs">
+        <article class="video-card reveal reveal-d2" role="listitem" data-video-id="1EeQdyUFdUs">
           <div class="video-thumb-wrap">
             <img src="https://img.youtube.com/vi/1EeQdyUFdUs/hqdefault.jpg"
                  alt="Is using AI ethical? - interview with Olya Kudina" loading="lazy" />
@@ -777,7 +779,7 @@
           </div>
         </article>
 
-        <article class="video-card reveal reveal-d2" role="listitem" data-video-id="pRjJUunxqfk">
+        <article class="video-card reveal reveal-d3" role="listitem" data-video-id="pRjJUunxqfk">
           <div class="video-thumb-wrap">
             <img src="https://img.youtube.com/vi/pRjJUunxqfk/hqdefault.jpg"
                  alt="Introduction to technologically mediated morality | University of Twente" loading="lazy" />
@@ -1178,6 +1180,15 @@
   }, { threshold: 0.06, rootMargin: '0px 0px -32px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* ── Thumbnails fade in once loaded ── */
+  document.querySelectorAll('.video-thumb-wrap img').forEach(img => {
+    if (img.complete && img.naturalWidth) return;
+    img.classList.add('is-loading');
+    const done = () => img.classList.remove('is-loading');
+    img.addEventListener('load', done, { once: true });
+    img.addEventListener('error', done, { once: true });
+  });
 
   /* ── Video: click thumbnail → play inline ── */
   document.querySelectorAll('.video-card[data-video-id]').forEach(card => {
