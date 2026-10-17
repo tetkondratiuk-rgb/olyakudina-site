@@ -455,15 +455,17 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.75rem 1.375rem;
-      border: 1px solid var(--ink-soft);
-      color: var(--ink);
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--cream);
+      line-height: 1.5rem;
       font-family: var(--prose);
       font-size: 0.875rem;
       font-weight: 600;
       white-space: nowrap;
       transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
     }
-    .ua-link:hover { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+    .ua-link:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
 
     @media (max-width: 900px) {
       .hl-list { gap: var(--s5); }
