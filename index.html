@@ -371,6 +371,103 @@
     }
 
     /* ═══════════════════════════════════════════════════════════════
+       HIGHLIGHTS: longer stories behind two of the roles, and Ukraine
+    ═══════════════════════════════════════════════════════════════ */
+    .hl { background: var(--cream); border-bottom: 1px solid var(--border); }
+    .hl-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: var(--s4) clamp(2rem, 6vw, 5rem);
+      align-items: start;
+    }
+    .hl-intro { position: sticky; top: calc(var(--nav-h) + var(--s4)); }
+    .hl-item { padding-block: var(--s4); border-top: 1px solid var(--border); }
+    .hl-item:first-child { padding-top: 0; border-top: none; }
+    .hl-title {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+    .hl-org {
+      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    /* first sentence carries the news for anyone skimming */
+    .hl-lead {
+      margin-top: var(--s3);
+      max-width: 650px;
+      font-size: 1.1rem;
+      line-height: 1.65;
+      color: var(--ink);
+      text-wrap: pretty;
+    }
+    .hl-body {
+      margin-top: var(--s2);
+      max-width: 650px;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--muted);
+      text-wrap: pretty;
+    }
+    .hl a:not(.ua-link) {
+      color: var(--accent-text);
+      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
+      transition: border-color var(--dur) var(--ease);
+    }
+    .hl a:not(.ua-link):hover { border-color: var(--accent-text); }
+
+    .ua {
+      margin-top: var(--s5);
+      padding: var(--s4) clamp(1.5rem, 3vw, 2.5rem);
+      background: var(--cream-warm);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--s3) var(--s5);
+      align-items: center;
+    }
+    .ua-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+    .ua-text {
+      margin-top: var(--s1);
+      max-width: 650px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      text-wrap: pretty;
+    }
+    .ua-links { display: flex; flex-wrap: wrap; gap: var(--s2); }
+    .ua-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border: 1px solid var(--ink-soft);
+      color: var(--ink);
+      font-family: var(--prose);
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    }
+    .ua-link:hover { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+
+    @media (max-width: 900px) {
+      .hl-split { grid-template-columns: minmax(0, 1fr); }
+      .hl-intro { position: static; }
+      .ua { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
        ABOUT
     ═══════════════════════════════════════════════════════════════ */
     .about { background: var(--cream); }
@@ -645,6 +742,8 @@
       color: var(--text-on-dark-soft);
     }
     .rt-list li:first-child { border-top: 1px solid var(--border-night); }
+    .rt-phd-name { display: block; font-weight: 600; color: var(--text-on-dark); }
+    .rt-phd-topic { display: block; margin-top: 0.15rem; }
 
     /* Teaching: its own light section; heading left, courses right */
     .teach { background: var(--cream); }
@@ -1077,6 +1176,45 @@
     </div>
   </section>
 
+  <!-- HIGHLIGHTS ─────────────────────────────────────────────────── -->
+  <section class="hl section" id="highlights" aria-labelledby="hl-h2">
+    <div class="wrap">
+      <div class="hl-split">
+        <div class="hl-intro reveal">
+          <h2 class="section-heading" id="hl-h2">Highlights</h2>
+        </div>
+
+        <div class="hl-list reveal reveal-d1">
+          <article class="hl-item">
+            <h3 class="hl-title">The Young Academy</h3>
+            <p class="hl-org">De Jonge Akademie of the Royal Netherlands Academy of Arts and Sciences (KNAW) · Board member 2026–2028</p>
+            <p class="hl-lead">Olya has been an elected member of <a href="https://www.dejongeakademie.nl/en/default.aspx" target="_blank" rel="noopener noreferrer">The Young Academy</a> since 2024 and was elected to its Board for the 2026–2028 term.</p>
+            <p class="hl-body">She is committed to making Dutch academia more inclusive, diverse, and internationally connected, while strengthening the role of science in addressing societal challenges. Related to her work on the ethics of technology, she works on The AI Challenge project that aims to raise awareness of the environmental footprint of AI in academia and encourage more informed, responsible AI use. Through her Young Academy work, Olya aims to connect academic values with institutional practices and broader societal responsibilities.</p>
+          </article>
+
+          <article class="hl-item">
+            <h3 class="hl-title">Journal of Human-Technology Relations</h3>
+            <p class="hl-org">JHTR · Co-founder and co-editor-in-chief since 2022</p>
+            <p class="hl-lead">In 2022, together with Peter-Paul Verbeek, Olya founded the <a href="https://journals.open.tudelft.nl/jhtr/about" target="_blank" rel="noopener noreferrer">Journal of Human-Technology Relations (JHTR)</a>, where they serve as co-editors-in-chief.</p>
+            <p class="hl-body">Building on the interdisciplinary community of the Philosophy of Human-Technology Relations conferences, the journal provides a platform for critical theoretical and empirical scholarship exploring how technologies co-shape relations with oneself, each other, and the world. Rooted in philosophy of technology and Science and Technology Studies, JHTR particularly welcomes empirical philosophy and dialogue across philosophy, design, and the social sciences.</p>
+            <p class="hl-body">As a Diamond Open Access journal hosted by <a href="https://www.tudelft.nl/open-publishing" target="_blank" rel="noopener noreferrer">TU Delft OPEN Publishing</a>, it is free for both authors and readers, reflecting a commitment to inclusive, accessible, and collaborative scholarship.</p>
+          </article>
+        </div>
+      </div>
+
+      <aside class="ua reveal" aria-labelledby="ua-h3">
+        <div>
+          <h3 class="ua-title" id="ua-h3">Support Ukraine</h3>
+          <p class="ua-text">As a Ukrainian scholar working abroad, Olya wants to spotlight several trusted donation platforms that support her home country, Ukraine, in fighting Russian military aggression. Both platforms feature designated science and education projects supporting Ukrainian students, teachers, and researchers.</p>
+        </div>
+        <div class="ua-links">
+          <a class="ua-link" href="https://u24.gov.ua/" target="_blank" rel="noopener noreferrer">United24 <span aria-hidden="true">↗</span></a>
+          <a class="ua-link" href="https://scienceforukraine.eu/" target="_blank" rel="noopener noreferrer">#ScienceForUkraine <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
   <!-- ABOUT ────────────────────────────────────────────────────── -->
   <section class="about section" id="about" aria-labelledby="about-h2">
     <div class="wrap">
@@ -1199,13 +1337,18 @@
       <div class="rt-block reveal reveal-d3">
         <h3 class="rt-col-head">Supervision</h3>
         <div class="rt-teaching-grid">
-          <p class="rt-body">Olya supervises PhD projects at the intersection of technology, society, and ethics.</p>
-          <ul class="rt-list" aria-label="Current PhD themes">
-            <li>The interrelation of synthetic media and trust</li>
-            <li>Political subjectivity and social media</li>
-            <li>Digital phenotyping in mental healthcare</li>
-            <li>Critical engagement with AI systems in the public sphere</li>
-            <li>Adversarial Machine Learning to facilitate private deliberation online</li>
+          <div>
+            <p class="rt-body">Olya supervises seven PhD candidates at the intersection of technology, society, and ethics. Thomasin Coggins completed her PhD on the ethics of social robots in 2024.</p>
+            <a href="/research#supervision" class="text-link text-link--light" style="margin-top: var(--s4);">All PhD projects <span aria-hidden="true">→</span></a>
+          </div>
+          <ul class="rt-list" aria-label="Current PhD candidates">
+            <li><span class="rt-phd-name">Dmitry Muravyov</span><span class="rt-phd-topic">Ethics and politics of algorithmic fallibility</span></li>
+            <li><span class="rt-phd-name">Jordi Viader Guerrero</span><span class="rt-phd-topic">How social media platforms shape political subjectivities</span></li>
+            <li><span class="rt-phd-name">Syafira Fitri Auliya</span><span class="rt-phd-topic">Adversarial machine learning for privacy and democratic deliberation</span></li>
+            <li><span class="rt-phd-name">Karin Bogdanova</span><span class="rt-phd-topic">Ethics and aesthetics of AI-based mental healthcare</span></li>
+            <li><span class="rt-phd-name">Gül Onat</span><span class="rt-phd-topic">Design that critically reimagines public AI systems</span></li>
+            <li><span class="rt-phd-name">Esra de Groot</span><span class="rt-phd-topic">Human-AI decision-making in adolescent mental healthcare</span></li>
+            <li><span class="rt-phd-name">Michaël Grauwde</span><span class="rt-phd-topic">Conversational AI that supports deliberation on values</span></li>
           </ul>
         </div>
       </div>

@@ -101,13 +101,69 @@
       font-size: 1rem; line-height: 1.7; color: var(--muted);
       max-width: 24rem; text-wrap: pretty;
     }
-    .phd-themes { display: flex; flex-direction: column; }
-    .phd-item {
-      padding: var(--s2) 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 1rem; line-height: 1.5; color: var(--ink-soft);
+    .phd-intro { position: sticky; top: calc(var(--nav-h) + var(--s4)); align-self: start; }
+    .phd-group + .phd-group { margin-top: var(--s5); }
+    .phd-group-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--muted);
+      padding-bottom: var(--s2);
+      border-bottom: 1px solid var(--accent);
     }
-    .phd-item:first-child { border-top: 1px solid var(--accent); }
+    .phd { padding-block: var(--s4); border-bottom: 1px solid var(--border); }
+    .phd-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.25rem var(--s3);
+    }
+    .phd-name {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+    .phd-name a {
+      color: var(--ink);
+      border-bottom: 1px solid transparent;
+      transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    }
+    .phd-name a:hover { color: var(--accent-text); border-color: var(--accent-text); }
+    .phd-years { font-size: 0.9rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    /* Olya's own role, so a visitor sees it before reading the team line */
+    .phd-role {
+      margin-top: 0.3rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent-text);
+    }
+    .phd-desc {
+      margin-top: var(--s2);
+      max-width: 650px;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      text-wrap: pretty;
+    }
+    .phd-team {
+      margin-top: var(--s2);
+      max-width: 650px;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .phd-doc {
+      display: inline-block;
+      margin-top: var(--s2);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent-text);
+      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
+      transition: border-color var(--dur) var(--ease);
+    }
+    .phd-doc:hover { border-color: var(--accent-text); }
 
     /* ── Projects strip ─────────────────────────────────────────── */
     .projects-section {
@@ -207,6 +263,7 @@
       .page-header-meta  { text-align: left; }
       .research-top { grid-template-columns: 1fr; }
       .phd-section { grid-template-columns: 1fr; }
+      .phd-intro { position: static; }
       .research-image-wrap { position: static; max-width: 520px; }
       .research-image { aspect-ratio: 4/5; object-position: center 12%; }
       .projects-grid { grid-template-columns: 1fr; }
@@ -302,17 +359,91 @@
 
         <!-- Supervision — full width, outside the two-column grid -->
         <div class="phd-section reveal reveal-d3" id="supervision">
-          <div>
-            <h2 class="phd-label">Supervision</h2>
-            <p class="phd-sub">Olya supervises PhD projects at the intersection of technology, society, and ethics. These are the current themes.</p>
+          <div class="phd-intro">
+            <h2 class="phd-label">PhD supervision</h2>
+            <p class="phd-sub">Olya supervises PhD projects at the intersection of technology, society, and ethics.</p>
           </div>
-          <ul class="phd-themes" role="list" aria-label="PhD research themes">
-            <li class="phd-item">The interrelation of synthetic media and trust</li>
-            <li class="phd-item">Political subjectivity and social media</li>
-            <li class="phd-item">Digital phenotyping in mental healthcare</li>
-            <li class="phd-item">Critical engagement with AI systems in the public sphere</li>
-            <li class="phd-item">Adversarial Machine Learning to facilitate private deliberation online</li>
-          </ul>
+          <div>
+            <section class="phd-group" aria-labelledby="phd-current">
+              <h3 class="phd-group-title" id="phd-current">Current (7)</h3>
+              <article class="phd">
+                <div class="phd-head">
+                  <h4 class="phd-name"><a href="https://research.tudelft.nl/en/persons/dmitry-muravyov/publications/" target="_blank" rel="noopener noreferrer">Dmitry Muravyov</a></h4>
+                  <span class="phd-years">2022–present</span>
+                </div>
+                <p class="phd-role">Daily supervisor</p>
+                <p class="phd-desc">Dmitry studies the ethics and politics of algorithmic fallibility: how people understand, experience, and respond to errors, breakdowns, and failures in AI systems. His research combines philosophy of technology, STS, and critical algorithm studies.</p>
+                <p class="phd-team">Supervision: Olya Kudina (daily supervisor), Nazli Cila (co-promotor), Sabine Roeser (promotor)</p>
+              </article>
+              <article class="phd">
+                <div class="phd-head">
+                  <h4 class="phd-name"><a href="https://research.tudelft.nl/en/persons/j-viader-guerrero/publications/" target="_blank" rel="noopener noreferrer">Jordi Viader Guerrero</a></h4>
+                  <span class="phd-years">2022–present</span>
+                </div>
+                <p class="phd-role">Daily supervisor</p>
+                <p class="phd-desc">Jordi investigates the political significance of algorithmic technologies, particularly how social media platforms shape political subjectivities and democratic participation. He is particularly interested in the mutual influence of philosophy and design. His work combines political philosophy, philosophy of technology, and critical approaches to technological design.</p>
+                <p class="phd-team">Supervision: Olya Kudina (daily supervisor), Nazli Cila (co-promotor), Ibo van de Poel (promotor)</p>
+              </article>
+              <article class="phd">
+                <div class="phd-head">
+                  <h4 class="phd-name"><a href="https://research.tudelft.nl/en/persons/sf-auliya/" target="_blank" rel="noopener noreferrer">Syafira Fitri Auliya</a></h4>
+                  <span class="phd-years">2022–present</span>
+                </div>
+                <p class="phd-role">Daily supervisor</p>
+                <p class="phd-desc">Syafira investigates how adversarial machine learning can protect privacy and support democratic deliberation, particularly in the context of political profiling and electoral manipulation. Her research bridges philosophy of technology, AI ethics, and computer science.</p>
+                <p class="phd-team">Supervision: Olya Kudina (daily supervisor), Aaron Ding (co-promotor), Ibo van de Poel (promotor)</p>
+              </article>
+              <article class="phd">
+                <div class="phd-head">
+                  <h4 class="phd-name"><a href="https://research.tudelft.nl/en/persons/karin-bogdanova/" target="_blank" rel="noopener noreferrer">Karin Bogdanova</a></h4>
+                  <span class="phd-years">2022–present</span>
+                </div>
+                <p class="phd-role">Co-promotor</p>
+                <p class="phd-desc">Karin explores the ethics and aesthetics of AI-based mental healthcare, focusing on digital phenotyping and alternative approaches to understanding mental health. Drawing on pragmatist aesthetics, anthropology, and research-through-design, she develops a felt informatics approach centered on lived, sensory, and sociocultural experience.</p>
+                <p class="phd-team">Supervision: Nazli Cila (daily supervisor), Olya Kudina (co-promotor), Alessandro Bozzon (promotor)</p>
+              </article>
+              <article class="phd">
+                <div class="phd-head">
+                  <h4 class="phd-name"><a href="https://research.tudelft.nl/en/persons/g%C3%BCl-onat/" target="_blank" rel="noopener noreferrer">Gül Onat</a></h4>
+                  <span class="phd-years">2025–present</span>
+                </div>
+                <p class="phd-role">Co-promotor</p>
+                <p class="phd-desc">Gül investigates how design can critically reimagine public AI systems and their role in democratic life. Through speculative and research-through-design approaches, she explores how AI infrastructures shape relationships, participation, and possibilities for collective political engagement.</p>
+                <p class="phd-team">Supervision: Nazli Cila (daily supervisor), Olya Kudina (co-promotor), Pieter Desmet (promotor)</p>
+              </article>
+              <article class="phd">
+                <div class="phd-head">
+                  <h4 class="phd-name"><a href="https://research.tudelft.nl/en/persons/ecs-de-groot/publications/" target="_blank" rel="noopener noreferrer">Esra de Groot</a></h4>
+                  <span class="phd-years">2023–present</span>
+                </div>
+                <p class="phd-role">Co-promotor</p>
+                <p class="phd-desc">Esra investigates human-AI decision-making in adolescent mental healthcare, focusing on responsible personalization and the design of digital tools that support young people’s mental well-being. Her research forms part of the interdisciplinary ProtectME project.</p>
+                <p class="phd-team">Supervision: Ujwal Gadiraju (daily supervisor), Olya Kudina (co-promotor), Willem-Paul Brinkman (promotor)</p>
+              </article>
+              <article class="phd">
+                <div class="phd-head">
+                  <h4 class="phd-name"><a href="https://research.tudelft.nl/en/persons/mnj-grauwde/publications/" target="_blank" rel="noopener noreferrer">Michaël Grauwde</a></h4>
+                  <span class="phd-years">2022–present</span>
+                </div>
+                <p class="phd-role">Co-promotor</p>
+                <p class="phd-desc">Michaël investigates the design of conversational AI agents that support human deliberation and reflection on values. His work combines cognitive modeling, artificial intelligence, and philosophical approaches to value alignment, with applications in democratic engagement and human-AI interaction.</p>
+                <p class="phd-team">Supervision: Mark Neerincx (daily supervisor and promotor), Olya Kudina (co-promotor)</p>
+              </article>
+            </section>
+            <section class="phd-group" aria-labelledby="phd-done">
+              <h3 class="phd-group-title" id="phd-done">Completed (1)</h3>
+              <article class="phd">
+                <div class="phd-head">
+                  <h4 class="phd-name"><a href="https://www.ru.nl/en/people/coggins-t" target="_blank" rel="noopener noreferrer">Dr. Thomasin Coggins</a></h4>
+                  <span class="phd-years">2024</span>
+                </div>
+                <p class="phd-role">Daily supervisor</p>
+                <p class="phd-desc">Thomasin investigated the ethics of social robots in everyday life, focusing on privacy, social norms, domestic environments, and human-robot relationships. Her research examined how robots transform social practices and the ethical expectations surrounding them.</p>
+                <p class="phd-team">Supervision: Olya Kudina (daily supervisor), Ibo van de Poel (promotor)</p>
+                <a class="phd-doc" href="https://pure.tudelft.nl/ws/portalfiles/portal/178123732/COGGINS_book3.pdf" target="_blank" rel="noopener noreferrer">Read the doctoral dissertation <span aria-hidden="true">↗</span></a>
+              </article>
+            </section>
+          </div>
         </div>
       </div>
     </section>
