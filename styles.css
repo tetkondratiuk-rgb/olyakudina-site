@@ -23,13 +23,13 @@
   --serif: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   --prose: 'Hanken Grotesk', system-ui, sans-serif;
 
-  --s1: 8px;
-  --s2: 16px;
-  --s3: 24px;
-  --s4: 32px;
-  --s5: 48px;
-  --s6: 72px;
-  --s7: 120px;
+  --s1: 0.5rem;
+  --s2: 1rem;
+  --s3: 1.5rem;
+  --s4: 2rem;
+  --s5: 3rem;
+  --s6: 4.5rem;
+  --s7: 7.5rem;
 
   --nav-h: 68px;
   --max-w: 1200px;
@@ -46,14 +46,13 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: clamp(15px, 1vw + 12px, 17px);
   -webkit-text-size-adjust: 100%;
   color-scheme: light;
 }
 
 body {
   font-family: var(--prose);
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.75;
   color: var(--ink);
   background: var(--cream);
@@ -70,11 +69,11 @@ button { cursor: pointer; font: inherit; touch-action: manipulation; }
   position: absolute;
   top: -100px;
   left: var(--s3);
-  padding: 0.6rem 1.25rem;
+  padding: 0.625rem 1.25rem;
   background: var(--accent);
   color: #fff;
   font-family: var(--prose);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   letter-spacing: 0.03em;
   z-index: 9999;
   transition: top 0.2s;
@@ -83,7 +82,7 @@ button { cursor: pointer; font: inherit; touch-action: manipulation; }
 
 :focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 3px;
+  outline-offset: 2px;
   border-radius: 1px;
 }
 
@@ -122,7 +121,7 @@ button { cursor: pointer; font: inherit; touch-action: manipulation; }
 
 .section-heading {
   font-family: var(--serif);
-  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-size: clamp(1.875rem, 4vw, 3rem);
   font-weight: 400;
   line-height: 1.18;
   letter-spacing: -0.02em;
@@ -164,7 +163,7 @@ button { cursor: pointer; font: inherit; touch-action: manipulation; }
 
 .nav-logo {
   font-family: var(--serif);
-  font-size: 1.15rem;
+  font-size: 1.125rem;
   font-weight: 400;
   letter-spacing: 0.01em;
   color: var(--text-on-dark);
@@ -181,7 +180,7 @@ button { cursor: pointer; font: inherit; touch-action: manipulation; }
 }
 .nav-links a {
   font-family: var(--prose);
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -216,25 +215,25 @@ button { cursor: pointer; font: inherit; touch-action: manipulation; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 6px;
   background: none;
   border: none;
-  padding: 11px;
+  padding: 10px;
   min-width: 44px;
   min-height: 44px;
 }
 .nav-burger span {
   display: block;
   width: 22px;
-  height: 1.5px;
+  height: 2px;
   background: var(--text-on-dark);
   transform-origin: center;
   transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
 }
 .nav.solid .nav-burger span { background: var(--ink); }
-.nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 .nav-drawer {
   position: fixed;
@@ -269,7 +268,7 @@ button { cursor: pointer; font: inherit; touch-action: manipulation; }
 }
 .nav-drawer a {
   font-family: var(--serif);
-  font-size: 1.6rem;
+  font-size: 1.625rem;
   font-weight: 400;
   color: var(--ink);
   transition: color var(--dur) var(--ease);
@@ -293,7 +292,7 @@ button { cursor: pointer; font: inherit; touch-action: manipulation; }
 }
 .page-title {
   font-family: var(--serif);
-  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-size: clamp(2.375rem, 6vw, 4.5rem);
   font-weight: 400;
   line-height: 1.08;
   letter-spacing: -0.02em;
@@ -316,7 +315,7 @@ button { cursor: pointer; font: inherit; touch-action: manipulation; }
 }
 .footer-copy {
   font-family: var(--prose);
-  font-size: 0.88rem;
+  font-size: 0.875rem;
   color: var(--text-on-dark-soft);
 }
 .footer-copy strong { color: var(--text-on-dark); font-weight: 400; }
