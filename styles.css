@@ -238,15 +238,17 @@ button { cursor: pointer; font: inherit; touch-action: manipulation; }
 .nav-drawer {
   position: fixed;
   top: var(--nav-h);
+  bottom: 0;
   inset-inline: 0;
-  background: rgba(250, 247, 242, 0.98);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--cream);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   padding: var(--s4) var(--pad-x) var(--s5);
   display: flex;
   flex-direction: column;
   gap: var(--s3);
-  border-bottom: 1px solid var(--border);
   transform: translateY(-110%);
   opacity: 0;
   visibility: hidden;
@@ -266,6 +268,8 @@ button { cursor: pointer; font: inherit; touch-action: manipulation; }
               opacity var(--dur-md) var(--ease),
               visibility 0s;
 }
+/* the open menu covers the whole screen, so the page behind it stays put */
+html:has(.nav-drawer.open) { overflow: hidden; }
 .nav-drawer a {
   font-family: var(--serif);
   font-size: 1.625rem;
