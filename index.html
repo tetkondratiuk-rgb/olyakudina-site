@@ -414,38 +414,32 @@
       color: var(--muted);
       text-wrap: pretty;
     }
-    .hl a:not(.ua-link) {
+    .hl a {
       color: var(--accent-text);
       border-bottom: 1px solid rgba(143, 70, 32, 0.28);
       transition: border-color var(--dur) var(--ease);
     }
-    .hl a:not(.ua-link):hover { border-color: var(--accent-text); }
+    .hl a:hover { border-color: var(--accent-text); }
 
     .ua {
-      margin-top: var(--s5);
-      padding: var(--s4) clamp(1.5rem, 3vw, 2.5rem);
       background: var(--cream-warm);
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: var(--s3) var(--s5);
-      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-block: var(--s6);
     }
-    .ua-title {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 400;
-      line-height: 1.3;
-      color: var(--ink);
+    .ua-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: var(--s3) clamp(2rem, 6vw, 5rem);
+      align-items: start;
     }
     .ua-text {
-      margin-top: var(--s1);
       max-width: 650px;
-      font-size: 1rem;
-      line-height: 1.7;
+      font-size: 1.05rem;
+      line-height: 1.75;
       color: var(--muted);
       text-wrap: pretty;
     }
-    .ua-links { display: flex; flex-wrap: wrap; gap: var(--s2); }
+    .ua-links { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
     .ua-link {
       display: inline-flex;
       align-items: center;
@@ -464,7 +458,7 @@
     @media (max-width: 900px) {
       .hl-split { grid-template-columns: minmax(0, 1fr); }
       .hl-intro { position: static; }
-      .ua { grid-template-columns: minmax(0, 1fr); }
+      .ua-split { grid-template-columns: minmax(0, 1fr); }
     }
 
     /* ═══════════════════════════════════════════════════════════════
@@ -1202,16 +1196,22 @@
         </div>
       </div>
 
-      <aside class="ua reveal" aria-labelledby="ua-h3">
-        <div>
-          <h3 class="ua-title" id="ua-h3">Support Ukraine</h3>
+    </div>
+  </section>
+
+  <!-- SUPPORT UKRAINE ───────────────────────────────────────────── -->
+  <section class="ua section" id="ukraine" aria-labelledby="ua-h2">
+    <div class="wrap">
+      <div class="ua-split">
+        <h2 class="section-heading reveal" id="ua-h2">Support Ukraine</h2>
+        <div class="reveal reveal-d1">
           <p class="ua-text">As a Ukrainian scholar working abroad, Olya wants to spotlight several trusted donation platforms that support her home country, Ukraine, in fighting Russian military aggression. Both platforms feature designated science and education projects supporting Ukrainian students, teachers, and researchers.</p>
+          <div class="ua-links">
+            <a class="ua-link" href="https://u24.gov.ua/" target="_blank" rel="noopener noreferrer">United24 <span aria-hidden="true">↗</span></a>
+            <a class="ua-link" href="https://scienceforukraine.eu/" target="_blank" rel="noopener noreferrer">#ScienceForUkraine <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-        <div class="ua-links">
-          <a class="ua-link" href="https://u24.gov.ua/" target="_blank" rel="noopener noreferrer">United24 <span aria-hidden="true">↗</span></a>
-          <a class="ua-link" href="https://scienceforukraine.eu/" target="_blank" rel="noopener noreferrer">#ScienceForUkraine <span aria-hidden="true">↗</span></a>
-        </div>
-      </aside>
+      </div>
     </div>
   </section>
 
