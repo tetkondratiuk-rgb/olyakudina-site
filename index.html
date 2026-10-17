@@ -374,15 +374,34 @@
        HIGHLIGHTS: longer stories behind two of the roles, and Ukraine
     ═══════════════════════════════════════════════════════════════ */
     .hl { background: var(--cream); border-bottom: 1px solid var(--border); }
-    .hl-split {
+    /* each story: a logo panel on one side, the text on the other, alternating */
+    .hl-list { display: flex; flex-direction: column; gap: var(--s6); }
+    .hl-item {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
       gap: var(--s4) clamp(2rem, 6vw, 5rem);
-      align-items: start;
+      align-items: center;
     }
-    .hl-intro { position: sticky; top: calc(var(--nav-h) + var(--s4)); }
-    .hl-item { padding-block: var(--s4); border-top: 1px solid var(--border); }
-    .hl-item:first-child { padding-top: 0; border-top: none; }
+    .hl-item:nth-child(even) { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+    .hl-item:nth-child(even) .hl-panel { order: 2; }
+    .hl-panel {
+      aspect-ratio: 4 / 3;
+      display: grid;
+      place-items: center;
+      background: var(--cream-warm);
+    }
+    .hl-panel .role-logo-shape { width: min(var(--logo-w), 60%); }
+    .hl-item:hover .hl-panel .role-logo-shape { background-color: var(--accent); }
+    .hl-wordmark {
+      font-family: var(--prose);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink-soft);
+      transition: color var(--dur) var(--ease);
+    }
+    .hl-item:hover .hl-wordmark { color: var(--accent); }
     .hl-title {
       font-family: var(--serif);
       font-size: 1.6rem;
@@ -457,8 +476,11 @@
     .ua-link:hover { background: var(--ink); border-color: var(--ink); color: var(--cream); }
 
     @media (max-width: 900px) {
-      .hl-split { grid-template-columns: minmax(0, 1fr); }
-      .hl-intro { position: static; }
+      .hl-list { gap: var(--s5); }
+      .hl-item { grid-template-columns: minmax(0, 1fr); }
+      .hl-item:nth-child(even) .hl-panel { order: 0; }
+      .hl-panel { aspect-ratio: 16 / 7; }
+      .hl-panel .role-logo-shape { width: min(var(--logo-w), 45%); }
       .ua-split { grid-template-columns: minmax(0, 1fr); }
     }
 
@@ -1174,29 +1196,29 @@
   <!-- HIGHLIGHTS ─────────────────────────────────────────────────── -->
   <section class="hl section" id="highlights" aria-labelledby="hl-h2">
     <div class="wrap">
-      <div class="hl-split">
-        <div class="hl-intro reveal">
-          <h2 class="section-heading" id="hl-h2">Highlights</h2>
-        </div>
-
-        <div class="hl-list reveal reveal-d1">
-          <article class="hl-item">
+      <h2 class="sr-only" id="hl-h2">Highlights</h2>
+      <div class="hl-list">
+          <article class="hl-item reveal">
+            <div class="hl-panel" aria-hidden="true"><span class="hl-wordmark">De Jonge<br>Akademie</span></div>
+            <div class="hl-text">
             <h3 class="hl-title">The Young Academy</h3>
             <p class="hl-org">De Jonge Akademie of the Royal Netherlands Academy of Arts and Sciences (KNAW) · Board member 2026–2028</p>
             <p class="hl-lead">Olya has been an elected member of <a href="https://www.dejongeakademie.nl/en/default.aspx" target="_blank" rel="noopener noreferrer">The Young Academy</a> since 2024 and was elected to its Board for the 2026–2028 term.</p>
             <p class="hl-body">She is committed to making Dutch academia more inclusive, diverse, and internationally connected, while strengthening the role of science in addressing societal challenges. Related to her work on the ethics of technology, she works on The AI Challenge project that aims to raise awareness of the environmental footprint of AI in academia and encourage more informed, responsible AI use. Through her Young Academy work, Olya aims to connect academic values with institutional practices and broader societal responsibilities.</p>
+            </div>
           </article>
 
-          <article class="hl-item">
+          <article class="hl-item reveal">
+            <div class="hl-panel" aria-hidden="true"><span class="role-logo-shape" style="--logo-src: url('./JHTR_logo.svg'); --logo-w: 220px; --logo-ar: 584 / 270;"></span></div>
+            <div class="hl-text">
             <h3 class="hl-title">Journal of Human-Technology Relations</h3>
             <p class="hl-org">JHTR · Co-founder and co-editor-in-chief since 2022</p>
             <p class="hl-lead">In 2022, together with Peter-Paul Verbeek, Olya founded the <a href="https://journals.open.tudelft.nl/jhtr/about" target="_blank" rel="noopener noreferrer">Journal of Human-Technology Relations (JHTR)</a>, where they serve as co-editors-in-chief.</p>
             <p class="hl-body">Building on the interdisciplinary community of the Philosophy of Human-Technology Relations conferences, the journal provides a platform for critical theoretical and empirical scholarship exploring how technologies co-shape relations with oneself, each other, and the world. Rooted in philosophy of technology and Science and Technology Studies, JHTR particularly welcomes empirical philosophy and dialogue across philosophy, design, and the social sciences.</p>
             <p class="hl-body">As a Diamond Open Access journal hosted by <a href="https://www.tudelft.nl/open-publishing" target="_blank" rel="noopener noreferrer">TU Delft OPEN Publishing</a>, it is free for both authors and readers, reflecting a commitment to inclusive, accessible, and collaborative scholarship.</p>
+            </div>
           </article>
-        </div>
       </div>
-
     </div>
   </section>
 
