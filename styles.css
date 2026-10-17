@@ -337,3 +337,22 @@ html:has(.nav-drawer.open) { overflow: hidden; }
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ── Headings rise line by line (motion.js) ─────────────────────── */
+.rise-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+.rise-line-in {
+  display: block;
+  animation: line-rise 0.9s var(--ease-out) both;
+}
+@keyframes line-rise {
+  from { transform: translateY(105%); }
+  to   { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise-line-in { animation: none; }
+}
