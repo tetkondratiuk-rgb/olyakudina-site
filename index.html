@@ -395,78 +395,193 @@
     }
 
     /* ═══════════════════════════════════════════════════════════════
-       HIGHLIGHTS: longer stories behind two of the roles, and Ukraine
+       SHARED: heading on the left, content on the right
     ═══════════════════════════════════════════════════════════════ */
-    .hl { background: var(--cream); border-bottom: 1px solid var(--border); }
-    /* each story: a logo panel on one side, the text on the other, alternating */
-    .hl-list { display: flex; flex-direction: column; gap: var(--s6); }
-    .hl-item {
+    .split {
       display: grid;
-      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
       gap: var(--s4) clamp(2rem, 6vw, 5rem);
-      align-items: center;
+      align-items: start;
     }
-    .hl-item:nth-child(even) { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
-    .hl-item:nth-child(even) .hl-panel { order: 2; }
-    .hl-panel {
-      aspect-ratio: 4 / 3;
-      display: grid;
-      place-items: center;
-      background: var(--cream-warm);
-    }
-    .hl-panel .role-logo-shape { width: min(var(--logo-w), 60%); }
-    .hl-item:hover .hl-panel .role-logo-shape { background-color: var(--accent); }
-    .hl-title {
-      font-family: var(--serif);
-      font-size: 1.625rem;
-      font-weight: 400;
-      line-height: 1.25;
-      color: var(--ink);
-      text-wrap: balance;
-    }
-    .hl-org {
-      margin-top: 0.375rem;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: var(--muted);
-    }
-    /* first sentence carries the news for anyone skimming */
-    .hl-lead {
-      margin-top: var(--s3);
-      max-width: 34rem; /* about 70 characters a line */
-      font-size: 1.125rem;
-      line-height: 1.65;
-      color: var(--ink);
-      text-wrap: pretty;
-    }
-    .hl-body {
-      margin-top: var(--s2);
-      max-width: 34rem; /* about 70 characters a line */
-      font-size: 1rem;
-      line-height: 1.75;
-      color: var(--muted);
-      text-wrap: pretty;
-    }
-    .hl a {
+    .inline-link {
       color: var(--accent-text);
       border-bottom: 1px solid rgba(143, 70, 32, 0.28);
       transition: border-color var(--dur) var(--ease);
     }
-    .hl a:hover { border-color: var(--accent-text); }
+    .inline-link:hover { border-color: var(--accent-text); }
 
+    /* ═══════════════════════════════════════════════════════════════
+       ABOUT: who Olya is, then one line per page to go deeper
+    ═══════════════════════════════════════════════════════════════ */
+    .about { background: var(--cream); }
+    .about-lead {
+      max-width: 650px;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--ink);
+      text-wrap: pretty;
+    }
+    .about-rows { margin-top: var(--s4); border-top: 1px solid var(--border); }
+    .about-row {
+      display: grid;
+      grid-template-columns: 9.5rem minmax(0, 1fr);
+      gap: 0.25rem var(--s3);
+      padding-block: var(--s3);
+      border-bottom: 1px solid var(--border);
+    }
+    .about-row dt a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.75rem;
+      color: var(--accent-text);
+      transition: gap var(--dur) var(--ease);
+    }
+    .about-row dt a:hover { gap: 0.75rem; }
+    .about-row dd {
+      max-width: 650px;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      text-wrap: pretty;
+    }
+    /* research areas as tags: approach on the first line, the AI themes under their own label */
+    .about-row--tags dt a { line-height: 2rem; }
+    .about-row--tags dd { display: grid; gap: 0.75rem; }
+    .tag-line { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+    /* the label takes its own line so the three AI tags stay together */
+    .tag-line-label {
+      flex-basis: 100%;
+      line-height: 1.5;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      height: 32px;
+      padding: 0 0.75rem;
+      border: 1px solid var(--border);
+      background: var(--cream-warm);
+      color: var(--ink-soft);
+      font-size: 0.875rem;
+      white-space: nowrap;
+      transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+    }
+    .tag:hover { border-color: var(--accent-text); color: var(--accent-text); }
+
+    .about-facts {
+      margin-top: var(--s3);
+      max-width: 30rem;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       ACADEMIC CITIZENSHIP: two short stories side by side
+    ═══════════════════════════════════════════════════════════════ */
+    .hl { background: var(--cream-warm); border-top: 1px solid var(--border); padding-block: var(--s7); }
+    .hl .section-heading { margin-bottom: var(--s4); }
+    .hl-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--s4) clamp(2rem, 5vw, 4rem);
+    }
+    .hl-item {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 0 var(--s3);
+      align-items: start;
+    }
+    .hl-logo { display: flex; align-items: center; height: 64px; }
+    .hl-logo .role-logo-shape { width: var(--logo-w); }
+    .hl-item:hover .role-logo-shape { background-color: var(--accent); }
+    .hl-title {
+      font-family: var(--serif);
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+    .hl-org {
+      margin-top: 0.25rem;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .hl-body {
+      margin-top: var(--s2);
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      text-wrap: pretty;
+    }
+    /* the full story stays on the page, folded under the first sentence */
+    .hl-more summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: var(--s2);
+      list-style: none;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.75rem;
+      color: var(--accent-text);
+    }
+    .hl-more summary::-webkit-details-marker { display: none; }
+    .hl-more summary::after {
+      content: '';
+      width: 0.375rem;
+      height: 0.375rem;
+      margin-top: -0.25rem;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: rotate(45deg);
+      transition: transform var(--dur) var(--ease), margin var(--dur) var(--ease);
+    }
+    .hl-more[open] summary::after { transform: rotate(-135deg); margin-top: 0.25rem; }
+    .hl-more summary:hover .hl-more-open,
+    .hl-more summary:hover .hl-more-close { text-decoration: underline; text-underline-offset: 4px; }
+    .hl-more-close,
+    .hl-more[open] .hl-more-open { display: none; }
+    .hl-more[open] .hl-more-close { display: inline; }
+    .hl-more .hl-body { margin-top: var(--s1); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SUPPORT UKRAINE: a slim band
+    ═══════════════════════════════════════════════════════════════ */
     .ua {
       background: var(--night);
       color: var(--text-on-dark);
-      padding-block: var(--s6);
+      padding-block: var(--s5);
     }
-    .ua-split {
+    .ua-row {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-      gap: var(--s3) clamp(2rem, 6vw, 5rem);
-      align-items: start;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: var(--s3) clamp(2rem, 4vw, 3.5rem);
+      align-items: center;
     }
-    /* sits on the second line, after "Ukraine", sized to the cap height */
-    .ua-flag { display: inline-block; width: 0.875em; height: 0.583em; margin-left: 0.125em; vertical-align: 0.05em; }
+    /* short section title shared by the slim bands (Support Ukraine) */
+    .band-title {
+      font-family: var(--serif);
+      font-size: 1.625rem;
+      font-weight: 400;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+    /* sized to the cap height, after "Ukraine" */
+    .ua-flag { display: inline-block; width: 0.875em; height: 0.583em; margin-left: 0.25em; vertical-align: 0.05em; }
     .ua-text {
       max-width: 34rem;
       font-size: 1rem;
@@ -474,7 +589,7 @@
       color: var(--text-on-dark-soft);
       text-wrap: pretty;
     }
-    .ua-links { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+    .ua-links { display: flex; flex-wrap: wrap; gap: var(--s2); }
     .ua-link {
       display: inline-flex;
       align-items: center;
@@ -493,452 +608,51 @@
     .ua-link:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
     .ua-link:focus-visible { outline-color: var(--accent-pale); }
 
-    @media (max-width: 900px) {
-      .hl-list { gap: var(--s5); }
-      .hl-item,
-      .hl-item:nth-child(even) { grid-template-columns: minmax(0, 1fr); }
-      .hl-item:nth-child(even) .hl-panel { order: 0; }
-      .hl-panel { aspect-ratio: 16 / 7; }
-      .hl-panel .role-logo-shape { width: min(var(--logo-w), 45%); max-height: 72%; }
-      .ua-split { grid-template-columns: minmax(0, 1fr); }
-    }
-
     /* ═══════════════════════════════════════════════════════════════
-       ABOUT
+       NEWS: the latest few, the rest lives on LinkedIn
     ═══════════════════════════════════════════════════════════════ */
-    .about { background: var(--cream); }
-
-    .about-grid {
-      max-width: 780px;
-    }
-
-    .about-tag   { margin-bottom: var(--s2); }
-    .about-h2    { margin-bottom: var(--s4); }
-
-    .about-body p {
-      margin-bottom: 1.25rem;
-      font-size: 1rem;
-      line-height: 1.75;
-      color: var(--ink-soft);
-      text-wrap: pretty;
-      max-width: 650px;
-    }
-    .about-body p:last-child { margin-bottom: 0; }
-
-    .about-body a {
-      color: var(--accent-text);
-      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
-      transition: border-color var(--dur) var(--ease);
-    }
-    .about-body a:hover { border-color: var(--accent-text); }
-
-    .about-credentials {
-      margin-top: var(--s4);
-      padding-top: var(--s3);
-      border-top: 1px solid var(--border);
+    .news { background: var(--cream); }
+    /* heading on the left, the LinkedIn link on the right, then all items in a 3 × 2 grid */
+    .news-top {
       display: flex;
-      flex-direction: column;
-      gap: var(--s1);
-    }
-    .about-cred {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 1rem;
-      color: var(--ink-soft);
-      line-height: 1.5;
-    }
-    .about-cred-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 0.5rem;
-    }
-    .about-cred--lang {
-      color: var(--muted);
-      font-size: 0.875rem;
-      font-style: italic;
-    }
-    .about-cred--lang .about-cred-dot {
-      background: var(--border);
-    }
-    .about-cred a {
-      color: var(--accent-text);
-      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
-      transition: border-color var(--dur) var(--ease);
-    }
-    .about-cred a:hover { border-color: var(--accent-text); }
-
-    .portrait-wrap, .portrait, .portrait-inline { display: none; }
-
-    /* ═══════════════════════════════════════════════════════════════
-       WORKING WITH OLYA
-    ═══════════════════════════════════════════════════════════════ */
-    .help {
-      background: var(--cream-warm);
-      border-top: 1px solid var(--border);
-    }
-
-    /* Heading left, three ways to work together right; both columns share the same top and bottom rules */
-    .help-split {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-      gap: var(--s5) clamp(2rem, 6vw, 5rem);
-      align-items: stretch;
-    }
-
-    .help-intro {
-      display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: flex-end;
       justify-content: space-between;
-      gap: var(--s4);
-      padding-block: var(--s3);
-    }
-
-    .help-lead {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--muted);
-      max-width: 24rem;
-      text-wrap: pretty;
-    }
-
-    .help-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.625rem;
-      margin-top: var(--s3);
-      padding: 0.875rem 1.875rem;
-      background: var(--accent);
-      color: #fff;
-      font-family: var(--prose);
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
-    }
-    .help-cta:hover { background: var(--accent-dim); transform: translateY(-2px); }
-
-    .help-items {
-      display: flex;
-      flex-direction: column;
-    }
-    .help-items li { display: flex; flex: 1; }
-
-    .help-item {
-      flex: 1;
-      display: grid;
-      grid-template-columns: 2.25rem minmax(0, 1fr);
-      gap: 0.375rem var(--s3);
-      align-items: baseline;
-      align-content: center;
-      padding-block: var(--s3);
-      border-top: 1px solid var(--border);
-    }
-    .help-items li:first-child .help-item { border-top: none; }
-
-    .help-ico {
-      grid-row: 1 / span 2;
-      align-self: start;
-      width: 1.75rem;
-      height: 1.75rem;
-      margin-top: 0.25rem;
-      fill: none;
-      stroke: var(--accent);
-      stroke-width: 1.3;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .help-title {
-      font-family: var(--serif);
-      font-size: 1.375rem;
-      font-weight: 400;
-      line-height: 1.3;
-      color: var(--ink);
-      transition: color var(--dur) var(--ease);
-    }
-    .help-item:hover .help-title { color: var(--accent-text); }
-
-    .help-proof {
-      grid-column: 2;
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: var(--muted);
-    }
-
-
-    @media (max-width: 760px) {
-      .help-split { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
-      .help-intro { border-top: none; border-bottom: none; padding-block: 0; }
-      .help-item { grid-template-columns: 2.25rem minmax(0, 1fr); }
-    }
-
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      align-self: flex-start;
-      margin-top: auto;
-      font-family: var(--prose);
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent-text);
-      border-bottom: 1px solid rgba(143, 70, 32, 0.28);
-      padding-bottom: 2px;
-      transition: border-color var(--dur) var(--ease), gap var(--dur) var(--ease);
-    }
-    .text-link:hover { border-color: var(--accent-text); gap: 0.75rem; }
-    .text-link--light {
-      color: var(--accent-pale);
-      border-color: rgba(236, 201, 175, 0.3);
-    }
-    .text-link--light:hover { border-color: var(--accent-pale); }
-
-    /* ═══════════════════════════════════════════════════════════════
-       RESEARCH & TEACHING
-    ═══════════════════════════════════════════════════════════════ */
-    .rt {
-      background: var(--night);
-      color: var(--text-on-dark);
-    }
-
-    .rt-header { margin-bottom: var(--s4); }
-
-    .rt-header .section-heading { color: var(--text-on-dark); }
-
-    .rt-block {
-      margin-bottom: var(--s5);
-    }
-
-    .rt-band {
-      height: clamp(300px, 40vw, 600px);
-      margin-block: var(--s7) var(--s7);
-      display: flex;
-      justify-content: center;
-      overflow: hidden;
-      background: var(--night);
-    }
-    .rt-band img {
-      height: 100%;
-      width: auto;
-      max-width: none;
-      flex-shrink: 0;
-    }
-
-    .rt-col-head {
-      font-family: var(--prose);
-      font-style: normal;
-      font-weight: 600;
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent-pale);
+      gap: var(--s2) var(--s4);
       margin-bottom: var(--s4);
-      display: flex;
-      align-items: center;
-      gap: var(--s2);
     }
-    .rt-col-head::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border-night);
-    }
-
-    .rt-body {
-      font-size: 1rem;
-      line-height: 1.75;
-      color: var(--text-on-dark-soft);
-      max-width: 650px;
-    }
-
-    .rt-teaching-grid {
+    .news-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(2rem, 4vw, 4rem);
-      align-items: start;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--s5) clamp(1.5rem, 4vw, 3rem);
     }
-
-    .rt-list { display: flex; flex-direction: column; }
-    .rt-list li {
-      padding: var(--s2) 0;
-      border-bottom: 1px solid var(--border-night);
-      font-size: 1rem;
-      line-height: 1.5;
-      color: var(--text-on-dark-soft);
+    .news-entry {
+      min-width: 0;
+      padding-top: var(--s3);
+      border-top: 1px solid var(--accent);
     }
-    .rt-phd-name { display: block; font-weight: 600; color: var(--text-on-dark); }
-    .rt-phd-topic { display: block; margin-top: 0.125rem; }
-
-    /* Teaching: its own light section; heading left, courses right */
-    .teach { background: var(--cream); }
-    .teach-split {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-      gap: var(--s5) clamp(2rem, 6vw, 5rem);
-      align-items: stretch;
-    }
-    .teach-intro {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: var(--s4);
-      padding-block: var(--s3);
-    }
-    .teach-lead {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--muted);
-      max-width: 26rem;
-      margin-bottom: var(--s3);
-      text-wrap: pretty;
-    }
-    .teach .rt-courses { height: 100%; border: none; }
-    .teach .rt-course-row:last-child { border-bottom: none; }
-    .teach .rt-course-row { flex: 1; border-bottom-color: var(--border); align-items: center; padding: var(--s3) 0; }
-    .teach .rt-inst { color: var(--accent-text); }
-    .teach .rt-course-list li { color: var(--ink-soft); font-size: 1rem; }
-    .teach .rt-course-list a { color: var(--ink-soft); border-bottom-color: rgba(143, 70, 32, 0.28); }
-    .teach .rt-course-list a:hover { color: var(--accent-text); border-color: var(--accent-text); }
-
-    .rt-themes {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--s3) clamp(1.5rem, 3vw, 2.5rem);
-      margin-bottom: var(--s2);
-    }
-
-    .rt-theme {
-      padding: var(--s3) 0;
-      border-top: 1px solid var(--border-night);
-    }
-
-    .rt-theme-label {
-      font-family: var(--serif);
-      font-size: 1rem;
-      font-weight: 400;
-      font-style: normal;
-      color: var(--text-on-dark);
-      margin-bottom: 0.375rem;
-      line-height: 1.3;
-    }
-
-    .rt-theme-desc {
-      font-size: 0.875rem;
-      line-height: 1.6;
-      color: var(--text-on-dark-soft);
-    }
-
-    .rt-courses {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 0;
-      max-width: 100%;
-    }
-
-    .rt-course-row {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: var(--s2);
-      padding: var(--s2) 0;
-      border-bottom: 1px solid var(--border-night);
-      align-items: start;
-    }
-    .rt-course-row:last-child { border-bottom: none; }
-
-    .rt-inst {
-      font-family: var(--prose);
-      font-size: 0.625rem;
-      font-weight: 600;
+    .news-entry-date {
+      font-size: 0.75rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent-pale);
-      padding-top: 0.125rem;
-    }
-
-    .rt-course-list li {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--text-on-dark-soft);
-      padding-left: 1rem;
-      position: relative;
-    }
-    .rt-course-list a {
-      color: var(--text-on-dark-soft);
-      border-bottom: 1px solid rgba(240,233,222,0.2);
-      transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
-    }
-    .rt-course-list a:hover {
-      color: var(--accent-pale);
-      border-color: var(--accent-pale);
-    }
-    .rt-course-list li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 0.75rem;
-      top: 0.05em;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       NEWS
-    ═══════════════════════════════════════════════════════════════ */
-    .news { background: var(--cream-warm); }
-
-    .news-header { margin-bottom: var(--s5); }
-
-    .news-list {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .news-entry {
-      display: grid;
-      grid-template-columns: 148px 1fr;
-      gap: 0 clamp(2rem, 4vw, 3.5rem);
-      padding: var(--s4) 0;
-      border-top: 1px solid var(--border);
-    }
-    .news-entry:last-child { border-bottom: 1px solid var(--border); }
-
-    .news-entry-date {
-      font-family: var(--prose);
-      font-size: 0.75rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
       color: var(--accent-text);
-      padding-top: 0.25rem;
-      line-height: 1.5;
+      white-space: nowrap;
     }
-
     .news-entry-title {
-      font-family: var(--serif);
-      font-size: 1.125rem;
-      font-weight: 400;
-      line-height: 1.4;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-    }
-
-    .news-entry-body {
+      margin-top: 0.25rem;
       font-size: 1rem;
-      line-height: 1.72;
-      color: var(--muted);
-      max-width: 650px;
+      font-weight: 600;
+      line-height: 1.75;
+      color: var(--ink);
+      text-wrap: balance;
     }
-
+    .news-entry-body {
+      margin-top: 0.25rem;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--muted);
+      text-wrap: pretty;
+    }
     .news-entry-body a {
       color: var(--accent-text);
       border-bottom: 1px solid rgba(143, 70, 32, 0.28);
@@ -946,102 +660,141 @@
     }
     .news-entry-body a:hover { border-color: var(--accent-text); }
 
+    .li-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      height: 48px;
+      padding: 0 1.375rem;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      font-size: 0.875rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    }
+    .li-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .li-btn:hover { background: var(--ink); color: var(--cream); }
+
     /* ═══════════════════════════════════════════════════════════════
-       CONTACT
+       WORKING WITH OLYA + CONTACT
     ═══════════════════════════════════════════════════════════════ */
-    .contact { background: var(--cream); }
-
-    .contact-grid { width: 100%; }
-
+    .contact { background: var(--cream-warm); border-top: 1px solid var(--border); }
     .contact-inner {
       display: grid;
-      grid-template-columns: 1fr minmax(0, 650px);
-      gap: clamp(2rem, 5vw, 4rem);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: var(--s4) clamp(2rem, 6vw, 5rem);
       align-items: center;
     }
-
-    .contact-text { max-width: 650px; }
-
-    .contact-portrait-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
+    .contact-portrait-wrap { display: flex; justify-content: center; }
     .contact-portrait {
       width: 100%;
-      max-width: 420px;
+      max-width: 380px;
       aspect-ratio: 1 / 1;
       border-radius: 50%;
       object-fit: cover;
       object-position: center 15%;
-      display: block;
     }
-
-    @media (max-width: 720px) {
-      .contact-inner { grid-template-columns: 1fr; }
-      .contact-portrait { max-width: 260px; }
-    }
-
     .contact-desc {
-      margin-top: var(--s3);
+      margin-top: var(--s2);
+      max-width: 34rem;
       font-size: 1rem;
-      line-height: 1.8;
+      line-height: 1.75;
+      color: var(--muted);
+      text-wrap: pretty;
+    }
+
+    .help-items { margin-top: var(--s4); border-top: 1px solid var(--border); }
+    .help-item {
+      display: grid;
+      grid-template-columns: 2rem minmax(0, 1fr);
+      gap: 0.125rem var(--s2);
+      align-items: baseline;
+      padding-block: var(--s2);
+      border-bottom: 1px solid var(--border);
+    }
+    .help-ico {
+      grid-row: 1 / span 2;
+      align-self: start;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-top: 0.125rem;
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .help-title {
+      font-family: var(--serif);
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--ink);
+      transition: color var(--dur) var(--ease);
+    }
+    .help-item:hover .help-title { color: var(--accent-text); }
+    .help-proof {
+      grid-column: 2;
+      font-size: 0.875rem;
+      line-height: 1.6;
       color: var(--muted);
     }
 
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--s2) var(--s3);
+      margin-top: var(--s4);
+    }
     .contact-email-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      margin-top: var(--s4);
-      font-size: 1rem;
-      color: var(--ink);
-      font-family: var(--prose);
-      transition: color var(--dur) var(--ease);
-    }
-    .contact-email-link svg { color: var(--accent); flex-shrink: 0; }
-    .contact-email-link:hover { color: var(--accent); }
-
-    .socials {
-      display: flex;
       gap: 0.625rem;
-      margin-top: var(--s4);
+      height: 48px;
+      padding: 0 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background var(--dur) var(--ease);
     }
-
+    .contact-email-link:hover { background: var(--accent-dim); }
+    .socials { display: flex; gap: 0.625rem; }
     .social-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 42px; height: 42px;
+      width: 48px;
+      height: 48px;
       border: 1px solid var(--border);
       color: var(--muted);
-      background: none;
       transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease), background var(--dur) var(--ease);
     }
-    .social-btn svg {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-    }
-    .social-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-glow);
-    }
+    .social-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .social-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
 
     /* ═══════════════════════════════════════════════════════════════
        RESPONSIVE
     ═══════════════════════════════════════════════════════════════ */
+    @media (max-width: 1000px) {
+      .ua-row { grid-template-columns: auto minmax(0, 1fr); }
+      .ua-links { grid-column: 2; }
+    }
+
+    @media (max-width: 1000px) {
+      .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
     @media (max-width: 900px) {
-      .rt-themes { grid-template-columns: 1fr; }
-      .rt-teaching-grid { grid-template-columns: 1fr; }
-      .teach-split { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
-      .teach-intro { border-top: none; border-bottom: none; padding-block: 0; }
-
-      .news-entry { grid-template-columns: 1fr; gap: var(--s1) 0; }
-      .news-entry-date { padding-top: 0; }
-
+      .split,
+      .contact-inner { grid-template-columns: minmax(0, 1fr); }
+      .hl-list { grid-template-columns: minmax(0, 1fr); }
+      .ua-row { grid-template-columns: minmax(0, 1fr); gap: var(--s2); }
+      .ua-links { grid-column: auto; margin-top: var(--s1); }
+      .contact-portrait { max-width: 240px; }
+      .contact-portrait-wrap { justify-content: flex-start; }
       .section { padding: var(--s6) 0; }
     }
 
@@ -1049,9 +802,12 @@
       .hero-name  { line-height: 1.0; }
       .footer-inner { flex-direction: column; align-items: center; text-align: center; }
 
-      .rt-course-row { grid-template-columns: 1fr; gap: 0.25rem; }
+      .about-row { grid-template-columns: minmax(0, 1fr); }
+      .hl-item { grid-template-columns: minmax(0, 1fr); }
+      .news-grid { grid-template-columns: minmax(0, 1fr); gap: var(--s4); }
+      .hl-logo { height: 48px; margin-bottom: var(--s2); }
       .section { padding: var(--s5) 0; }
-      .portrait-inline { max-width: 100%; }
+      .hl { padding-block: var(--s5); }
       .hero-social-btn { width: 44px; height: 44px; }
 
       .hero-eyebrow { margin-bottom: var(--s1); }
@@ -1113,8 +869,9 @@
     <a href="/" class="nav-logo" aria-label="Olya Kudina — home">Olya Kudina</a>
 
     <ul class="nav-links" role="list">
+      <li><a href="/" aria-current="page">Overview</a></li>
       <li><a href="/research">Research</a></li>
-        <li><a href="/teaching">Teaching</a></li>
+      <li><a href="/teaching">Teaching</a></li>
       <li><a href="/publications">Publications</a></li>
       <li><a href="/media">Media</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -1129,8 +886,9 @@
   </nav>
 
   <div class="nav-drawer" id="drawer" role="navigation" aria-label="Mobile navigation">
+    <a href="/" class="drawer-link" aria-current="page">Overview</a>
     <a href="/research" class="drawer-link">Research</a>
-      <a href="/teaching" class="drawer-link">Teaching</a>
+    <a href="/teaching" class="drawer-link">Teaching</a>
     <a href="/publications" class="drawer-link">Publications</a>
     <a href="/media" class="drawer-link">Media</a>
     <a href="#contact" class="drawer-link">Contact</a>
@@ -1153,7 +911,7 @@
       </h1>
 
       <p class="hero-subtitle">
-        Olya helps teams and organisations design technologies that&nbsp;reflect human&nbsp;values.
+        Olya combines philosophy with real-world research to help design technologies that&nbsp;reflect human&nbsp;values.
       </p>
 
       <a href="#contact" class="hero-cta">
@@ -1211,109 +969,167 @@
     </div>
   </section>
 
-  <!-- HIGHLIGHTS ─────────────────────────────────────────────────── -->
-  <section class="hl section" id="highlights" aria-labelledby="hl-h2">
-    <div class="wrap">
-      <h2 class="sr-only" id="hl-h2">Highlights</h2>
-      <div class="hl-list">
-          <article class="hl-item reveal">
-            <div class="hl-panel" aria-hidden="true"><span class="role-logo-shape" style="--logo-src: url('./jonge_akademie_logo.svg'); --logo-w: 144px; --logo-ar: 1171 / 1200;"></span></div>
-            <div class="hl-text">
-            <h3 class="hl-title">The Young Academy</h3>
-            <p class="hl-org">De Jonge Akademie of the Royal Netherlands Academy of Arts and Sciences (KNAW) · Board member 2026–2028</p>
-            <p class="hl-lead">Olya has been an elected member of <a href="https://www.dejongeakademie.nl/en/default.aspx" target="_blank" rel="noopener noreferrer">The Young Academy</a> since 2024 and was elected to its Board for the 2026–2028 term.</p>
-            <p class="hl-body">She is committed to making Dutch academia more inclusive, diverse, and internationally connected, while strengthening the role of science in addressing societal challenges. Related to her work on the ethics of technology, she works on The AI Challenge project that aims to raise awareness of the environmental footprint of AI in academia and encourage more informed, responsible AI use. Through her Young Academy work, Olya aims to connect academic values with institutional practices and broader societal responsibilities.</p>
-            </div>
-          </article>
+  <!-- ABOUT ────────────────────────────────────────────────────── -->
+  <section class="about section" id="about" aria-labelledby="about-h2">
+    <div class="wrap split">
+      <h2 class="section-heading reveal" id="about-h2">Philosopher at the intersection of&nbsp;values and&nbsp;technology</h2>
 
-          <article class="hl-item reveal">
-            <div class="hl-panel" aria-hidden="true"><span class="role-logo-shape" style="--logo-src: url('./JHTR_logo.svg'); --logo-w: 220px; --logo-ar: 584 / 270;"></span></div>
-            <div class="hl-text">
+      <div class="reveal reveal-d1">
+        <p class="about-lead">Olya studies how values and technologies shape each other. Drawing on earlier work in diplomacy, (inter)governmental policy, data protection and privacy, she connects ethics, design and governance to offer strategic foresight and help develop technologies that adapt to a&nbsp;changing world.</p>
+
+        <dl class="about-rows">
+          <div class="about-row about-row--tags">
+            <dt><a href="/research">Research <span aria-hidden="true">→</span></a></dt>
+            <dd>
+              <ul class="tag-line" aria-label="Research areas">
+                <li><a class="tag" href="/research">Philosophy of technology</a></li>
+                <li><a class="tag" href="/research">Empirical philosophy</a></li>
+                <li><a class="tag" href="/research">Postphenomenology</a></li>
+                <li><a class="tag" href="/research">Value change</a></li>
+              </ul>
+              <ul class="tag-line" aria-label="Ethics of AI">
+                <li class="tag-line-label" aria-hidden="true">Ethics of AI</li>
+                <li><a class="tag" href="/research">Sustainable AI</a></li>
+                <li><a class="tag" href="/research">AI in education</a></li>
+                <li><a class="tag" href="/research">AI &amp; democracy</a></li>
+              </ul>
+            </dd>
+          </div>
+          <div class="about-row">
+            <dt><a href="/research#supervision">Supervision <span aria-hidden="true">→</span></a></dt>
+            <dd>Olya supervises seven PhD projects at the intersection of philosophy, technology and society.</dd>
+          </div>
+          <div class="about-row">
+            <dt><a href="/teaching">Teaching <span aria-hidden="true">→</span></a></dt>
+            <dd>Olya teaches ethical perspectives in responsible engineering, design and bioethics across bachelor, master and PhD levels. In her courses at TU&nbsp;Delft, 4TU.Ethics/OZSW and Yale, she pursues creative teaching that invites students to analyze contemporary case studies and engage in responsible design practices.</dd>
+          </div>
+        </dl>
+
+        <p class="about-facts">PhD in Philosophy of Technology, University of Twente · Fluent in English, Spanish, Dutch and Ukrainian</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMIC CITIZENSHIP ─────────────────────────────────────── -->
+  <section class="hl" id="highlights" aria-labelledby="hl-h2">
+    <div class="wrap">
+      <h2 class="section-heading reveal" id="hl-h2">Academic citizenship</h2>
+      <div class="hl-list">
+        <article class="hl-item reveal">
+          <span class="hl-logo" aria-hidden="true"><span class="role-logo-shape" style="--logo-src: url('./jonge_akademie_logo.svg'); --logo-w: 56px; --logo-ar: 1171 / 1200;"></span></span>
+          <div>
+            <h3 class="hl-title">The Young Academy</h3>
+            <p class="hl-org">KNAW · Member since 2024 · Board member&nbsp;<span style="white-space: nowrap">2026–2028</span></p>
+            <p class="hl-body">Olya has been an elected member of <a class="inline-link" href="https://www.dejongeakademie.nl/en/default.aspx" target="_blank" rel="noopener noreferrer">The Young Academy</a> since 2024 and was elected to its Board for the <span style="white-space: nowrap">2026–2028</span> term.</p>
+            <details class="hl-more">
+              <summary><span class="hl-more-open">Read more</span><span class="hl-more-close">Show less</span></summary>
+              <p class="hl-body">She is committed to making Dutch academia more inclusive, diverse, and internationally connected, while strengthening the role of science in addressing societal challenges. Related to her work on the ethics of technology, she works on The AI Challenge project that aims to raise awareness of the environmental footprint of AI in academia and encourage more informed, responsible AI use. Through her Young Academy work, Olya aims to connect academic values with institutional practices and broader societal responsibilities.</p>
+            </details>
+          </div>
+        </article>
+
+        <article class="hl-item reveal reveal-d1">
+          <span class="hl-logo" aria-hidden="true"><span class="role-logo-shape" style="--logo-src: url('./JHTR_logo.svg'); --logo-w: 64px; --logo-ar: 584 / 270;"></span></span>
+          <div>
             <h3 class="hl-title">Journal of Human-Technology Relations</h3>
-            <p class="hl-org">JHTR · Co-founder and co-editor-in-chief since 2022</p>
-            <p class="hl-lead">In 2022, together with Peter-Paul Verbeek, Olya founded the <a href="https://journals.open.tudelft.nl/jhtr/about" target="_blank" rel="noopener noreferrer">Journal of Human-Technology Relations (JHTR)</a>, where they serve as co-editors-in-chief.</p>
-            <p class="hl-body">Building on the interdisciplinary community of the Philosophy of Human-Technology Relations conferences, the journal provides a platform for critical theoretical and empirical scholarship exploring how technologies co-shape relations with oneself, each other, and the world. Rooted in philosophy of technology and Science and Technology Studies, JHTR particularly welcomes empirical philosophy and dialogue across philosophy, design, and the social sciences.</p>
-            <p class="hl-body">As a Diamond Open Access journal hosted by <a href="https://www.tudelft.nl/open-publishing" target="_blank" rel="noopener noreferrer">TU Delft OPEN Publishing</a>, it is free for both authors and readers, reflecting a commitment to inclusive, accessible, and collaborative scholarship.</p>
-            </div>
-          </article>
+            <p class="hl-org">Co-founder and co-editor-in-chief since 2022</p>
+            <p class="hl-body">In 2022, together with Peter-Paul Verbeek, Olya founded the <a class="inline-link" href="https://journals.open.tudelft.nl/jhtr/about" target="_blank" rel="noopener noreferrer">Journal of Human-Technology Relations (JHTR)</a>, where they serve as co-editors-in-chief.</p>
+            <details class="hl-more">
+              <summary><span class="hl-more-open">Read more</span><span class="hl-more-close">Show less</span></summary>
+              <p class="hl-body">Building on the interdisciplinary community of the Philosophy of Human-Technology Relations conferences, the journal provides a platform for critical theoretical and empirical scholarship exploring how technologies co-shape relations with oneself, each other, and the world. Rooted in philosophy of technology and Science and Technology Studies, JHTR particularly welcomes empirical philosophy and dialogue across philosophy, design, and the social sciences.</p>
+              <p class="hl-body">As a Diamond Open Access journal hosted by <a class="inline-link" href="https://www.tudelft.nl/open-publishing" target="_blank" rel="noopener noreferrer">TU Delft OPEN Publishing</a>, it is free for both authors and readers, reflecting a commitment to inclusive, accessible, and collaborative scholarship.</p>
+            </details>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- SUPPORT UKRAINE ───────────────────────────────────────────── -->
-  <section class="ua section" id="ukraine" aria-labelledby="ua-h2">
-    <div class="wrap">
-      <div class="ua-split">
-        <div class="reveal">
-          <h2 class="section-heading section-heading--light" id="ua-h2">Support<br>Ukraine <svg class="ua-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="1" fill="#0057B7"/><rect y="1" width="3" height="1" fill="#FFD700"/></svg></h2>
-        </div>
-        <div class="reveal reveal-d1">
-          <p class="ua-text">As a Ukrainian scholar working abroad, Olya wants to spotlight several trusted donation platforms that support her home country, Ukraine, in fighting Russian military aggression. Both platforms feature designated science and education projects supporting Ukrainian students, teachers, and researchers.</p>
-          <div class="ua-links">
-            <a class="ua-link" href="https://u24.gov.ua/" target="_blank" rel="noopener noreferrer">United24 <span aria-hidden="true">↗</span></a>
-            <a class="ua-link" href="https://scienceforukraine.eu/" target="_blank" rel="noopener noreferrer">#ScienceForUkraine <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
+  <section class="ua" id="ukraine" aria-labelledby="ua-h2">
+    <div class="wrap ua-row">
+      <h2 class="band-title" id="ua-h2">Support Ukraine<svg class="ua-flag" viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="1" fill="#0057B7"/><rect y="1" width="3" height="1" fill="#FFD700"/></svg></h2>
+      <p class="ua-text">As a Ukrainian scholar working abroad, Olya spotlights trusted platforms that support Ukraine against Russian military aggression, including projects for Ukrainian students, teachers and researchers.</p>
+      <div class="ua-links">
+        <a class="ua-link" href="https://u24.gov.ua/" target="_blank" rel="noopener noreferrer">United24 <span aria-hidden="true">↗</span></a>
+        <a class="ua-link" href="https://scienceforukraine.eu/" target="_blank" rel="noopener noreferrer">#ScienceForUkraine <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT ────────────────────────────────────────────────────── -->
-  <section class="about section" id="about" aria-labelledby="about-h2">
+  <!-- NEWS ─────────────────────────────────────────────────────── -->
+  <section class="news section" id="news" aria-labelledby="news-h2">
     <div class="wrap">
-      <div class="about-grid">
-
-        <!-- Text column -->
-        <div>
-          <h2 class="section-heading about-h2 reveal" id="about-h2">
-            Ethicist at the intersection<br>of values and technology
-          </h2>
-
-          <div class="about-body">
-            <p class="reveal reveal-d2">
-              Olya Kudina is an ethicist of technology focusing on the dynamic interaction between human values and technologies. Currently, she is an Associate Professor at
-              <a href="https://www.tudelft.nl" target="_blank" rel="noopener noreferrer">Delft University of Technology</a>
-              (the Netherlands), where she helps students and organisations integrate ethical reflection and cultural sensitivity as essential counterparts to technology development.
-            </p>
-            <p class="reveal reveal-d3">
-              Olya is co-director of the <a href="#research">AI DeMoS Lab</a>, which focuses on the relation between AI and democracy and on responsible AI development practices.
-            </p>
-          </div>
-
-          <ul class="about-credentials reveal reveal-d4" aria-label="Credentials and affiliations">
-            <li class="about-cred">
-              <span class="about-cred-dot" aria-hidden="true"></span>
-              PhD in Philosophy of Technology — University of Twente
-            </li>
-            <li class="about-cred about-cred--lang">
-              <span class="about-cred-dot" aria-hidden="true"></span>
-              Fluent in English, Spanish, Dutch &amp; Ukrainian
-            </li>
-          </ul>
-        </div>
-
+      <div class="news-top">
+        <h2 class="section-heading" id="news-h2">News &amp; Events</h2>
+        <a class="li-btn reveal" href="https://www.linkedin.com/in/olyakudina/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 93.06 93.06" fill="currentColor" aria-hidden="true">
+            <path d="M11.185,0.08C5.004,0.08,0.001,5.092,0,11.259c0,6.173,5.003,11.184,11.186,11.184c6.166,0,11.176-5.011,11.176-11.184C22.362,5.091,17.351,0.08,11.185,0.08z"/>
+            <rect x="1.538" y="30.926" width="19.287" height="62.054"/>
+            <path d="M69.925,29.383c-9.382,0-15.673,5.144-18.248,10.022h-0.258v-8.479H32.921H32.92v62.053h19.27V62.281c0-8.093,1.541-15.932,11.575-15.932c9.89,0,10.022,9.256,10.022,16.451v30.178H93.06V58.942C93.06,42.235,89.455,29.383,69.925,29.383z"/>
+          </svg>
+          More news on LinkedIn <span aria-hidden="true">↗</span>
+        </a>
       </div>
+
+      <ul class="news-grid" aria-label="Latest news">
+        <li class="news-entry reveal">
+          <span class="news-entry-date">Sep 2025</span>
+          <h3 class="news-entry-title">Returning from extended leave</h3>
+          <p class="news-entry-body">Olya will be on extended leave from work, resuming her duties in September 2025. Check out her latest developments and upcoming projects as she returns to TU Delft.</p>
+        </li>
+        <li class="news-entry reveal reveal-d1">
+          <span class="news-entry-date">Dec 2024</span>
+          <h3 class="news-entry-title">Promoted to Associate Professor</h3>
+          <p class="news-entry-body">In December 2024, Olya was promoted to Associate Professor at Delft University of Technology.</p>
+        </li>
+        <li class="news-entry reveal reveal-d2">
+          <span class="news-entry-date">Dec 2024</span>
+          <h3 class="news-entry-title">Article alert: Daily life in times of war</h3>
+          <p class="news-entry-body">Olya's reflection on her recent trip home to Ukraine from a lens of human-technology relations: <a href="https://journals.open.tudelft.nl/jhtr/article/view/7945" target="_blank" rel="noopener noreferrer">"Daily life in times of war: a technological mediation perspective."</a></p>
+        </li>
+        <li class="news-entry reveal">
+          <span class="news-entry-date">Dec 2024</span>
+          <h3 class="news-entry-title">Article alert: Follow the particular</h3>
+          <p class="news-entry-body">New 2024 editorial with Peter-Paul Verbeek: <a href="https://journals.open.tudelft.nl/jhtr/article/view/7950" target="_blank" rel="noopener noreferrer">"Follow the particular and the human-technology relation in the context of technological systems and global events."</a></p>
+        </li>
+        <li class="news-entry reveal reveal-d1">
+          <span class="news-entry-date">Dec 2024</span>
+          <h3 class="news-entry-title">Methodology Colloquium with Hunneke van Uffelen</h3>
+          <p class="news-entry-body">Olya presented on systematic literature review as a method for philosophical analysis, including the environmental impact of AI and its potential applications.</p>
+        </li>
+        <li class="news-entry reveal reveal-d2">
+          <span class="news-entry-date">2 Dec 2024</span>
+          <h3 class="news-entry-title">Public talk at Rotterdam City Hall</h3>
+          <p class="news-entry-body">Olya spoke at Rotterdam City Hall for the Batavian Society for Experimental Philosophy: <em>"Deepfakes and Democracy: Is there a Place for Trust in the Age of Deception?"</em></p>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- WORKING WITH OLYA ────────────────────────────────────────── -->
-  <section class="help section" id="work" aria-labelledby="help-h2">
-    <div class="wrap">
-      <div class="help-split">
-        <div class="help-intro reveal">
-          <h2 class="section-heading" id="help-h2">Working with&nbsp;Olya</h2>
-          <div>
-            <p class="help-lead">For talks, media requests and research partnerships on AI, democracy and human values.</p>
-            <a href="#contact" class="help-cta">Contact</a>
-          </div>
-        </div>
+  <!-- WORKING WITH OLYA + CONTACT ──────────────────────────────── -->
+  <section class="contact section" id="contact" aria-labelledby="contact-h2">
+    <div class="wrap contact-inner">
+      <div class="contact-portrait-wrap reveal">
+        <img class="contact-portrait" src="./contact-web.jpg" width="900" height="1350" alt="Olya Kudina" loading="lazy" />
+      </div>
 
-        <ul class="help-items reveal reveal-d1" role="list">
+      <div class="reveal reveal-d1">
+        <h2 class="section-heading" id="contact-h2">Working with&nbsp;Olya</h2>
+        <p class="contact-desc">For research partnerships, talks and media requests, reach out via email.</p>
+
+        <ul class="help-items" role="list">
+          <li>
+            <a class="help-item" href="/research">
+              <svg class="help-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="7" r="2.3"/><circle cx="18" cy="7" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M8.3 7h7.4M7.2 9l3.6 7M16.8 9l-3.6 7"/></svg>
+              <h3 class="help-title">Research partnerships</h3>
+            </a>
+          </li>
           <li>
             <a class="help-item" href="/media#videos">
               <svg class="help-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8.5 21h7"/></svg>
               <h3 class="help-title">Talks &amp; keynotes</h3>
-              <span class="help-proof">TEDxBucharest, Rotterdam City Hall, Universiteit van Nederland</span>
+              <span class="help-proof">TEDx, Universiteit van Nederland</span>
             </a>
           </li>
           <li>
@@ -1323,227 +1139,31 @@
               <span class="help-proof">NOS Journaal, NPO Radio&nbsp;1, WIRED</span>
             </a>
           </li>
-          <li>
-            <a class="help-item" href="/research">
-              <svg class="help-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="7" r="2.3"/><circle cx="18" cy="7" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M8.3 7h7.4M7.2 9l3.6 7M16.8 9l-3.6 7"/></svg>
-              <h3 class="help-title">Research collaboration</h3>
-              <span class="help-proof">AI DeMoS Lab, ELSA Lab AI-MAPS, ProtectME</span>
-            </a>
-          </li>
         </ul>
-      </div>
-    </div>
-  </section>
 
-  <!-- RESEARCH ──────────────────────────────────────── -->
-  <section class="rt section" id="research" aria-labelledby="rt-h2">
-    <div class="wrap">
-
-      <div class="rt-header reveal">
-        <h2 class="section-heading" id="rt-h2">Research</h2>
-      </div>
-
-      <div class="rt-block reveal reveal-d1" style="margin-bottom: 0;">
-        <div class="rt-themes">
-          <div class="rt-theme">
-            <p class="rt-theme-label">AI &amp; Democracy</p>
-            <p class="rt-theme-desc">Responsible AI development, governance, and democratic values — through the AI DeMoS Lab.</p>
-          </div>
-          <div class="rt-theme">
-            <p class="rt-theme-label">Ethics of NLP &amp; ASR</p>
-            <p class="rt-theme-desc">Voice assistants, conversational agents (Alexa, ChatGPT) — bias, values, and mediation.</p>
-          </div>
-          <div class="rt-theme">
-            <p class="rt-theme-label">Philosophy of Technology</p>
-            <p class="rt-theme-desc">Phenomenology, pragmatism, and empirical methods from STS and psychology.</p>
-          </div>
-          <div class="rt-theme">
-            <p class="rt-theme-label">Governance &amp; Foresight</p>
-            <p class="rt-theme-desc">Data protection, policy, and developing adaptable ethical frameworks for emerging tech.</p>
-          </div>
-        </div>
-      </div>
-
-      <a href="/research" class="text-link text-link--light reveal" style="display: flex; width: fit-content;">More on research <span aria-hidden="true">→</span></a>
-    </div>
-
-    <figure class="rt-band reveal reveal-d2">
-      <img src="./research-band.jpg" alt="Olya Kudina" width="2400" height="900" loading="lazy" />
-    </figure>
-
-    <div class="wrap">
-
-      <!-- Supervision -->
-      <div class="rt-block reveal reveal-d3">
-        <h3 class="rt-col-head">Supervision</h3>
-        <div class="rt-teaching-grid">
-          <div>
-            <p class="rt-body">Olya supervises seven PhD candidates at the intersection of technology, society, and ethics. Thomasin Coggins completed her PhD on the ethics of social robots in 2024.</p>
-            <a href="/research#supervision" class="text-link text-link--light" style="margin-top: var(--s4);">All PhD projects <span aria-hidden="true">→</span></a>
-          </div>
-          <ul class="rt-list" aria-label="Current PhD candidates">
-            <li><span class="rt-phd-name">Dmitry Muravyov</span><span class="rt-phd-topic">Ethics and politics of algorithmic fallibility</span></li>
-            <li><span class="rt-phd-name">Jordi Viader Guerrero</span><span class="rt-phd-topic">How social media platforms shape political subjectivities</span></li>
-            <li><span class="rt-phd-name">Syafira Fitri Auliya</span><span class="rt-phd-topic">Adversarial machine learning for privacy and democratic deliberation</span></li>
-            <li><span class="rt-phd-name">Karin Bogdanova</span><span class="rt-phd-topic">Ethics and aesthetics of AI-based mental healthcare</span></li>
-            <li><span class="rt-phd-name">Gül Onat</span><span class="rt-phd-topic">Design that critically reimagines public AI systems</span></li>
-            <li><span class="rt-phd-name">Esra de Groot</span><span class="rt-phd-topic">Human-AI decision-making in adolescent mental healthcare</span></li>
-            <li><span class="rt-phd-name">Michaël Grauwde</span><span class="rt-phd-topic">Conversational AI that supports deliberation on values</span></li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- TEACHING ─────────────────────────────────────────────────── -->
-  <section class="teach section" id="teaching" aria-labelledby="teach-h2">
-    <div class="wrap">
-      <div class="teach-split">
-        <div class="teach-intro reveal">
-          <h2 class="section-heading" id="teach-h2">Teaching</h2>
-          <div>
-            <p class="teach-lead">Olya teaches across bachelor, master, and PhD levels. She pursues creative teaching that invites students to integrate theoretical and stakeholder perspectives, analysing contemporary case studies and engaging them in responsible design practices.</p>
-            <a href="/teaching" class="text-link">All courses <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-        <div class="reveal reveal-d1">
-          <ul class="rt-courses" aria-label="Courses by institution">
-          <li class="rt-course-row">
-            <span class="rt-inst">TU Delft</span>
-            <ul class="rt-course-list">
-              <li><a href="https://www.tudelft.nl/ethics/ethics/teaching-activities/ethics-teaching/ethics-20/robots-and-society" target="_blank" rel="noopener noreferrer">Robots and Society</a></li>
-              <li>Introduction to AI &amp; Responsible AI Engineering</li>
-            </ul>
-          </li>
-          <li class="rt-course-row">
-            <span class="rt-inst">Yale</span>
-            <ul class="rt-course-list">
-              <li><a href="https://bioethics.yale.edu/2021-summer-seminars" target="_blank" rel="noopener noreferrer">Ethics of Technology and Bioethics</a></li>
-            </ul>
-          </li>
-          <li class="rt-course-row">
-            <span class="rt-inst">4TU</span>
-            <ul class="rt-course-list">
-              <li>Empirical Methods in Philosophy of Technology</li>
-            </ul>
-          </li>
-          <li class="rt-course-row">
-            <span class="rt-inst">Auxiliary</span>
-            <ul class="rt-course-list">
-              <li>Ethics of Technology in Design <em style="opacity:0.55">(Ukrainian)</em></li>
-            </ul>
-          </li>
-        </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEWS ─────────────────────────────────────────────────────── -->
-  <section class="news section" id="news" aria-labelledby="news-h2">
-    <div class="wrap">
-
-      <div class="news-header">
-        <h2 class="section-heading reveal" id="news-h2">News &amp; Events</h2>
-      </div>
-
-      <ul class="news-list" aria-label="News and events">
-
-        <li class="news-entry reveal reveal-d1">
-          <span class="news-entry-date">September 2025</span>
-          <div>
-            <h3 class="news-entry-title">Returning from Extended Leave</h3>
-            <p class="news-entry-body">Olya will be on extended leave from work, resuming her duties in September 2025. Check out her latest developments and upcoming projects as she returns to TU Delft.</p>
-          </div>
-        </li>
-
-        <li class="news-entry reveal reveal-d2">
-          <span class="news-entry-date">December 2024</span>
-          <div>
-            <h3 class="news-entry-title">Promoted to Associate Professor</h3>
-            <p class="news-entry-body">In December 2024, Olya was promoted to Associate Professor at Delft University of Technology.</p>
-          </div>
-        </li>
-
-        <li class="news-entry reveal reveal-d2">
-          <span class="news-entry-date">December 2024</span>
-          <div>
-            <h3 class="news-entry-title">Article Alert: Daily Life in Times of War</h3>
-            <p class="news-entry-body">Olya's reflection on her recent trip home to Ukraine from a lens of human-technology relations: <a href="https://journals.open.tudelft.nl/jhtr/article/view/7945" target="_blank" rel="noopener noreferrer">"Daily life in times of war: a technological mediation perspective."</a></p>
-          </div>
-        </li>
-
-        <li class="news-entry reveal reveal-d3">
-          <span class="news-entry-date">December 2024</span>
-          <div>
-            <h3 class="news-entry-title">Article Alert: Follow the Particular</h3>
-            <p class="news-entry-body">New 2024 editorial with Peter-Paul Verbeek: <a href="https://journals.open.tudelft.nl/jhtr/article/view/7950" target="_blank" rel="noopener noreferrer">"Follow the particular and the human-technology relation in the context of technological systems and global events."</a></p>
-          </div>
-        </li>
-
-        <li class="news-entry reveal reveal-d3">
-          <span class="news-entry-date">December 2024</span>
-          <div>
-            <h3 class="news-entry-title">Methodology Colloquium with Hunneke van Uffelen</h3>
-            <p class="news-entry-body">Olya presented on systematic literature review as a method for philosophical analysis, including the environmental impact of AI and its potential applications.</p>
-          </div>
-        </li>
-
-        <li class="news-entry reveal reveal-d4">
-          <span class="news-entry-date">2 December 2024</span>
-          <div>
-            <h3 class="news-entry-title">Public Talk at Rotterdam City Hall</h3>
-            <p class="news-entry-body">Olya spoke at Rotterdam City Hall for the Batavian Society for Experimental Philosophy: <em>"Deepfakes and Democracy: Is there a Place for Trust in the Age of Deception?"</em></p>
-          </div>
-        </li>
-
-      </ul>
-    </div>
-  </section>
-
-  <!-- CONTACT ──────────────────────────────────────────────────── -->
-  <section class="contact section" id="contact" aria-labelledby="contact-h2">
-    <div class="wrap">
-      <div class="contact-grid">
-
-        <!-- Info column -->
-        <div class="contact-inner reveal">
-          <div class="contact-portrait-wrap">
-            <img class="contact-portrait" src="./contact-web.jpg" width="900" height="1350" alt="Olya Kudina" loading="lazy" />
-          </div>
-
-          <div class="contact-text">
-            <h2 class="section-heading" id="contact-h2">Contact</h2>
-            <p class="contact-desc">
-              For research collaboration, media requests, or speaking engagements,<br class="br-wide">reach out via email.
-            </p>
-
-            <a href="mailto:o.kudina@tudelft.nl" class="contact-email-link">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                <rect x="1.5" y="3.5" width="15" height="11" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
-                <path d="M1.5 5.5 9 10.5l7.5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        <div class="contact-actions">
+          <a href="mailto:o.kudina@tudelft.nl" class="contact-email-link">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <rect x="1.5" y="3.5" width="15" height="11" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M1.5 5.5 9 10.5l7.5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            o.kudina@tudelft.nl
+          </a>
+          <div class="socials" aria-label="Social media profiles">
+            <a href="https://www.linkedin.com/in/olyakudina/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+              <svg viewBox="0 0 93.06 93.06" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M11.185,0.08C5.004,0.08,0.001,5.092,0,11.259c0,6.173,5.003,11.184,11.186,11.184c6.166,0,11.176-5.011,11.176-11.184C22.362,5.091,17.351,0.08,11.185,0.08z"/>
+                <rect x="1.538" y="30.926" width="19.287" height="62.054"/>
+                <path d="M69.925,29.383c-9.382,0-15.673,5.144-18.248,10.022h-0.258v-8.479H32.921H32.92v62.053h19.27V62.281c0-8.093,1.541-15.932,11.575-15.932c9.89,0,10.022,9.256,10.022,16.451v30.178H93.06V58.942C93.06,42.235,89.455,29.383,69.925,29.383z"/>
               </svg>
-              o.kudina@tudelft.nl
             </a>
-
-            <div class="socials" aria-label="Social media profiles">
-              <a href="https://www.linkedin.com/in/olyakudina/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                <svg viewBox="0 0 93.06 93.06" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M11.185,0.08C5.004,0.08,0.001,5.092,0,11.259c0,6.173,5.003,11.184,11.186,11.184c6.166,0,11.176-5.011,11.176-11.184C22.362,5.091,17.351,0.08,11.185,0.08z"/>
-                  <rect x="1.538" y="30.926" width="19.287" height="62.054"/>
-                  <path d="M69.925,29.383c-9.382,0-15.673,5.144-18.248,10.022h-0.258v-8.479H32.921H32.92v62.053h19.27V62.281c0-8.093,1.541-15.932,11.575-15.932c9.89,0,10.022,9.256,10.022,16.451v30.178H93.06V58.942C93.06,42.235,89.455,29.383,69.925,29.383z"/>
-                </svg>
-              </a>
-              <a href="https://scholar.google.com/citations?user=lbWl7x0AAAAJ&hl=en" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile">
-                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
-                </svg>
-              </a>
-            </div>
+            <a href="https://scholar.google.com/citations?user=lbWl7x0AAAAJ&hl=en" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar profile">
+              <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
+              </svg>
+            </a>
           </div>
         </div>
-
       </div>
     </div>
   </section>

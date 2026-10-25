@@ -97,10 +97,13 @@
     .videos-section {
       background: var(--cream);
     }
+    /* the sub-nav already separates header and videos, so the gaps around it stay short */
+    .page-header { padding-bottom: var(--s5); }
+    .videos-section.section { padding-top: var(--s5); }
 
     .section-intro {
       max-width: 60ch;
-      margin-bottom: var(--s6);
+      margin-bottom: var(--s4);
     }
 
     /* Featured videos: 3-column */
@@ -372,104 +375,78 @@
     }
 
     /* ═══════════════════════════════════════════════════════════════
-       IN THE MEDIA SECTION
+       IN THE MEDIA: small cards, grouped by year
     ═══════════════════════════════════════════════════════════════ */
-    .press-section {
-      background: var(--cream-warm);
-    }
+    .press-section { background: var(--cream-warm); }
+    .press-section .section-heading { margin-bottom: var(--s4); }
 
-    .press-section .section-heading {
-      margin-bottom: var(--s4);
-    }
-
-    .press-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+    .press-year-group {
+      padding-block: var(--s4);
       border-top: 1px solid var(--border);
     }
-
-    .press-item {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: baseline;
-      gap: var(--s3);
-      padding: var(--s3) 0;
-      border-bottom: 1px solid var(--border);
-      transition: background var(--dur) var(--ease);
-      position: relative;
-    }
-    .press-item-left::after { content: ''; position: absolute; inset: 0; }
-    .press-item:hover {
-      background: var(--cream-deep);
-      margin-inline: calc(var(--pad-x) * -1);
-      padding-inline: var(--pad-x);
-    }
-
-    .press-item-left {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      min-width: 0;
-    }
-
-    .press-title {
+    .press-year-group:first-of-type { border-top-color: var(--accent); }
+    .press-year-title {
       font-family: var(--serif);
-      font-size: 1rem;
+      font-size: 1.5rem;
       font-weight: 400;
-      line-height: 1.45;
+      line-height: 1.3;
       color: var(--ink);
-      text-decoration: underline;
-      text-decoration-color: rgba(26, 23, 20, 0.18);
-      text-underline-offset: 4px;
-      transition: color var(--dur) var(--ease), text-decoration-color var(--dur) var(--ease);
+      margin-bottom: var(--s2);
     }
-    .press-item:hover .press-title {
-      color: var(--accent-text);
-      text-decoration-color: var(--accent-text);
-    }
-
-    .press-source {
-      font-family: var(--prose);
-      font-size: 0.875rem;
-      color: var(--muted);
-    }
-
-    .press-year {
-      font-family: var(--prose);
-      font-size: 0.75rem;
-      color: var(--muted);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .press-arrow {
-      display: inline-flex;
-      align-items: center;
-      color: var(--muted);
-      opacity: 0.5;
-      transform: none;
-      transition: opacity var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease);
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-    .press-item:hover .press-arrow {
-      opacity: 1;
-      color: var(--accent);
-      transform: translate(2px, -2px);
-    }
-
-    .press-item-right {
-      display: flex;
-      align-items: center;
+    .press-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: var(--s2);
     }
+    .press-cards li { display: flex; }
+    .press-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: var(--s2) 1.125rem 0.875rem;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+    }
+    .press-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .press-outlet {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-text);
+    }
+    /* same as the news headlines on the home page */
+    .press-title {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.75;
+      color: var(--ink);
+      text-wrap: pretty;
+    }
+    .press-meta {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .press-arrow {
+      display: inline-block;
+      color: var(--accent-text);
+      transition: transform var(--dur) var(--ease);
+    }
+    .press-card:hover .press-arrow { transform: translate(2px, -2px); }
 
     /* ═══════════════════════════════════════════════════════════════
        RESPONSIVE
     ═══════════════════════════════════════════════════════════════ */
     @media (max-width: 900px) {
       .video-featured-grid { grid-template-columns: 1fr; }
+      .press-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .video-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -482,15 +459,11 @@
 
     @media (max-width: 600px) {
       .video-grid { grid-template-columns: 1fr; }
+      .press-cards { grid-template-columns: minmax(0, 1fr); }
       .section { padding: var(--s5) 0; }
       .section-intro { margin-bottom: var(--s3); }
       .footer-inner { flex-direction: column; align-items: center; text-align: center; }
 
-      .press-item {
-        grid-template-columns: 1fr;
-        gap: 0.375rem;
-      }
-      .press-item-right { justify-content: space-between; }
     }
 
     @media (max-width: 480px) {
@@ -510,6 +483,7 @@
     <a href="/" class="nav-logo" aria-label="Olya Kudina — home">Olya Kudina</a>
 
     <ul class="nav-links" role="list">
+      <li><a href="/">Overview</a></li>
       <li><a href="/research">Research</a></li>
         <li><a href="/teaching">Teaching</a></li>
       <li><a href="/publications">Publications</a></li>
@@ -526,6 +500,7 @@
   </nav>
 
   <div class="nav-drawer" id="drawer" role="navigation" aria-label="Mobile navigation">
+    <a href="/" class="drawer-link">Overview</a>
     <a href="/research" class="drawer-link">Research</a>
       <a href="/teaching" class="drawer-link">Teaching</a>
     <a href="/publications" class="drawer-link">Publications</a>
@@ -542,7 +517,7 @@
     <div class="wrap">
       <div class="page-header-inner reveal">
         <h1 class="page-title">Media &amp; <em>Press</em></h1>
-        <p class="page-subtitle">Talks, interviews, and coverage featuring Olya Kudina's work on technology ethics, AI, and human values.</p>
+        <p class="page-subtitle">Talks, interviews and coverage featuring Olya's work.</p>
       </div>
     </div>
   </section>
@@ -570,7 +545,28 @@
       <p class="video-label reveal reveal-d1">Featured</p>
       <div class="video-featured-grid" role="list">
 
-        <article class="video-card video-card--featured reveal reveal-d1" role="listitem" data-video-id="ve6qJGt1_kk">
+        <article class="video-card video-card--featured reveal reveal-d1" role="listitem" data-video-id="-QALS3XvbFk">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/-QALS3XvbFk/hqdefault.jpg"
+                 alt="Dr. Olya Kudina on the ethical implications of AI during OAY" loading="lazy" />
+            <button class="play-btn" aria-label="Play: Dr. Olya Kudina on the ethical implications of AI during OAY">
+              <div class="play-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </button>
+          </div>
+          <div class="video-meta">
+            <p class="video-title">
+              <a href="https://www.youtube.com/watch?v=-QALS3XvbFk" target="_blank" rel="noopener noreferrer">
+                Dr. Olya Kudina on the ethical implications of AI during OAY
+              </a>
+            </p>
+            <p class="video-source">TU Delft</p>
+            <p class="video-date">14 October 2023</p>
+          </div>
+        </article>
+
+        <article class="video-card video-card--featured reveal reveal-d2" role="listitem" data-video-id="ve6qJGt1_kk">
           <div class="video-thumb-wrap">
             <img src="https://img.youtube.com/vi/ve6qJGt1_kk/hqdefault.jpg"
                  alt="Hey Siri, why are my kids screaming at you? — Universiteit van Nederland" loading="lazy" />
@@ -591,7 +587,7 @@
           </div>
         </article>
 
-        <article class="video-card video-card--featured reveal reveal-d2" role="listitem" data-video-id="vwqi8C04Gsk">
+        <article class="video-card video-card--featured reveal reveal-d3" role="listitem" data-video-id="vwqi8C04Gsk">
           <div class="video-thumb-wrap">
             <img src="https://img.youtube.com/vi/vwqi8C04Gsk/hqdefault.jpg"
                  alt="Technological Mediation of Morality | Olya Kudina | TEDxBucharest" loading="lazy" />
@@ -609,27 +605,6 @@
             </p>
             <p class="video-source">TEDxBucharest</p>
             <p class="video-date">17 November 2019</p>
-          </div>
-        </article>
-
-        <article class="video-card video-card--featured reveal reveal-d3" role="listitem" data-video-id="-QALS3XvbFk">
-          <div class="video-thumb-wrap">
-            <img src="https://img.youtube.com/vi/-QALS3XvbFk/hqdefault.jpg"
-                 alt="Dr. Olya Kudina on the ethical implications of AI during OAY" loading="lazy" />
-            <button class="play-btn" aria-label="Play: Dr. Olya Kudina on the ethical implications of AI during OAY">
-              <div class="play-circle" aria-hidden="true">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-            </button>
-          </div>
-          <div class="video-meta">
-            <p class="video-title">
-              <a href="https://www.youtube.com/watch?v=-QALS3XvbFk" target="_blank" rel="noopener noreferrer">
-                Dr. Olya Kudina on the ethical implications of AI during OAY
-              </a>
-            </p>
-            <p class="video-source">TU Delft</p>
-            <p class="video-date">14 October 2023</p>
           </div>
         </article>
 
@@ -907,204 +882,88 @@
         <h2 class="section-heading" id="press-h2">In the media</h2>
       </div>
 
-      <ul class="press-list" role="list">
-
-        <li class="press-item reveal">
-          <a href="https://nos.nl/artikel/2531548-techbedrijven-lijken-ai-illegaal-te-trainen-met-beelden-van-nederlandse-makers"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Read: Techbedrijven lijken AI illegaal te trainen met beelden van Nederlandse makers — NOS (opens article)">
+      <section class="press-year-group reveal" aria-labelledby="press-2024">
+        <h3 class="press-year-title" id="press-2024">2024</h3>
+        <ul class="press-cards" role="list">
+          <li><a class="press-card" href="https://nos.nl/artikel/2531548-techbedrijven-lijken-ai-illegaal-te-trainen-met-beelden-van-nederlandse-makers" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">NOS</span>
             <span class="press-title" lang="nl">Techbedrijven lijken AI illegaal te trainen met beelden van Nederlandse makers</span>
-            <span class="press-source">NOS · Interview</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">Aug 2024</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
-
-        <li class="press-item reveal">
-          <a href="https://nos.nl/artikel/2521003-met-iedere-versie-worden-ai-tools-beetje-menselijker-spelen-met-vuur"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Read: Met iedere versie worden AI-tools beetje menselijker: spelen met vuur — NOS (opens article)">
+            <span class="press-meta"><span>Interview · Aug</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+          <li><a class="press-card" href="https://nos.nl/artikel/2521003-met-iedere-versie-worden-ai-tools-beetje-menselijker-spelen-met-vuur" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">NOS</span>
             <span class="press-title" lang="nl">Met iedere versie worden AI-tools beetje menselijker: spelen met vuur</span>
-            <span class="press-source">NOS · Interview on AI emotional companions</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">May 2024</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
-
-        <li class="press-item reveal">
-          <a href="https://vng.nl/magazines/vng-magazine-nummer-5-2024"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Read: VNG Magazine nummer 5 — AI use by municipality workers (opens article)">
+            <span class="press-meta"><span>Interview on AI emotional companions · May</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+          <li><a class="press-card" href="https://vng.nl/magazines/vng-magazine-nummer-5-2024" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">VNG Magazine</span>
             <span class="press-title">AI use by municipality workers</span>
-            <span class="press-source">VNG Magazine · Nr. 5, 2024</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">Mar 2024</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
-
-        <li class="press-item reveal">
-          <a href="https://twitter.com/tudelftlibrary/status/1766105142405759310/photo/1"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Read: Inspirational women in open publishing — TU Delft Library (opens article)">
+            <span class="press-meta"><span>Nr. 5, 2024 · Mar</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+          <li><a class="press-card" href="https://twitter.com/tudelftlibrary/status/1766105142405759310/photo/1" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">TU Delft Library</span>
             <span class="press-title">Inspirational women in open publishing</span>
-            <span class="press-source">TU Delft Library</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">Mar 2024</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
+            <span class="press-meta"><span>Mar</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+        </ul>
+      </section>
 
-        <li class="press-item reveal">
-          <a href="https://openpublishing.tudl.tudelft.nl/editor-spotlight-examining-technology-through-a-philosophical-lens/"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Read: Editor spotlight — Examining technology through a philosophical lens — TU Delft (opens article)">
+      <section class="press-year-group reveal" aria-labelledby="press-2023">
+        <h3 class="press-year-title" id="press-2023">2023</h3>
+        <ul class="press-cards" role="list">
+          <li><a class="press-card" href="https://openpublishing.tudl.tudelft.nl/editor-spotlight-examining-technology-through-a-philosophical-lens/" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">TU Delft Open Publishing</span>
             <span class="press-title">Editor spotlight: Examining technology through a philosophical lens</span>
-            <span class="press-source">TU Delft Open Publishing</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">Dec 2023</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
-
-        <li class="press-item reveal">
-          <a href="https://businessam.be/radiotopic/deze-technologie-is-niet-objectief-in-zijn-manier-om-kennis-te-presenteren/"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Read: Deze technologie is niet objectief in zijn manier om kennis te presenteren — Business AM (opens article)">
+            <span class="press-meta"><span>Dec</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+          <li><a class="press-card" href="https://businessam.be/radiotopic/deze-technologie-is-niet-objectief-in-zijn-manier-om-kennis-te-presenteren/" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">Business AM</span>
             <span class="press-title" lang="nl">"Deze technologie is niet objectief in zijn manier om kennis te presenteren"</span>
-            <span class="press-source">Business AM · Radio interview on AI regulation</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">Apr 2023</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
-
-        <li class="press-item reveal">
-          <a href="https://www.vianewsdidi.com/post/chatgpt-in-classrooms-a-grave-error-or-the-right-endeavour"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Read: ChatGPT in Classrooms: A grave error or the right endeavour? — Via News Didi (opens article)">
+            <span class="press-meta"><span>Radio interview on AI regulation · Apr</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+          <li><a class="press-card" href="https://www.vianewsdidi.com/post/chatgpt-in-classrooms-a-grave-error-or-the-right-endeavour" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">Via News Didi</span>
             <span class="press-title">ChatGPT in Classrooms: A grave error or the right endeavour?</span>
-            <span class="press-source">Via News Didi · Interview</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">Feb 2023</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
-
-        <li class="press-item reveal">
-          <a href="https://nos.nl/l/2463357"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Read: Microsoft en Google wedijveren om zoekmachine van de toekomst — NOS (opens article)">
+            <span class="press-meta"><span>Interview · Feb</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+          <li><a class="press-card" href="https://nos.nl/l/2463357" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">NOS</span>
             <span class="press-title" lang="nl">Microsoft en Google wedijveren om zoekmachine van de toekomst</span>
-            <span class="press-source">NOS · Interview</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">Feb 2023</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
-
-        <li class="press-item reveal">
-          <a href="https://www.npostart.nl/nos-journaal/11-02-2023/POW_05467897"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Watch: NOS Journaal 20.00 uur — 11 feb 2023 (opens video)">
+            <span class="press-meta"><span>Interview · Feb</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+          <li><a class="press-card" href="https://www.npostart.nl/nos-journaal/11-02-2023/POW_05467897" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">NOS Journaal</span>
             <span class="press-title" lang="nl">NOS Journaal 20:00 — AI en de toekomst van zoeken</span>
-            <span class="press-source">NOS Journaal · Video interview (7:29–9:44)</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">Feb 2023</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
-
-        <li class="press-item reveal">
-          <a href="https://www.wired.com/story/chatgpt-is-coming-for-classrooms-dont-panic/"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Read: ChatGPT Is Coming for Classrooms. Don't Panic — WIRED (opens article)">
+            <span class="press-meta"><span>Video interview (7:29–9:44) · Feb</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+          <li><a class="press-card" href="https://www.wired.com/story/chatgpt-is-coming-for-classrooms-dont-panic/" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">WIRED</span>
             <span class="press-title">ChatGPT Is Coming for Classrooms. Don't Panic</span>
-            <span class="press-source">WIRED · Interview</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">Jan 2023</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
+            <span class="press-meta"><span>Interview · Jan</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+        </ul>
+      </section>
 
-        <li class="press-item reveal">
-          <a href="https://nos.nl/l/2455837"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Read: Schrijvende AI populair: 'We bevinden ons op een kantelpunt' — NOS (opens article)">
+      <section class="press-year-group reveal" aria-labelledby="press-2022">
+        <h3 class="press-year-title" id="press-2022">2022</h3>
+        <ul class="press-cards" role="list">
+          <li><a class="press-card" href="https://nos.nl/l/2455837" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">NOS</span>
             <span class="press-title" lang="nl">Schrijvende AI populair: 'We bevinden ons op een kantelpunt'</span>
-            <span class="press-source">NOS · Interview</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">Dec 2022</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
-
-        <li class="press-item reveal">
-          <a href="https://www.npostart.nl/nos-journaal/10-12-2022/POW_05159290"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Watch: NOS Journaal 20.00 uur — 10 dec 2022 (opens video)">
+            <span class="press-meta"><span>Interview · Dec</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+          <li><a class="press-card" href="https://www.npostart.nl/nos-journaal/10-12-2022/POW_05159290" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">NOS Journaal</span>
             <span class="press-title" lang="nl">NOS Journaal 20:00 — Schrijvende AI</span>
-            <span class="press-source">NOS Journaal · Video interview (from 14:03)</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">Dec 2022</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
-
-        <li class="press-item reveal">
-          <a href="https://www.nporadio1.nl/fragmenten/nos-radio-1-journaal/130c9a17-fade-48d2-9cc2-982421990d46/2022-12-10-techwereld-in-ban-van-chatgpt"
-             class="press-item-left" target="_blank" rel="noopener noreferrer"
-             aria-label="Listen: Techwereld in ban van ChatGPT — NPO Radio 1 (opens audio)">
+            <span class="press-meta"><span>Video interview (from 14:03) · Dec</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+          <li><a class="press-card" href="https://www.nporadio1.nl/fragmenten/nos-radio-1-journaal/130c9a17-fade-48d2-9cc2-982421990d46/2022-12-10-techwereld-in-ban-van-chatgpt" target="_blank" rel="noopener noreferrer">
+            <span class="press-outlet">NPO Radio 1</span>
             <span class="press-title" lang="nl">Techwereld in ban van ChatGPT</span>
-            <span class="press-source">NPO Radio 1 · Radio interview</span>
-          </a>
-          <div class="press-item-right">
-            <span class="press-year">Dec 2022</span>
-            <span class="press-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </li>
-
-      </ul>
+            <span class="press-meta"><span>Radio interview · Dec</span><span class="press-arrow" aria-hidden="true">↗</span></span>
+          </a></li>
+        </ul>
+      </section>
 
     </div>
   </section>

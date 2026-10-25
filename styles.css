@@ -29,7 +29,7 @@
   --s4: 2rem;
   --s5: 3rem;
   --s6: 4.5rem;
-  --s7: 7.5rem;
+  --s7: 6rem;     /* vertical padding of every content block */
 
   --nav-h: 68px;
   --max-w: 1200px;
